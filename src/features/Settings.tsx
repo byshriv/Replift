@@ -5,6 +5,9 @@ import { send, Sheet, SavedField, Field } from './ui';
 import { equipment } from './Library';
 import SyncPanel from './Sync';
 import { defaultLayouts } from './Dashboard';
+import PwaSettings from './Pwa';
+import Links, { DropboxHelp, PrivacyLink } from './Links';
+import { feedbackUrl } from '../platform/links';
 import { goals, experiences } from '../data/profile';
 const reasons = [
   'I no longer train',
@@ -78,17 +81,8 @@ export function DeleteDevice({
               change={setNote}
             />
           )}{' '}
-          {reason === 'Dropbox sync problems' && (
-            <p>
-              Dropbox help video coming soon. Connection details and retry
-              controls are in Settings.
-            </p>
-          )}
-          <a
-            href="https://github.com/byshriv/Replift/issues/new/choose"
-            target="_blank"
-            rel="noreferrer"
-          >
+          {reason === 'Dropbox sync problems' && <DropboxHelp />}
+          <a href={feedbackUrl(reason, note)} target="_blank" rel="noreferrer">
             Share feedback on GitHub (optional, public)
           </a>
           <p>
@@ -97,11 +91,22 @@ export function DeleteDevice({
           </p>
         </>
       )}
+      {(state.queued > 0 || state.error || state.fatal) && (
+        <p role="alert">
+          Unsaved changes remain. Keep this tab open and resolve them before
+          erasing local data.
+        </p>
+      )}
+      {state.snapshot?.data.draft && (
+        <p>An unfinished workout draft will also be erased.</p>
+      )}
       <Field label="Type delete to confirm" value={typed} change={setTyped} />
       {error && <p role="alert">{error}</p>}
       <button
         className="danger"
-        disabled={!valid || busy || !!state.queued || state.fatal}
+        disabled={
+          !valid || busy || !!state.queued || !!state.error || state.fatal
+        }
         onClick={async () => {
           setBusy(true);
           try {
@@ -424,6 +429,7 @@ export default function Settings() {
           ))}
         </div>
       </section>
+      <PwaSettings />
       <SyncPanel />
       <button disabled={disabled} onClick={() => requestSync()}>
         Done · request sync
@@ -443,18 +449,13 @@ export default function Settings() {
         </p>
         <a href="mailto:support@shriv.work">support@shriv.work</a>
         <p>
-          <a href="https://shriv.work/privacy" target="_blank" rel="noreferrer">
-            Privacy
-          </a>
+          <PrivacyLink />
         </p>
         <button className="quiet" onClick={() => setAbout(true)}>
           About, Terms and Privacy
         </button>
-        <p>
-          Social links, exercise illustrations, donations and Dropbox help video
-          will arrive later.
-        </p>
       </section>
+      <Links />
       <button
         className="quiet"
         disabled={disabled}
@@ -483,7 +484,7 @@ export default function Settings() {
             not between them.
           </p>
           <p>
-            Phase 4 preview. MIT licence. No Replift backend, accounts, tracking
+            Phase 5 preview. MIT licence. No Replift backend, accounts, tracking
             or analytics. Dropbox is optional and user-owned.
           </p>
           <h3>Terms</h3>
@@ -498,9 +499,21 @@ export default function Settings() {
             explicitly export or share them. Dropbox receives synced files when
             connected. GitHub receives only what you choose to submit there.
           </p>
-          <a href="https://shriv.work/privacy" target="_blank" rel="noreferrer">
-            Shriv Privacy Policy
-          </a>
+          <p>
+            Local deletion erases data on this origin, including recovery copies
+            and the legacy source. Dropbox files and exported backups remain
+            yours to delete separately. Uninstalling or clearing browser storage
+            can remove local data. Installation caches contain only application
+            code, fonts and icons.
+          </p>
+          <p>
+            Sharing sends only the images or text you select to your chosen
+            service. External links are governed by that service. No feedback is
+            sent without your action, and GitHub submission is optional for
+            deletion.
+          </p>
+          <p>Terms and Privacy await final owner review before release.</p>
+          <PrivacyLink />
         </Sheet>
       )}
     </>

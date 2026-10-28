@@ -45,11 +45,12 @@ test('preview navigation and catalogue leave legacy data untouched', async ({
   expect(await page.evaluate(() => localStorage.getItem('replift.v1'))).toBe(
     '{"synthetic":"preserve-me"}',
   );
-  expect(
-    await page.evaluate(() =>
-      navigator.serviceWorker.getRegistrations().then((r) => r.length),
-    ),
-  ).toBe(0);
+  // Phase 5 registers the shell even when legacy data needs recovery.
+  const worker = await page.evaluate(async () => {
+    const registration = await navigator.serviceWorker.ready;
+    return registration.active?.scriptURL;
+  });
+  expect(worker).toBe('http://127.0.0.1:4173/sw.js');
   expect(
     await page.evaluate(
       () => document.documentElement.scrollWidth <= window.innerWidth,

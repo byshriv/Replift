@@ -1,5 +1,7 @@
 # Third-party sources
 
+Phase 5 adds no dependencies. PWA icons are unchanged copies from the sole original deployment. Rethink Sans stays bundled locally with the same licence; Latin font files and OS fallback replace the broader font imports. Lucide remains the icon system. Final artwork/legal approval is a release gate.
+
 Phase 2 adds `fake-indexeddb` (Apache-2.0) as a test-only dependency. No new runtime dependencies or major ESLint/TypeScript upgrades.
 
 The only application baseline is the owner's `Old Replift Deployment/Replift-PWA`, copied unchanged under `reference/Replift-PWA`. Its README contains historical statements contradicted by its current code (for example, the public Dropbox key is present); current source plus the inventory takes precedence. The new exercise catalogue is derived exclusively from the baseline's `LIB` tuples and original slug function.

@@ -1,5 +1,9 @@
 # Foundation architecture
 
+## Phase 5 update - 2026-10-28
+
+The build now generates a precache-only service worker and PWA manifest. Platform modules own install/update state, public link validation and image-sharing fallbacks. Cache names and cleanup are scoped to the exact registration; the worker never touches the repository, OAuth payloads or runtime provider responses. Existing persistence, sync and schemas remain unchanged. Updates wait for all controlled windows to close, with no forced takeover or reload. Settings/program editor code is split into lazy chunks; the existing feature surfaces remain. See [PWA contract and device checklist](pwa.md) and [verification](phase-5-verification.md). Older statements that there is no worker are historical.
+
 ## Phase 4 update — 2026-10-28
 
 The React feature port now uses pure `workout.ts`, `metrics.ts`, `reconstruct.ts` and `port.ts` commands through the existing Phase 2 transactional save queue. Phase 3 synchronization remains the only transport/conflict/backup engine. Domain commands apply against the transaction's latest snapshot; draft/item/set targets reject stale UI actions. Destructive commands capture recovery atomically. No database or sync version change. New photo previews retain original image bytes in their record. See [current parity map](phase-4-parity.md) and [verification](phase-4-verification.md). Earlier missing-feature statements below are historical. PWA/Android/production release remain later phases.

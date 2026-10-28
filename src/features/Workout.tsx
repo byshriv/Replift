@@ -43,6 +43,8 @@ import {
   dateInput,
 } from './ui';
 import { ExercisePicker } from './Library';
+import { cardFiles, shareImages, downloadImage } from '../platform/share';
+import { optionalLinks } from '../platform/links';
 import { draftTarget, type Action } from '../domain/port';
 
 function Estimates({ item, close }: { item: number; close: () => void }) {
@@ -395,58 +397,13 @@ function Finish({
 }
 
 export async function shareCard(title: string, lines: string[]) {
-  const c = document.createElement('canvas');
-  c.width = 1080;
-  c.height = 1350;
-  const ctx = c.getContext('2d');
-  if (!ctx) throw new Error('Image sharing unavailable.');
-  ctx.fillStyle = '#121010';
-  ctx.fillRect(0, 0, c.width, c.height);
-  ctx.fillStyle = '#c4bca8';
-  ctx.font = '700 30px sans-serif';
-  ctx.fillText('REPLIFT · LOG AFTER YOUR SETS', 70, 90);
-  ctx.fillStyle = '#f7f5e4';
-  ctx.font = '800 64px sans-serif';
-  ctx.fillText(title.slice(0, 25), 70, 240);
-  ctx.font = '500 38px sans-serif';
-  let y = 350;
-  for (const text of lines) {
-    const words = text.split(' ');
-    let line = '';
-    for (const word of words) {
-      if (ctx.measureText(line + word).width > 930) {
-        ctx.fillText(line, 70, y);
-        y += 60;
-        line = '';
-      }
-      line += word + ' ';
-    }
-    ctx.fillText(line, 70, y);
-    y += 90;
-  }
-  const blob = await new Promise<Blob>((resolve, reject) =>
-    c.toBlob(
-      (b) =>
-        b ? resolve(b) : reject(new Error('Could not create share image.')),
-      'image/png',
-    ),
-  );
-  const file = new File([blob], 'replift-card.png', { type: 'image/png' });
-  if (navigator.canShare?.({ files: [file] })) {
-    await navigator.share({ files: [file], title });
-    return;
-  }
-  const url = URL.createObjectURL(blob),
-    a = document.createElement('a');
-  a.href = url;
-  a.download = file.name;
-  a.click();
-  setTimeout(() => URL.revokeObjectURL(url), 10000);
+  return shareImages(await cardFiles(title, lines), title);
 }
 export function WorkoutCards({ id, close }: { id: string; close: () => void }) {
   const d = useLocal((s) => s.snapshot!.data),
     w = d.wk.find((w) => w.id === id),
-    [error, setError] = useState('');
+    [error, setError] = useState(''),
+    [busy, setBusy] = useState(false);
   if (!w) return null;
   const s = summary(d, w),
     first = weekStart(w.t, num(d.st?.fd)),
@@ -490,6 +447,10 @@ export function WorkoutCards({ id, close }: { id: string; close: () => void }) {
   ];
   return (
     <Sheet title="Well done" close={close}>
+      <p>
+        Share only the cards you choose. Images include the visible workout
+        details. Nothing is shared automatically.
+      </p>
       <div className="workout-cards">
         {cards.map((card, n) => (
           <article className="card" key={n}>
@@ -499,15 +460,44 @@ export function WorkoutCards({ id, close }: { id: string; close: () => void }) {
               <p key={n}>{line}</p>
             ))}
             <button
-              onClick={() =>
-                void shareCard(card.title, card.lines).catch((e) => {
-                  if (e instanceof Error && e.name !== 'AbortError')
-                    setError(e.message);
-                })
-              }
+              disabled={busy}
+              onClick={async () => {
+                setBusy(true);
+                setError('');
+                try {
+                  setError(await shareCard(card.title, card.lines));
+                } catch (e) {
+                  setError(
+                    e instanceof Error
+                      ? e.message
+                      : 'Sharing failed. Try Download PNG.',
+                  );
+                } finally {
+                  setBusy(false);
+                }
+              }}
             >
-              <Share2 size={18} />
+              <Share2 size={18} aria-hidden="true" />
               Share this card
+            </button>
+            <button
+              className="quiet"
+              disabled={busy}
+              onClick={async () => {
+                setBusy(true);
+                try {
+                  (await cardFiles(card.title, card.lines)).forEach(
+                    downloadImage,
+                  );
+                  setError('PNG downloaded.');
+                } catch {
+                  setError('Image download failed. Try again.');
+                } finally {
+                  setBusy(false);
+                }
+              }}
+            >
+              Download PNG
             </button>
           </article>
         ))}
@@ -520,8 +510,33 @@ export function WorkoutCards({ id, close }: { id: string; close: () => void }) {
       >
         Share with friends on WhatsApp
       </a>
-      {error && <p role="alert">{error}</p>}
-      <button onClick={close}>Continue</button>
+      {error && <p role="status">{error}</p>}
+      {d.wk.length === 4 && !d.st?.ds && (
+        <section className="card" aria-label="Support Replift">
+          <h2>Help Replift stay free</h2>
+          <p>Replift is free and open source. Donations are optional.</p>
+          {optionalLinks.find((x) => x.label === 'Donate')?.url ? (
+            <a
+              href={optionalLinks.find((x) => x.label === 'Donate')!.url!}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Donate
+            </a>
+          ) : (
+            <p>Donation URL not supplied.</p>
+          )}
+        </section>
+      )}
+      <button
+        onClick={() => {
+          if (d.wk.length === 4 && !d.st?.ds)
+            send({ kind: 'preference', group: 'st', key: 'ds', value: 1 });
+          close();
+        }}
+      >
+        Continue
+      </button>
     </Sheet>
   );
 }

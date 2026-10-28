@@ -2,13 +2,14 @@
 
 Free, open-source, local-first workout logger. Copyright Shriv.
 
-Phase 4 React review preview. **Keep production unchanged.**
+Phase 5 PWA and polish review preview. **Keep production unchanged.**
 Workout logging/reconstruction/history, programs/templates/custom library, configurable
 Home/Stats, measures/photos, profile/onboarding and local deletion now reuse the
 Phase 2 persistence and Phase 3 optional Dropbox/conflict/backup engine.
-Legacy originals are retained. Owner acceptance and PWA/platform release gates remain;
+Legacy originals are retained. PWA shell/install/update handling, sharing fallbacks and
+mobile/accessibility polish are implemented. Physical-device and owner acceptance gates remain;
 no deployment is configured. See [Phase 4 parity](docs/phase-4-parity.md) and
-[verification](docs/phase-4-verification.md).
+[Phase 5 verification](docs/phase-5-verification.md) and [PWA/device checklist](docs/pwa.md).
 
 ## Run locally
 
@@ -38,6 +39,20 @@ to inspect it separately at `http://127.0.0.1:4174` with disposable data. The re
 is excluded from the preview build; do not test its Dropbox client with real data.
 The other demo is neither included nor used.
 
+## Offline/install preview
+
+Service workers are enabled only in a production build, on localhost or HTTPS:
+
+```sh
+npm run build
+npm run preview
+```
+
+Open once online, wait for offline setup, then reopen to test offline. Updates wait
+until every Replift window closes; finish editing and resolve unsaved writes first.
+Settings provides install guidance and explicit missing states for owner URLs/assets.
+Optional public HTTPS links are listed in `.env.example`; no secrets belong there.
+
 ## Checks and artifacts
 
 ```sh
@@ -50,7 +65,7 @@ npm run artifacts
 `check` runs baseline integrity, lint, formatting, strict types, unit/integration tests,
 three seeded 5,000-action navigation runs, three seeded 400-action persistence runs,
 three seeded 300-action multi-device sync runs, three seeded 800-action workout/domain
-runs with database restarts, and build. Browser checks use the production build
+runs with database restarts, three seeded 1,000-action share/link runs, and build. Browser checks use the production build
 on desktop/mobile Chromium and mobile WebKit emulation. Run `npm run build` before
 browser checks/artifacts. ZIPs in `artifacts/` contain source at committed HEAD and
 the preview static build, plus SHA-256 sums. Do not deploy this preview to production.
@@ -63,4 +78,5 @@ See PROJECT-CONTEXT's latest decisions before historical specifications.
 
 Feedback: [GitHub issues](https://github.com/byshriv/Replift/issues/new/choose).
 Issues are public: exclude personal data, backups, photos and credentials.
-Private security reports: support@shriv.work. Broader policy: https://shriv.work/privacy.
+Private security reports: support@shriv.work. The previously supplied broader privacy
+URL is unavailable in this review; owner confirmation/replacement remains a release gate.

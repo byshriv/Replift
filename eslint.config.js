@@ -4,6 +4,7 @@ export default tseslint.config(
   {
     ignores: [
       'reference/**',
+      'scripts/worker-template.js',
       'dist/**',
       'artifacts/**',
       'playwright-report/**',

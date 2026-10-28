@@ -1,6 +1,6 @@
-@import '@fontsource/rethink-sans/500.css';
-@import '@fontsource/rethink-sans/700.css';
-@import '@fontsource/rethink-sans/800.css';
+@import '@fontsource/rethink-sans/latin-500.css';
+@import '@fontsource/rethink-sans/latin-700.css';
+@import '@fontsource/rethink-sans/latin-800.css';
 :root {
   font-family: 'Rethink Sans', system-ui, sans-serif;
   color: #f7f5e4;
@@ -658,10 +658,11 @@ summary {
   }
   .log-fields {
     gap: 5px;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 34px 40px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 44px 44px;
   }
   .log-fields button {
     padding: 8px;
+    min-width: 44px;
   }
 }
 @media (prefers-reduced-motion: no-preference) {
@@ -677,5 +678,77 @@ summary {
       opacity: 1;
       transform: translateY(0);
     }
+  }
+}
+
+/* Safe areas, keyboard focus and text scaling are retained across platforms. */
+.shell {
+  padding-top: max(28px, env(safe-area-inset-top));
+  padding-left: max(16px, env(safe-area-inset-left));
+  padding-right: max(16px, env(safe-area-inset-right));
+  padding-bottom: calc(160px + env(safe-area-inset-bottom));
+}
+:focus-visible {
+  outline: 3px solid #62d391;
+  outline-offset: 3px;
+}
+html {
+  scroll-padding-bottom: 180px;
+}
+input,
+textarea,
+select {
+  font: inherit;
+  font-size: max(1rem, 16px);
+  scroll-margin-block: 100px;
+}
+.card,
+.row,
+.top-actions,
+.topbar > *,
+main {
+  min-width: 0;
+}
+.card,
+button,
+a,
+h2,
+p {
+  overflow-wrap: anywhere;
+}
+.topbar,
+.row {
+  flex-wrap: wrap;
+}
+.top-actions {
+  max-width: 100%;
+}
+dialog {
+  overscroll-behavior: contain;
+  scroll-padding-block: 24px;
+  padding-bottom: max(24px, env(safe-area-inset-bottom));
+}
+.badge svg {
+  vertical-align: middle;
+}
+@media (max-width: 360px) {
+  .shell {
+    padding-inline: 12px;
+  }
+  .card {
+    padding: 16px;
+  }
+  nav button {
+    min-width: 44px;
+    padding-inline: 6px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
   }
 }
