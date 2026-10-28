@@ -2,19 +2,19 @@
 
 Latest scope overrides (2026-10-28): Phase 1 uses only Old Replift Deployment; archive/preserve that baseline and inventory it, without consulting Demo A. Rebuild engine later. Use Lucide, GitHub feedback/issue integration instead of Forms, no new intro MP4, E2EE excluded. Top bar all tabs and inline/autosaved routine editing with removal Undo approved. Data/sync decisions delegated. Phase 1 includes foundation/CI/docs and a reviewable branch/PR where authorized by the next implementation request; no production cutover. Existing Direct Upload → Git hosting transition is later work requiring project-mode verification.
 
-Updated: 2026-10-28. Status: Phase 1 implemented locally; branch/PR and remote verification in progress.
+Updated: 2026-10-28. Status: Phase 1 implementation and checks complete; PR #1 open, owner review and branch protection pending.
 
 Phase numbers here replace ambiguous historical Zip numbers. Phase scope remains proposed until the user gives go. Each phase produces a source zip, test report, updated context, and deployable build when relevant. Publish/push/deploy only within the user's authorization.
 
-| Phase | Outcome                                            | Status      |
-| ----- | -------------------------------------------------- | ----------- |
-| 1     | Preserved baseline and repository foundation       | Not started |
-| 2     | Durable local saving, routine editor and top bar   | Not started |
-| 3     | Demo Dropbox sync and conflict management          | Not started |
-| 4     | Complete React production port with feature parity | Not started |
-| 5     | PWA, forms, assets and polish                      | Not started |
-| 6     | Android APK                                        | Not started |
-| 7     | Beta, migration rehearsal and release              | Not started |
+| Phase | Outcome                                            | Status                                 |
+| ----- | -------------------------------------------------- | -------------------------------------- |
+| 1     | Preserved baseline and repository foundation       | Implemented; review/protection pending |
+| 2     | Durable local saving, routine editor and top bar   | Not started                            |
+| 3     | Demo Dropbox sync and conflict management          | Not started                            |
+| 4     | Complete React production port with feature parity | Not started                            |
+| 5     | PWA, feedback, assets and polish                   | Not started                            |
+| 6     | Android APK                                        | Not started                            |
+| 7     | Beta, migration rehearsal and release              | Not started                            |
 
 ## Phase 1 — foundation
 

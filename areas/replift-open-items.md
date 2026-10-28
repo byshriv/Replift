@@ -6,7 +6,8 @@
 - [x] Sole baseline preserved with checksums; 420 original exercise identities; initial P01–P40 feature/data/defect inventory.
 - [x] Local toolchain/build/unit/stress checks; 9 automated browser cases across Chromium/mobile Chromium/mobile WebKit; dependency audit 0 vulnerabilities.
 - [x] Support email, Lucide, no intro MP4, GitHub instead of Forms, E2EE excluded — settled decisions.
-- [ ] Remote PR/CI and protection evidence: see STATUS and verification report for final outcome.
+- [x] PR #1 opened; GitHub quality/browser/CodeQL passed on implementation commit.
+- [ ] Enable main protection and squash-only workflow: settings API unavailable and browser signed out. See docs/repository-workflow.md for exact steps.
 - [ ] Phase 2: rebuild persistence engine and prove non-destructive migration; implement top bar, autosaved inline routines and Undo.
 - [ ] Live Dropbox, physical devices, installed/offline PWA, full feature parity and production equivalence remain unverified.
 - [ ] Cloudflare account/project/domain migration rehearsal; actual settings untouched.
