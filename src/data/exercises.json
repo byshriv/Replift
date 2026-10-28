@@ -1,0 +1,3782 @@
+[
+  {
+    "id": "barbell-bench-press",
+    "serial": 1,
+    "name": "Barbell Bench Press",
+    "muscle": "Chest",
+    "secondary": "",
+    "equipment": "Barbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "incline-barbell-bench-press",
+    "serial": 2,
+    "name": "Incline Barbell Bench Press",
+    "muscle": "Chest",
+    "secondary": "",
+    "equipment": "Barbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "dumbbell-bench-press",
+    "serial": 3,
+    "name": "Dumbbell Bench Press",
+    "muscle": "Chest",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "incline-dumbbell-bench-press",
+    "serial": 4,
+    "name": "Incline Dumbbell Bench Press",
+    "muscle": "Chest",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "machine-chest-press",
+    "serial": 5,
+    "name": "Machine Chest Press",
+    "muscle": "Chest",
+    "secondary": "",
+    "equipment": "Machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "incline-machine-chest-press",
+    "serial": 6,
+    "name": "Incline Machine Chest Press",
+    "muscle": "Chest",
+    "secondary": "",
+    "equipment": "Machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "smith-machine-bench-press",
+    "serial": 7,
+    "name": "Smith Machine Bench Press",
+    "muscle": "Chest",
+    "secondary": "",
+    "equipment": "Smith machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "smith-machine-incline-bench-press",
+    "serial": 8,
+    "name": "Smith Machine Incline Bench Press",
+    "muscle": "Chest",
+    "secondary": "",
+    "equipment": "Smith machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "decline-barbell-bench-press",
+    "serial": 9,
+    "name": "Decline Barbell Bench Press",
+    "muscle": "Chest",
+    "secondary": "",
+    "equipment": "Barbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "decline-dumbbell-bench-press",
+    "serial": 10,
+    "name": "Decline Dumbbell Bench Press",
+    "muscle": "Chest",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "push-up",
+    "serial": 11,
+    "name": "Push-Up",
+    "muscle": "Chest",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "incline-push-up",
+    "serial": 12,
+    "name": "Incline Push-Up",
+    "muscle": "Chest",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "decline-push-up",
+    "serial": 13,
+    "name": "Decline Push-Up",
+    "muscle": "Chest",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "close-grip-push-up",
+    "serial": 14,
+    "name": "Close-Grip Push-Up",
+    "muscle": "Chest",
+    "secondary": "Triceps",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "diamond-push-up",
+    "serial": 15,
+    "name": "Diamond Push-Up",
+    "muscle": "Chest",
+    "secondary": "Triceps",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "chest-dip",
+    "serial": 16,
+    "name": "Chest Dip",
+    "muscle": "Chest",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "wb"
+  },
+  {
+    "id": "weighted-chest-dip",
+    "serial": 17,
+    "name": "Weighted Chest Dip",
+    "muscle": "Chest",
+    "secondary": "",
+    "equipment": "Weighted",
+    "loggingType": "wb"
+  },
+  {
+    "id": "assisted-chest-dip",
+    "serial": 18,
+    "name": "Assisted Chest Dip",
+    "muscle": "Chest",
+    "secondary": "",
+    "equipment": "Machine",
+    "loggingType": "as"
+  },
+  {
+    "id": "dumbbell-fly",
+    "serial": 19,
+    "name": "Dumbbell Fly",
+    "muscle": "Chest",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "incline-dumbbell-fly",
+    "serial": 20,
+    "name": "Incline Dumbbell Fly",
+    "muscle": "Chest",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "decline-dumbbell-fly",
+    "serial": 21,
+    "name": "Decline Dumbbell Fly",
+    "muscle": "Chest",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "cable-standing-chest-fly",
+    "serial": 22,
+    "name": "Cable Standing Chest Fly",
+    "muscle": "Chest",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "cable-high-to-low-fly",
+    "serial": 23,
+    "name": "Cable High-to-Low Fly",
+    "muscle": "Chest",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "cable-low-to-high-fly",
+    "serial": 24,
+    "name": "Cable Low-to-High Fly",
+    "muscle": "Chest",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "cable-seated-chest-fly",
+    "serial": 25,
+    "name": "Cable Seated Chest Fly",
+    "muscle": "Chest",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "machine-pec-deck-fly",
+    "serial": 26,
+    "name": "Machine Pec Deck Fly",
+    "muscle": "Chest",
+    "secondary": "",
+    "equipment": "Machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "machine-seated-chest-fly",
+    "serial": 27,
+    "name": "Machine Seated Chest Fly",
+    "muscle": "Chest",
+    "secondary": "",
+    "equipment": "Machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "incline-cable-fly",
+    "serial": 28,
+    "name": "Incline Cable Fly",
+    "muscle": "Chest",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "single-arm-cable-chest-fly",
+    "serial": 29,
+    "name": "Single-Arm Cable Chest Fly",
+    "muscle": "Chest",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "squeeze-press",
+    "serial": 30,
+    "name": "Squeeze Press",
+    "muscle": "Chest",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "dumbbell-pullover",
+    "serial": 31,
+    "name": "Dumbbell Pullover",
+    "muscle": "Chest",
+    "secondary": "Back",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "straight-arm-pullover",
+    "serial": 32,
+    "name": "Straight-Arm Pullover",
+    "muscle": "Chest",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "deep-push-up",
+    "serial": 33,
+    "name": "Deep Push-Up",
+    "muscle": "Chest",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "cobra-push-up",
+    "serial": 34,
+    "name": "Cobra Push-Up",
+    "muscle": "Chest",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "lat-pulldown",
+    "serial": 35,
+    "name": "Lat Pulldown",
+    "muscle": "Back",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "wide-grip-lat-pulldown",
+    "serial": 36,
+    "name": "Wide-Grip Lat Pulldown",
+    "muscle": "Back",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "close-grip-lat-pulldown",
+    "serial": 37,
+    "name": "Close-Grip Lat Pulldown",
+    "muscle": "Back",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "v-bar-lat-pulldown",
+    "serial": 38,
+    "name": "V-Bar Lat Pulldown",
+    "muscle": "Back",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "reverse-grip-lat-pulldown",
+    "serial": 39,
+    "name": "Reverse-Grip Lat Pulldown",
+    "muscle": "Back",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "pull-up",
+    "serial": 40,
+    "name": "Pull-Up",
+    "muscle": "Back",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "wb"
+  },
+  {
+    "id": "weighted-pull-up",
+    "serial": 41,
+    "name": "Weighted Pull-Up",
+    "muscle": "Back",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "wb"
+  },
+  {
+    "id": "assisted-pull-up",
+    "serial": 42,
+    "name": "Assisted Pull-Up",
+    "muscle": "Back",
+    "secondary": "",
+    "equipment": "Machine",
+    "loggingType": "as"
+  },
+  {
+    "id": "chin-up",
+    "serial": 43,
+    "name": "Chin-Up",
+    "muscle": "Back",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "wb"
+  },
+  {
+    "id": "seated-cable-row",
+    "serial": 44,
+    "name": "Seated Cable Row",
+    "muscle": "Back",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "v-bar-seated-cable-row",
+    "serial": 45,
+    "name": "V-Bar Seated Cable Row",
+    "muscle": "Back",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "straight-back-seated-cable-row",
+    "serial": 46,
+    "name": "Straight-Back Seated Cable Row",
+    "muscle": "Back",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "low-seated-cable-row",
+    "serial": 47,
+    "name": "Low Seated Cable Row",
+    "muscle": "Back",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "machine-seated-row",
+    "serial": 48,
+    "name": "Machine Seated Row",
+    "muscle": "Back",
+    "secondary": "",
+    "equipment": "Machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "narrow-grip-machine-seated-row",
+    "serial": 49,
+    "name": "Narrow-Grip Machine Seated Row",
+    "muscle": "Back",
+    "secondary": "",
+    "equipment": "Machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "one-arm-dumbbell-row",
+    "serial": 50,
+    "name": "One-Arm Dumbbell Row",
+    "muscle": "Back",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "bent-over-barbell-row",
+    "serial": 51,
+    "name": "Bent-Over Barbell Row",
+    "muscle": "Back",
+    "secondary": "",
+    "equipment": "Barbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "bent-over-dumbbell-row",
+    "serial": 52,
+    "name": "Bent-Over Dumbbell Row",
+    "muscle": "Back",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "reverse-grip-barbell-row",
+    "serial": 53,
+    "name": "Reverse-Grip Barbell Row",
+    "muscle": "Back",
+    "secondary": "",
+    "equipment": "Barbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "t-bar-row",
+    "serial": 54,
+    "name": "T-Bar Row",
+    "muscle": "Back",
+    "secondary": "",
+    "equipment": "Barbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "chest-supported-row",
+    "serial": 55,
+    "name": "Chest-Supported Row",
+    "muscle": "Back",
+    "secondary": "",
+    "equipment": "Machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "incline-dumbbell-row",
+    "serial": 56,
+    "name": "Incline Dumbbell Row",
+    "muscle": "Back",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "smith-machine-bent-over-row",
+    "serial": 57,
+    "name": "Smith Machine Bent-Over Row",
+    "muscle": "Back",
+    "secondary": "",
+    "equipment": "Smith machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "one-arm-cable-row",
+    "serial": 58,
+    "name": "One-Arm Cable Row",
+    "muscle": "Back",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "alternating-seated-cable-row",
+    "serial": 59,
+    "name": "Alternating Seated Cable Row",
+    "muscle": "Back",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "one-arm-machine-row",
+    "serial": 60,
+    "name": "One-Arm Machine Row",
+    "muscle": "Back",
+    "secondary": "",
+    "equipment": "Machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "kneeling-one-arm-lat-pulldown",
+    "serial": 61,
+    "name": "Kneeling One-Arm Lat Pulldown",
+    "muscle": "Back",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "straight-arm-cable-pulldown",
+    "serial": 62,
+    "name": "Straight-Arm Cable Pulldown",
+    "muscle": "Back",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "machine-front-lat-pulldown",
+    "serial": 63,
+    "name": "Machine Front Lat Pulldown",
+    "muscle": "Back",
+    "secondary": "",
+    "equipment": "Machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "reverse-grip-seated-cable-row",
+    "serial": 64,
+    "name": "Reverse-Grip Seated Cable Row",
+    "muscle": "Back",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "deadlift",
+    "serial": 65,
+    "name": "Deadlift",
+    "muscle": "Back",
+    "secondary": "Hamstrings,Glutes",
+    "equipment": "Barbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "dumbbell-deadlift",
+    "serial": 66,
+    "name": "Dumbbell Deadlift",
+    "muscle": "Back",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "romanian-deadlift",
+    "serial": 67,
+    "name": "Romanian Deadlift",
+    "muscle": "Hamstrings",
+    "secondary": "Back,Glutes",
+    "equipment": "Barbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "stiff-leg-deadlift",
+    "serial": 68,
+    "name": "Stiff-Leg Deadlift",
+    "muscle": "Hamstrings",
+    "secondary": "Back,Glutes",
+    "equipment": "Barbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "good-morning",
+    "serial": 69,
+    "name": "Good Morning",
+    "muscle": "Hamstrings",
+    "secondary": "Back",
+    "equipment": "Barbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "back-extension-hyperextension",
+    "serial": 70,
+    "name": "Back Extension / Hyperextension",
+    "muscle": "Back",
+    "secondary": "Glutes,Abs",
+    "equipment": "Machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "dumbbell-shrug",
+    "serial": 71,
+    "name": "Dumbbell Shrug",
+    "muscle": "Back",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "barbell-shrug",
+    "serial": 72,
+    "name": "Barbell Shrug",
+    "muscle": "Back",
+    "secondary": "",
+    "equipment": "Barbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "smith-machine-shrug",
+    "serial": 73,
+    "name": "Smith Machine Shrug",
+    "muscle": "Back",
+    "secondary": "",
+    "equipment": "Smith machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "rack-pull",
+    "serial": 74,
+    "name": "Rack Pull",
+    "muscle": "Back",
+    "secondary": "",
+    "equipment": "Barbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "meadows-row",
+    "serial": 75,
+    "name": "Meadows Row",
+    "muscle": "Back",
+    "secondary": "",
+    "equipment": "Barbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "inverted-row",
+    "serial": 76,
+    "name": "Inverted Row",
+    "muscle": "Back",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "resistance-band-row",
+    "serial": 77,
+    "name": "Resistance-Band Row",
+    "muscle": "Back",
+    "secondary": "",
+    "equipment": "Resistance band",
+    "loggingType": "kr"
+  },
+  {
+    "id": "resistance-band-lat-pulldown",
+    "serial": 78,
+    "name": "Resistance-Band Lat Pulldown",
+    "muscle": "Back",
+    "secondary": "",
+    "equipment": "Resistance band",
+    "loggingType": "kr"
+  },
+  {
+    "id": "barbell-curl",
+    "serial": 79,
+    "name": "Barbell Curl",
+    "muscle": "Biceps",
+    "secondary": "",
+    "equipment": "Barbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "ez-bar-curl",
+    "serial": 80,
+    "name": "EZ-Bar Curl",
+    "muscle": "Biceps",
+    "secondary": "",
+    "equipment": "EZ bar",
+    "loggingType": "kr"
+  },
+  {
+    "id": "dumbbell-biceps-curl",
+    "serial": 81,
+    "name": "Dumbbell Biceps Curl",
+    "muscle": "Biceps",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "alternating-dumbbell-curl",
+    "serial": 82,
+    "name": "Alternating Dumbbell Curl",
+    "muscle": "Biceps",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "hammer-curl",
+    "serial": 83,
+    "name": "Hammer Curl",
+    "muscle": "Biceps",
+    "secondary": "Forearms",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "alternating-hammer-curl",
+    "serial": 84,
+    "name": "Alternating Hammer Curl",
+    "muscle": "Biceps",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "incline-dumbbell-curl",
+    "serial": 85,
+    "name": "Incline Dumbbell Curl",
+    "muscle": "Biceps",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "incline-hammer-curl",
+    "serial": 86,
+    "name": "Incline Hammer Curl",
+    "muscle": "Biceps",
+    "secondary": "Forearms",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "preacher-curl",
+    "serial": 87,
+    "name": "Preacher Curl",
+    "muscle": "Biceps",
+    "secondary": "",
+    "equipment": "Barbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "machine-preacher-curl",
+    "serial": 88,
+    "name": "Machine Preacher Curl",
+    "muscle": "Biceps",
+    "secondary": "",
+    "equipment": "Machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "machine-biceps-curl",
+    "serial": 89,
+    "name": "Machine Biceps Curl",
+    "muscle": "Biceps",
+    "secondary": "",
+    "equipment": "Machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "dumbbell-preacher-curl",
+    "serial": 90,
+    "name": "Dumbbell Preacher Curl",
+    "muscle": "Biceps",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "cable-biceps-curl",
+    "serial": 91,
+    "name": "Cable Biceps Curl",
+    "muscle": "Biceps",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "straight-bar-cable-curl",
+    "serial": 92,
+    "name": "Straight-Bar Cable Curl",
+    "muscle": "Biceps",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "rope-cable-curl",
+    "serial": 93,
+    "name": "Rope Cable Curl",
+    "muscle": "Biceps",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "single-arm-cable-curl",
+    "serial": 94,
+    "name": "Single-Arm Cable Curl",
+    "muscle": "Biceps",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "overhead-cable-curl",
+    "serial": 95,
+    "name": "Overhead Cable Curl",
+    "muscle": "Biceps",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "concentration-curl",
+    "serial": 96,
+    "name": "Concentration Curl",
+    "muscle": "Biceps",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "cross-body-hammer-curl",
+    "serial": 97,
+    "name": "Cross-Body Hammer Curl",
+    "muscle": "Biceps",
+    "secondary": "Forearms",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "seated-dumbbell-curl",
+    "serial": 98,
+    "name": "Seated Dumbbell Curl",
+    "muscle": "Biceps",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "seated-hammer-curl",
+    "serial": 99,
+    "name": "Seated Hammer Curl",
+    "muscle": "Biceps",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "standing-one-arm-dumbbell-curl",
+    "serial": 100,
+    "name": "Standing One-Arm Dumbbell Curl",
+    "muscle": "Biceps",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "zottman-curl",
+    "serial": 101,
+    "name": "Zottman Curl",
+    "muscle": "Biceps",
+    "secondary": "Forearms",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "reverse-grip-curl",
+    "serial": 102,
+    "name": "Reverse-Grip Curl",
+    "muscle": "Biceps",
+    "secondary": "Forearms",
+    "equipment": "Barbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "spider-curl",
+    "serial": 103,
+    "name": "Spider Curl",
+    "muscle": "Biceps",
+    "secondary": "",
+    "equipment": "EZ bar",
+    "loggingType": "kr"
+  },
+  {
+    "id": "reverse-dumbbell-spider-curl",
+    "serial": 104,
+    "name": "Reverse Dumbbell Spider Curl",
+    "muscle": "Biceps",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "close-grip-preacher-curl",
+    "serial": 105,
+    "name": "Close-Grip Preacher Curl",
+    "muscle": "Biceps",
+    "secondary": "",
+    "equipment": "EZ bar",
+    "loggingType": "kr"
+  },
+  {
+    "id": "bayesian-cable-curl",
+    "serial": 106,
+    "name": "Bayesian Cable Curl",
+    "muscle": "Biceps",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "drag-curl",
+    "serial": 107,
+    "name": "Drag Curl",
+    "muscle": "Biceps",
+    "secondary": "",
+    "equipment": "Barbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "cross-body-cable-curl",
+    "serial": 108,
+    "name": "Cross-Body Cable Curl",
+    "muscle": "Biceps",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "resistance-band-curl",
+    "serial": 109,
+    "name": "Resistance-Band Curl",
+    "muscle": "Biceps",
+    "secondary": "",
+    "equipment": "Resistance band",
+    "loggingType": "kr"
+  },
+  {
+    "id": "cable-triceps-pushdown",
+    "serial": 110,
+    "name": "Cable Triceps Pushdown",
+    "muscle": "Triceps",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "rope-triceps-pushdown",
+    "serial": 111,
+    "name": "Rope Triceps Pushdown",
+    "muscle": "Triceps",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "straight-bar-triceps-pushdown",
+    "serial": 112,
+    "name": "Straight-Bar Triceps Pushdown",
+    "muscle": "Triceps",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "v-bar-triceps-pushdown",
+    "serial": 113,
+    "name": "V-Bar Triceps Pushdown",
+    "muscle": "Triceps",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "close-grip-bench-press",
+    "serial": 114,
+    "name": "Close-Grip Bench Press",
+    "muscle": "Triceps",
+    "secondary": "",
+    "equipment": "Barbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "jm-press",
+    "serial": 115,
+    "name": "JM Press",
+    "muscle": "Triceps",
+    "secondary": "Chest",
+    "equipment": "Barbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "lying-ez-bar-triceps-extension-skull-crusher",
+    "serial": 116,
+    "name": "Lying EZ-Bar Triceps Extension / Skull Crusher",
+    "muscle": "Triceps",
+    "secondary": "",
+    "equipment": "EZ bar",
+    "loggingType": "kr"
+  },
+  {
+    "id": "dumbbell-lying-triceps-extension",
+    "serial": 117,
+    "name": "Dumbbell Lying Triceps Extension",
+    "muscle": "Triceps",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "overhead-cable-triceps-extension",
+    "serial": 118,
+    "name": "Overhead Cable Triceps Extension",
+    "muscle": "Triceps",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "high-pulley-overhead-triceps-extension",
+    "serial": 119,
+    "name": "High-Pulley Overhead Triceps Extension",
+    "muscle": "Triceps",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "dumbbell-overhead-triceps-extension",
+    "serial": 120,
+    "name": "Dumbbell Overhead Triceps Extension",
+    "muscle": "Triceps",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "seated-dumbbell-triceps-extension",
+    "serial": 121,
+    "name": "Seated Dumbbell Triceps Extension",
+    "muscle": "Triceps",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "one-arm-overhead-dumbbell-extension",
+    "serial": 122,
+    "name": "One-Arm Overhead Dumbbell Extension",
+    "muscle": "Triceps",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "reverse-grip-triceps-pushdown",
+    "serial": 123,
+    "name": "Reverse-Grip Triceps Pushdown",
+    "muscle": "Triceps",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "single-arm-cable-triceps-pushdown",
+    "serial": 124,
+    "name": "Single-Arm Cable Triceps Pushdown",
+    "muscle": "Triceps",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "rope-single-arm-triceps-pushdown",
+    "serial": 125,
+    "name": "Rope Single-Arm Triceps Pushdown",
+    "muscle": "Triceps",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "assisted-triceps-dip",
+    "serial": 126,
+    "name": "Assisted Triceps Dip",
+    "muscle": "Triceps",
+    "secondary": "",
+    "equipment": "Machine",
+    "loggingType": "as"
+  },
+  {
+    "id": "triceps-dip",
+    "serial": 127,
+    "name": "Triceps Dip",
+    "muscle": "Triceps",
+    "secondary": "",
+    "equipment": "Other",
+    "loggingType": "wb"
+  },
+  {
+    "id": "weighted-triceps-dip",
+    "serial": 128,
+    "name": "Weighted Triceps Dip",
+    "muscle": "Triceps",
+    "secondary": "",
+    "equipment": "Weighted",
+    "loggingType": "wb"
+  },
+  {
+    "id": "bench-dip",
+    "serial": 129,
+    "name": "Bench Dip",
+    "muscle": "Triceps",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "chair-dip",
+    "serial": 130,
+    "name": "Chair Dip",
+    "muscle": "Triceps",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "dumbbell-triceps-kickback",
+    "serial": 131,
+    "name": "Dumbbell Triceps Kickback",
+    "muscle": "Triceps",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "bench-supported-dumbbell-kickback",
+    "serial": 132,
+    "name": "Bench-Supported Dumbbell Kickback",
+    "muscle": "Triceps",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "cable-triceps-kickback",
+    "serial": 133,
+    "name": "Cable Triceps Kickback",
+    "muscle": "Triceps",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "two-arm-cable-kickback",
+    "serial": 134,
+    "name": "Two-Arm Cable Kickback",
+    "muscle": "Triceps",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "cross-body-cable-triceps-extension",
+    "serial": 135,
+    "name": "Cross-Body Cable Triceps Extension",
+    "muscle": "Triceps",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "cable-overhead-triceps-extension-with-straight-bar",
+    "serial": 136,
+    "name": "Cable Overhead Triceps Extension with Straight Bar",
+    "muscle": "Triceps",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "machine-triceps-extension",
+    "serial": 137,
+    "name": "Machine Triceps Extension",
+    "muscle": "Triceps",
+    "secondary": "",
+    "equipment": "Machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "machine-seated-dip",
+    "serial": 138,
+    "name": "Machine Seated Dip",
+    "muscle": "Triceps",
+    "secondary": "",
+    "equipment": "Machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "smith-machine-close-grip-bench-press",
+    "serial": 139,
+    "name": "Smith Machine Close-Grip Bench Press",
+    "muscle": "Triceps",
+    "secondary": "",
+    "equipment": "Smith machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "ez-bar-overhead-triceps-extension",
+    "serial": 140,
+    "name": "EZ-Bar Overhead Triceps Extension",
+    "muscle": "Triceps",
+    "secondary": "",
+    "equipment": "EZ bar",
+    "loggingType": "kr"
+  },
+  {
+    "id": "incline-ez-bar-skull-crusher",
+    "serial": 141,
+    "name": "Incline EZ-Bar Skull Crusher",
+    "muscle": "Triceps",
+    "secondary": "",
+    "equipment": "EZ bar",
+    "loggingType": "kr"
+  },
+  {
+    "id": "tate-press",
+    "serial": 142,
+    "name": "Tate Press",
+    "muscle": "Triceps",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "resistance-band-triceps-pushdown",
+    "serial": 143,
+    "name": "Resistance-Band Triceps Pushdown",
+    "muscle": "Triceps",
+    "secondary": "",
+    "equipment": "Resistance band",
+    "loggingType": "kr"
+  },
+  {
+    "id": "resistance-band-overhead-triceps-extension",
+    "serial": 144,
+    "name": "Resistance-Band Overhead Triceps Extension",
+    "muscle": "Triceps",
+    "secondary": "",
+    "equipment": "Resistance band",
+    "loggingType": "kr"
+  },
+  {
+    "id": "barbell-back-squat-full-squat",
+    "serial": 145,
+    "name": "Barbell Back Squat / Full Squat",
+    "muscle": "Quads",
+    "secondary": "Glutes",
+    "equipment": "Barbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "front-squat",
+    "serial": 146,
+    "name": "Front Squat",
+    "muscle": "Quads",
+    "secondary": "",
+    "equipment": "Barbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "goblet-squat",
+    "serial": 147,
+    "name": "Goblet Squat",
+    "muscle": "Quads",
+    "secondary": "",
+    "equipment": "Kettlebell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "leg-press",
+    "serial": 148,
+    "name": "Leg Press",
+    "muscle": "Quads",
+    "secondary": "",
+    "equipment": "Machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "45-degree-leg-press",
+    "serial": 149,
+    "name": "45-Degree Leg Press",
+    "muscle": "Quads",
+    "secondary": "Glutes",
+    "equipment": "Machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "close-stance-leg-press",
+    "serial": 150,
+    "name": "Close-Stance Leg Press",
+    "muscle": "Quads",
+    "secondary": "",
+    "equipment": "Machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "wide-stance-leg-press",
+    "serial": 151,
+    "name": "Wide-Stance Leg Press",
+    "muscle": "Quads",
+    "secondary": "",
+    "equipment": "Machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "hack-squat",
+    "serial": 152,
+    "name": "Hack Squat",
+    "muscle": "Quads",
+    "secondary": "",
+    "equipment": "Machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "close-stance-hack-squat",
+    "serial": 153,
+    "name": "Close-Stance Hack Squat",
+    "muscle": "Quads",
+    "secondary": "",
+    "equipment": "Machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "smith-machine-squat",
+    "serial": 154,
+    "name": "Smith Machine Squat",
+    "muscle": "Quads",
+    "secondary": "",
+    "equipment": "Smith machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "dumbbell-squat",
+    "serial": 155,
+    "name": "Dumbbell Squat",
+    "muscle": "Quads",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "body-weight-squat",
+    "serial": 156,
+    "name": "Body-Weight Squat",
+    "muscle": "Quads",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "bulgarian-split-squat",
+    "serial": 157,
+    "name": "Bulgarian Split Squat",
+    "muscle": "Quads",
+    "secondary": "Glutes",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "walking-lunge",
+    "serial": 158,
+    "name": "Walking Lunge",
+    "muscle": "Quads",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "dumbbell-lunge",
+    "serial": 159,
+    "name": "Dumbbell Lunge",
+    "muscle": "Quads",
+    "secondary": "Glutes",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "barbell-lunge",
+    "serial": 160,
+    "name": "Barbell Lunge",
+    "muscle": "Quads",
+    "secondary": "",
+    "equipment": "Barbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "reverse-lunge",
+    "serial": 161,
+    "name": "Reverse Lunge",
+    "muscle": "Quads",
+    "secondary": "Glutes",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "forward-lunge",
+    "serial": 162,
+    "name": "Forward Lunge",
+    "muscle": "Quads",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "step-up",
+    "serial": 163,
+    "name": "Step-Up",
+    "muscle": "Quads",
+    "secondary": "Glutes,Cardio",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "dumbbell-step-up",
+    "serial": 164,
+    "name": "Dumbbell Step-Up",
+    "muscle": "Quads",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "leg-extension",
+    "serial": 165,
+    "name": "Leg Extension",
+    "muscle": "Quads",
+    "secondary": "",
+    "equipment": "Machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "single-leg-leg-extension",
+    "serial": 166,
+    "name": "Single-Leg Leg Extension",
+    "muscle": "Quads",
+    "secondary": "",
+    "equipment": "Machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "sissy-squat",
+    "serial": 167,
+    "name": "Sissy Squat",
+    "muscle": "Quads",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "split-squat",
+    "serial": 168,
+    "name": "Split Squat",
+    "muscle": "Quads",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "single-leg-squat-pistol-squat",
+    "serial": 169,
+    "name": "Single-Leg Squat / Pistol Squat",
+    "muscle": "Quads",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "jump-squat",
+    "serial": 170,
+    "name": "Jump Squat",
+    "muscle": "Quads",
+    "secondary": "Cardio",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "trap-bar-deadlift",
+    "serial": 171,
+    "name": "Trap-Bar Deadlift",
+    "muscle": "Back",
+    "secondary": "Quads,Glutes",
+    "equipment": "Trap bar",
+    "loggingType": "kr"
+  },
+  {
+    "id": "sumo-squat",
+    "serial": 172,
+    "name": "Sumo Squat",
+    "muscle": "Quads",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "dumbbell-sumo-squat",
+    "serial": 173,
+    "name": "Dumbbell Sumo Squat",
+    "muscle": "Quads",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "barbell-sumo-squat",
+    "serial": 174,
+    "name": "Barbell Sumo Squat",
+    "muscle": "Quads",
+    "secondary": "",
+    "equipment": "Barbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "weighted-stretch-lunge",
+    "serial": 175,
+    "name": "Weighted Stretch Lunge",
+    "muscle": "Quads",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "du"
+  },
+  {
+    "id": "horizontal-leg-press",
+    "serial": 176,
+    "name": "Horizontal Leg Press",
+    "muscle": "Quads",
+    "secondary": "",
+    "equipment": "Machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "single-leg-press",
+    "serial": 177,
+    "name": "Single-Leg Press",
+    "muscle": "Quads",
+    "secondary": "",
+    "equipment": "Machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "pendulum-squat",
+    "serial": 178,
+    "name": "Pendulum Squat",
+    "muscle": "Quads",
+    "secondary": "",
+    "equipment": "Machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "belt-squat",
+    "serial": 179,
+    "name": "Belt Squat",
+    "muscle": "Quads",
+    "secondary": "",
+    "equipment": "Machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "landmine-squat",
+    "serial": 180,
+    "name": "Landmine Squat",
+    "muscle": "Quads",
+    "secondary": "",
+    "equipment": "Barbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "cyclist-squat",
+    "serial": 181,
+    "name": "Cyclist Squat",
+    "muscle": "Quads",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "spanish-squat",
+    "serial": 182,
+    "name": "Spanish Squat",
+    "muscle": "Quads",
+    "secondary": "",
+    "equipment": "Resistance band",
+    "loggingType": "du"
+  },
+  {
+    "id": "wall-sit",
+    "serial": 183,
+    "name": "Wall Sit",
+    "muscle": "Quads",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "du"
+  },
+  {
+    "id": "resistance-band-squat",
+    "serial": 184,
+    "name": "Resistance-Band Squat",
+    "muscle": "Quads",
+    "secondary": "",
+    "equipment": "Resistance band",
+    "loggingType": "kr"
+  },
+  {
+    "id": "seated-leg-curl",
+    "serial": 185,
+    "name": "Seated Leg Curl",
+    "muscle": "Hamstrings",
+    "secondary": "",
+    "equipment": "Machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "lying-leg-curl",
+    "serial": 186,
+    "name": "Lying Leg Curl",
+    "muscle": "Hamstrings",
+    "secondary": "",
+    "equipment": "Machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "single-leg-romanian-deadlift",
+    "serial": 187,
+    "name": "Single-Leg Romanian Deadlift",
+    "muscle": "Hamstrings",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "standing-leg-curl",
+    "serial": 188,
+    "name": "Standing Leg Curl",
+    "muscle": "Hamstrings",
+    "secondary": "",
+    "equipment": "Machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "single-leg-curl",
+    "serial": 189,
+    "name": "Single-Leg Curl",
+    "muscle": "Hamstrings",
+    "secondary": "",
+    "equipment": "Machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "kneeling-leg-curl",
+    "serial": 190,
+    "name": "Kneeling Leg Curl",
+    "muscle": "Hamstrings",
+    "secondary": "",
+    "equipment": "Machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "dumbbell-lying-leg-curl",
+    "serial": 191,
+    "name": "Dumbbell Lying Leg Curl",
+    "muscle": "Hamstrings",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "cable-standing-leg-curl",
+    "serial": 192,
+    "name": "Cable Standing Leg Curl",
+    "muscle": "Hamstrings",
+    "secondary": "",
+    "equipment": "Resistance band",
+    "loggingType": "kr"
+  },
+  {
+    "id": "resistance-band-standing-leg-curl",
+    "serial": 193,
+    "name": "Resistance-Band Standing Leg Curl",
+    "muscle": "Hamstrings",
+    "secondary": "",
+    "equipment": "Resistance band",
+    "loggingType": "kr"
+  },
+  {
+    "id": "nordic-hamstring-curl",
+    "serial": 194,
+    "name": "Nordic Hamstring Curl",
+    "muscle": "Hamstrings",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "glute-ham-raise",
+    "serial": 195,
+    "name": "Glute-Ham Raise",
+    "muscle": "Hamstrings",
+    "secondary": "",
+    "equipment": "Other",
+    "loggingType": "kr"
+  },
+  {
+    "id": "slider-hamstring-curl",
+    "serial": 196,
+    "name": "Slider Hamstring Curl",
+    "muscle": "Hamstrings",
+    "secondary": "",
+    "equipment": "Other",
+    "loggingType": "kr"
+  },
+  {
+    "id": "stability-ball-hamstring-curl",
+    "serial": 197,
+    "name": "Stability-Ball Hamstring Curl",
+    "muscle": "Hamstrings",
+    "secondary": "",
+    "equipment": "Other",
+    "loggingType": "kr"
+  },
+  {
+    "id": "single-leg-slider-curl",
+    "serial": 198,
+    "name": "Single-Leg Slider Curl",
+    "muscle": "Hamstrings",
+    "secondary": "",
+    "equipment": "Other",
+    "loggingType": "kr"
+  },
+  {
+    "id": "kettlebell-swing",
+    "serial": 199,
+    "name": "Kettlebell Swing",
+    "muscle": "Glutes",
+    "secondary": "Hamstrings",
+    "equipment": "Kettlebell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "dumbbell-swing",
+    "serial": 200,
+    "name": "Dumbbell Swing",
+    "muscle": "Hamstrings",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "hip-hinge",
+    "serial": 201,
+    "name": "Hip Hinge",
+    "muscle": "Hamstrings",
+    "secondary": "Glutes",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "reverse-hyperextension",
+    "serial": 202,
+    "name": "Reverse Hyperextension",
+    "muscle": "Hamstrings",
+    "secondary": "",
+    "equipment": "Machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "back-extension-with-hamstring-emphasis",
+    "serial": 203,
+    "name": "Back Extension with Hamstring Emphasis",
+    "muscle": "Hamstrings",
+    "secondary": "",
+    "equipment": "Other",
+    "loggingType": "kr"
+  },
+  {
+    "id": "hamstring-walkout",
+    "serial": 204,
+    "name": "Hamstring Walkout",
+    "muscle": "Hamstrings",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "standing-reach-down-hamstring-stretch",
+    "serial": 205,
+    "name": "Standing Reach-Down Hamstring Stretch",
+    "muscle": "Hamstrings",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "du"
+  },
+  {
+    "id": "kneeling-toe-up-hamstring-stretch",
+    "serial": 206,
+    "name": "Kneeling Toe-Up Hamstring Stretch",
+    "muscle": "Hamstrings",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "du"
+  },
+  {
+    "id": "seated-dumbbell-shoulder-press",
+    "serial": 207,
+    "name": "Seated Dumbbell Shoulder Press",
+    "muscle": "Shoulders",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "standing-barbell-overhead-press-military-press",
+    "serial": 208,
+    "name": "Standing Barbell Overhead Press / Military Press",
+    "muscle": "Shoulders",
+    "secondary": "",
+    "equipment": "Barbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "machine-shoulder-press",
+    "serial": 209,
+    "name": "Machine Shoulder Press",
+    "muscle": "Shoulders",
+    "secondary": "",
+    "equipment": "Machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "dumbbell-shoulder-press",
+    "serial": 210,
+    "name": "Dumbbell Shoulder Press",
+    "muscle": "Shoulders",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "arnold-press",
+    "serial": 211,
+    "name": "Arnold Press",
+    "muscle": "Shoulders",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "smith-machine-shoulder-press",
+    "serial": 212,
+    "name": "Smith Machine Shoulder Press",
+    "muscle": "Shoulders",
+    "secondary": "",
+    "equipment": "Smith machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "dumbbell-lateral-raise",
+    "serial": 213,
+    "name": "Dumbbell Lateral Raise",
+    "muscle": "Shoulders",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "cable-lateral-raise",
+    "serial": 214,
+    "name": "Cable Lateral Raise",
+    "muscle": "Shoulders",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "single-arm-cable-lateral-raise",
+    "serial": 215,
+    "name": "Single-Arm Cable Lateral Raise",
+    "muscle": "Shoulders",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "leaning-cable-lateral-raise",
+    "serial": 216,
+    "name": "Leaning Cable Lateral Raise",
+    "muscle": "Shoulders",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "seated-dumbbell-lateral-raise",
+    "serial": 217,
+    "name": "Seated Dumbbell Lateral Raise",
+    "muscle": "Shoulders",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "machine-lateral-raise",
+    "serial": 218,
+    "name": "Machine Lateral Raise",
+    "muscle": "Shoulders",
+    "secondary": "",
+    "equipment": "Machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "dumbbell-front-raise",
+    "serial": 219,
+    "name": "Dumbbell Front Raise",
+    "muscle": "Shoulders",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "barbell-front-raise",
+    "serial": 220,
+    "name": "Barbell Front Raise",
+    "muscle": "Shoulders",
+    "secondary": "",
+    "equipment": "Barbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "cable-front-raise",
+    "serial": 221,
+    "name": "Cable Front Raise",
+    "muscle": "Shoulders",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "reverse-dumbbell-fly-rear-delt-fly",
+    "serial": 222,
+    "name": "Reverse Dumbbell Fly / Rear-Delt Fly",
+    "muscle": "Shoulders",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "reverse-pec-deck",
+    "serial": 223,
+    "name": "Reverse Pec Deck",
+    "muscle": "Shoulders",
+    "secondary": "",
+    "equipment": "Machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "cable-rear-delt-fly",
+    "serial": 224,
+    "name": "Cable Rear-Delt Fly",
+    "muscle": "Shoulders",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "chest-supported-rear-delt-fly",
+    "serial": 225,
+    "name": "Chest-Supported Rear-Delt Fly",
+    "muscle": "Shoulders",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "cable-face-pull",
+    "serial": 226,
+    "name": "Cable Face Pull",
+    "muscle": "Shoulders",
+    "secondary": "",
+    "equipment": "Resistance band",
+    "loggingType": "kr"
+  },
+  {
+    "id": "resistance-band-face-pull",
+    "serial": 227,
+    "name": "Resistance-Band Face Pull",
+    "muscle": "Shoulders",
+    "secondary": "",
+    "equipment": "Resistance band",
+    "loggingType": "kr"
+  },
+  {
+    "id": "rear-delt-row",
+    "serial": 228,
+    "name": "Rear-Delt Row",
+    "muscle": "Shoulders",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "cable-upright-row",
+    "serial": 229,
+    "name": "Cable Upright Row",
+    "muscle": "Shoulders",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "barbell-upright-row",
+    "serial": 230,
+    "name": "Barbell Upright Row",
+    "muscle": "Shoulders",
+    "secondary": "",
+    "equipment": "Barbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "dumbbell-upright-row",
+    "serial": 231,
+    "name": "Dumbbell Upright Row",
+    "muscle": "Shoulders",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "high-pull",
+    "serial": 232,
+    "name": "High Pull",
+    "muscle": "Shoulders",
+    "secondary": "",
+    "equipment": "Barbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "push-press",
+    "serial": 233,
+    "name": "Push Press",
+    "muscle": "Shoulders",
+    "secondary": "",
+    "equipment": "Barbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "landmine-shoulder-press",
+    "serial": 234,
+    "name": "Landmine Shoulder Press",
+    "muscle": "Shoulders",
+    "secondary": "",
+    "equipment": "Barbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "cable-y-raise",
+    "serial": 235,
+    "name": "Cable Y-Raise",
+    "muscle": "Shoulders",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "prone-y-raise",
+    "serial": 236,
+    "name": "Prone Y-Raise",
+    "muscle": "Shoulders",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "shoulder-external-rotation",
+    "serial": 237,
+    "name": "Shoulder External Rotation",
+    "muscle": "Shoulders",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "shoulder-internal-rotation",
+    "serial": 238,
+    "name": "Shoulder Internal Rotation",
+    "muscle": "Shoulders",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "scaption-raise",
+    "serial": 239,
+    "name": "Scaption Raise",
+    "muscle": "Shoulders",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "suspension-trainer-face-pull",
+    "serial": 240,
+    "name": "Suspension-Trainer Face Pull",
+    "muscle": "Shoulders",
+    "secondary": "",
+    "equipment": "Suspension",
+    "loggingType": "kr"
+  },
+  {
+    "id": "barbell-hip-thrust",
+    "serial": 241,
+    "name": "Barbell Hip Thrust",
+    "muscle": "Glutes",
+    "secondary": "",
+    "equipment": "Barbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "glute-bridge",
+    "serial": 242,
+    "name": "Glute Bridge",
+    "muscle": "Glutes",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "weighted-glute-bridge",
+    "serial": 243,
+    "name": "Weighted Glute Bridge",
+    "muscle": "Glutes",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "smith-machine-hip-thrust",
+    "serial": 244,
+    "name": "Smith Machine Hip Thrust",
+    "muscle": "Glutes",
+    "secondary": "",
+    "equipment": "Smith machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "sumo-deadlift",
+    "serial": 245,
+    "name": "Sumo Deadlift",
+    "muscle": "Glutes",
+    "secondary": "",
+    "equipment": "Barbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "dumbbell-romanian-deadlift",
+    "serial": 246,
+    "name": "Dumbbell Romanian Deadlift",
+    "muscle": "Glutes",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "cable-glute-kickback-donkey-kick",
+    "serial": 247,
+    "name": "Cable Glute Kickback / Donkey Kick",
+    "muscle": "Glutes",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "resistance-band-glute-kickback",
+    "serial": 248,
+    "name": "Resistance-Band Glute Kickback",
+    "muscle": "Glutes",
+    "secondary": "",
+    "equipment": "Resistance band",
+    "loggingType": "kr"
+  },
+  {
+    "id": "machine-hip-abduction",
+    "serial": 249,
+    "name": "Machine Hip Abduction",
+    "muscle": "Glutes",
+    "secondary": "",
+    "equipment": "Machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "cable-hip-abduction",
+    "serial": 250,
+    "name": "Cable Hip Abduction",
+    "muscle": "Glutes",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "standing-resistance-band-hip-abduction",
+    "serial": 251,
+    "name": "Standing Resistance-Band Hip Abduction",
+    "muscle": "Glutes",
+    "secondary": "",
+    "equipment": "Resistance band",
+    "loggingType": "kr"
+  },
+  {
+    "id": "side-lying-hip-abduction",
+    "serial": 252,
+    "name": "Side-Lying Hip Abduction",
+    "muscle": "Glutes",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "clamshell",
+    "serial": 253,
+    "name": "Clamshell",
+    "muscle": "Glutes",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "fire-hydrant",
+    "serial": 254,
+    "name": "Fire Hydrant",
+    "muscle": "Glutes",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "quadruped-bent-knee-hip-extension",
+    "serial": 255,
+    "name": "Quadruped Bent-Knee Hip Extension",
+    "muscle": "Glutes",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "frog-pump",
+    "serial": 256,
+    "name": "Frog Pump",
+    "muscle": "Glutes",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "single-leg-glute-bridge",
+    "serial": 257,
+    "name": "Single-Leg Glute Bridge",
+    "muscle": "Glutes",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "glute-bridge-march",
+    "serial": 258,
+    "name": "Glute Bridge March",
+    "muscle": "Glutes",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "hip-extension-on-roman-chair",
+    "serial": 259,
+    "name": "Hip Extension on Roman Chair",
+    "muscle": "Glutes",
+    "secondary": "",
+    "equipment": "Other",
+    "loggingType": "kr"
+  },
+  {
+    "id": "back-extension-with-glute-emphasis",
+    "serial": 260,
+    "name": "Back Extension with Glute Emphasis",
+    "muscle": "Glutes",
+    "secondary": "",
+    "equipment": "Other",
+    "loggingType": "kr"
+  },
+  {
+    "id": "cable-pull-through",
+    "serial": 261,
+    "name": "Cable Pull-Through",
+    "muscle": "Glutes",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "curtsy-lunge",
+    "serial": 262,
+    "name": "Curtsy Lunge",
+    "muscle": "Glutes",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "lateral-lunge",
+    "serial": 263,
+    "name": "Lateral Lunge",
+    "muscle": "Glutes",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "cossack-squat",
+    "serial": 264,
+    "name": "Cossack Squat",
+    "muscle": "Glutes",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "banded-lateral-walk",
+    "serial": 265,
+    "name": "Banded Lateral Walk",
+    "muscle": "Glutes",
+    "secondary": "",
+    "equipment": "Resistance band",
+    "loggingType": "kr"
+  },
+  {
+    "id": "monster-walk",
+    "serial": 266,
+    "name": "Monster Walk",
+    "muscle": "Glutes",
+    "secondary": "",
+    "equipment": "Resistance band",
+    "loggingType": "kr"
+  },
+  {
+    "id": "hip-flexor-march",
+    "serial": 267,
+    "name": "Hip Flexor March",
+    "muscle": "Glutes",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "hanging-leg-raise",
+    "serial": 268,
+    "name": "Hanging Leg Raise",
+    "muscle": "Abs",
+    "secondary": "Glutes",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "flutter-kicks",
+    "serial": 269,
+    "name": "Flutter Kicks",
+    "muscle": "Abs",
+    "secondary": "Glutes",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "crunch",
+    "serial": 270,
+    "name": "Crunch",
+    "muscle": "Abs",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "machine-abdominal-crunch",
+    "serial": 271,
+    "name": "Machine Abdominal Crunch",
+    "muscle": "Abs",
+    "secondary": "",
+    "equipment": "Machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "sit-up",
+    "serial": 272,
+    "name": "Sit-Up",
+    "muscle": "Abs",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "plank",
+    "serial": 273,
+    "name": "Plank",
+    "muscle": "Abs",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "du"
+  },
+  {
+    "id": "side-plank",
+    "serial": 274,
+    "name": "Side Plank",
+    "muscle": "Abs",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "du"
+  },
+  {
+    "id": "hanging-knee-raise",
+    "serial": 275,
+    "name": "Hanging Knee Raise",
+    "muscle": "Abs",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "captain-s-chair-knee-raise",
+    "serial": 276,
+    "name": "Captain's Chair Knee Raise",
+    "muscle": "Abs",
+    "secondary": "",
+    "equipment": "Machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "captain-s-chair-straight-leg-raise",
+    "serial": 277,
+    "name": "Captain's Chair Straight-Leg Raise",
+    "muscle": "Abs",
+    "secondary": "",
+    "equipment": "Machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "reverse-crunch",
+    "serial": 278,
+    "name": "Reverse Crunch",
+    "muscle": "Abs",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "lying-leg-raise",
+    "serial": 279,
+    "name": "Lying Leg Raise",
+    "muscle": "Abs",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "decline-crunch",
+    "serial": 280,
+    "name": "Decline Crunch",
+    "muscle": "Abs",
+    "secondary": "",
+    "equipment": "Other",
+    "loggingType": "kr"
+  },
+  {
+    "id": "decline-sit-up",
+    "serial": 281,
+    "name": "Decline Sit-Up",
+    "muscle": "Abs",
+    "secondary": "",
+    "equipment": "Other",
+    "loggingType": "kr"
+  },
+  {
+    "id": "cable-kneeling-crunch",
+    "serial": 282,
+    "name": "Cable Kneeling Crunch",
+    "muscle": "Abs",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "rope-cable-crunch",
+    "serial": 283,
+    "name": "Rope Cable Crunch",
+    "muscle": "Abs",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "russian-twist",
+    "serial": 284,
+    "name": "Russian Twist",
+    "muscle": "Abs",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "weighted-russian-twist",
+    "serial": 285,
+    "name": "Weighted Russian Twist",
+    "muscle": "Abs",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "bicycle-crunch",
+    "serial": 286,
+    "name": "Bicycle Crunch",
+    "muscle": "Abs",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "alternating-heel-touches",
+    "serial": 287,
+    "name": "Alternating Heel Touches",
+    "muscle": "Abs",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "mountain-climber",
+    "serial": 288,
+    "name": "Mountain Climber",
+    "muscle": "Abs",
+    "secondary": "Cardio",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "dead-bug",
+    "serial": 289,
+    "name": "Dead Bug",
+    "muscle": "Abs",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "bird-dog",
+    "serial": 290,
+    "name": "Bird Dog",
+    "muscle": "Abs",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "hollow-body-hold",
+    "serial": 291,
+    "name": "Hollow-Body Hold",
+    "muscle": "Abs",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "du"
+  },
+  {
+    "id": "ab-wheel-rollout",
+    "serial": 292,
+    "name": "Ab Wheel Rollout",
+    "muscle": "Abs",
+    "secondary": "",
+    "equipment": "Other",
+    "loggingType": "kr"
+  },
+  {
+    "id": "stability-ball-rollout",
+    "serial": 293,
+    "name": "Stability-Ball Rollout",
+    "muscle": "Abs",
+    "secondary": "",
+    "equipment": "Other",
+    "loggingType": "kr"
+  },
+  {
+    "id": "v-up",
+    "serial": 294,
+    "name": "V-Up",
+    "muscle": "Abs",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "jackknife-sit-up",
+    "serial": 295,
+    "name": "Jackknife Sit-Up",
+    "muscle": "Abs",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "scissor-kicks",
+    "serial": 296,
+    "name": "Scissor Kicks",
+    "muscle": "Abs",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "leg-hip-lift-hip-raise",
+    "serial": 297,
+    "name": "Leg Hip Lift / Hip Raise",
+    "muscle": "Abs",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "hanging-oblique-knee-raise",
+    "serial": 298,
+    "name": "Hanging Oblique Knee Raise",
+    "muscle": "Abs",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "oblique-crunch",
+    "serial": 299,
+    "name": "Oblique Crunch",
+    "muscle": "Abs",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "cable-wood-chop",
+    "serial": 300,
+    "name": "Cable Wood Chop",
+    "muscle": "Abs",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "high-to-low-cable-chop",
+    "serial": 301,
+    "name": "High-to-Low Cable Chop",
+    "muscle": "Abs",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "low-to-high-cable-chop",
+    "serial": 302,
+    "name": "Low-to-High Cable Chop",
+    "muscle": "Abs",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "pallof-press",
+    "serial": 303,
+    "name": "Pallof Press",
+    "muscle": "Abs",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "dumbbell-side-bend",
+    "serial": 304,
+    "name": "Dumbbell Side Bend",
+    "muscle": "Abs",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "suitcase-carry",
+    "serial": 305,
+    "name": "Suitcase Carry",
+    "muscle": "Abs",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "wt"
+  },
+  {
+    "id": "plank-shoulder-tap",
+    "serial": 306,
+    "name": "Plank Shoulder Tap",
+    "muscle": "Abs",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "plank-up-down",
+    "serial": 307,
+    "name": "Plank Up-Down",
+    "muscle": "Abs",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "cross-body-mountain-climber",
+    "serial": 308,
+    "name": "Cross-Body Mountain Climber",
+    "muscle": "Abs",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "bear-crawl",
+    "serial": 309,
+    "name": "Bear Crawl",
+    "muscle": "Abs",
+    "secondary": "Cardio",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "superman-hold",
+    "serial": 310,
+    "name": "Superman Hold",
+    "muscle": "Abs",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "du"
+  },
+  {
+    "id": "total-abdominal-contraction-twist",
+    "serial": 311,
+    "name": "Total-Abdominal-Contraction Twist",
+    "muscle": "Abs",
+    "secondary": "",
+    "equipment": "Machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "seated-knee-tuck",
+    "serial": 312,
+    "name": "Seated Knee Tuck",
+    "muscle": "Abs",
+    "secondary": "",
+    "equipment": "Other",
+    "loggingType": "kr"
+  },
+  {
+    "id": "toe-touch-crunch",
+    "serial": 313,
+    "name": "Toe Touch Crunch",
+    "muscle": "Abs",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "reverse-plank",
+    "serial": 314,
+    "name": "Reverse Plank",
+    "muscle": "Abs",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "du"
+  },
+  {
+    "id": "standing-cable-crunch",
+    "serial": 315,
+    "name": "Standing Cable Crunch",
+    "muscle": "Abs",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "resistance-band-crunch",
+    "serial": 316,
+    "name": "Resistance-Band Crunch",
+    "muscle": "Abs",
+    "secondary": "",
+    "equipment": "Resistance band",
+    "loggingType": "kr"
+  },
+  {
+    "id": "standing-calf-raise",
+    "serial": 317,
+    "name": "Standing Calf Raise",
+    "muscle": "Calves",
+    "secondary": "",
+    "equipment": "Machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "seated-calf-raise",
+    "serial": 318,
+    "name": "Seated Calf Raise",
+    "muscle": "Calves",
+    "secondary": "",
+    "equipment": "Machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "leg-press-calf-raise",
+    "serial": 319,
+    "name": "Leg-Press Calf Raise",
+    "muscle": "Calves",
+    "secondary": "",
+    "equipment": "Machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "smith-machine-standing-calf-raise",
+    "serial": 320,
+    "name": "Smith Machine Standing Calf Raise",
+    "muscle": "Calves",
+    "secondary": "",
+    "equipment": "Smith machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "dumbbell-standing-calf-raise",
+    "serial": 321,
+    "name": "Dumbbell Standing Calf Raise",
+    "muscle": "Calves",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "single-leg-calf-raise",
+    "serial": 322,
+    "name": "Single-Leg Calf Raise",
+    "muscle": "Calves",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "donkey-calf-raise",
+    "serial": 323,
+    "name": "Donkey Calf Raise",
+    "muscle": "Calves",
+    "secondary": "",
+    "equipment": "Machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "calf-raise-on-a-step",
+    "serial": 324,
+    "name": "Calf Raise on a Step",
+    "muscle": "Calves",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "bent-knee-calf-raise",
+    "serial": 325,
+    "name": "Bent-Knee Calf Raise",
+    "muscle": "Calves",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "tibialis-raise",
+    "serial": 326,
+    "name": "Tibialis Raise",
+    "muscle": "Calves",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "seated-tibialis-raise",
+    "serial": 327,
+    "name": "Seated Tibialis Raise",
+    "muscle": "Calves",
+    "secondary": "",
+    "equipment": "Machine",
+    "loggingType": "kr"
+  },
+  {
+    "id": "jump-rope-skipping",
+    "serial": 328,
+    "name": "Jump Rope / Skipping",
+    "muscle": "Cardio",
+    "secondary": "Calves",
+    "equipment": "Other",
+    "loggingType": "mn"
+  },
+  {
+    "id": "pogo-jumps",
+    "serial": 329,
+    "name": "Pogo Jumps",
+    "muscle": "Calves",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "farmer-s-walk-on-toes",
+    "serial": 330,
+    "name": "Farmer's Walk on Toes",
+    "muscle": "Calves",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "wt"
+  },
+  {
+    "id": "wrist-curl",
+    "serial": 331,
+    "name": "Wrist Curl",
+    "muscle": "Forearms",
+    "secondary": "",
+    "equipment": "Barbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "reverse-wrist-curl",
+    "serial": 332,
+    "name": "Reverse Wrist Curl",
+    "muscle": "Forearms",
+    "secondary": "",
+    "equipment": "Barbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "cable-reverse-grip-curl",
+    "serial": 333,
+    "name": "Cable Reverse-Grip Curl",
+    "muscle": "Forearms",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "ez-bar-reverse-curl",
+    "serial": 334,
+    "name": "EZ-Bar Reverse Curl",
+    "muscle": "Forearms",
+    "secondary": "",
+    "equipment": "EZ bar",
+    "loggingType": "kr"
+  },
+  {
+    "id": "dumbbell-wrist-curl-over-bench",
+    "serial": 335,
+    "name": "Dumbbell Wrist Curl over Bench",
+    "muscle": "Forearms",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "one-arm-wrist-curl",
+    "serial": 336,
+    "name": "One-Arm Wrist Curl",
+    "muscle": "Forearms",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "behind-the-back-wrist-curl",
+    "serial": 337,
+    "name": "Behind-the-Back Wrist Curl",
+    "muscle": "Forearms",
+    "secondary": "",
+    "equipment": "Barbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "finger-curl",
+    "serial": 338,
+    "name": "Finger Curl",
+    "muscle": "Forearms",
+    "secondary": "",
+    "equipment": "Barbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "cable-wrist-curl",
+    "serial": 339,
+    "name": "Cable Wrist Curl",
+    "muscle": "Forearms",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "cable-wrist-extension",
+    "serial": 340,
+    "name": "Cable Wrist Extension",
+    "muscle": "Forearms",
+    "secondary": "",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "resistance-band-wrist-flexion",
+    "serial": 341,
+    "name": "Resistance-Band Wrist Flexion",
+    "muscle": "Forearms",
+    "secondary": "",
+    "equipment": "Resistance band",
+    "loggingType": "kr"
+  },
+  {
+    "id": "resistance-band-wrist-extension",
+    "serial": 342,
+    "name": "Resistance-Band Wrist Extension",
+    "muscle": "Forearms",
+    "secondary": "",
+    "equipment": "Resistance band",
+    "loggingType": "kr"
+  },
+  {
+    "id": "dumbbell-pronation-and-supination",
+    "serial": 343,
+    "name": "Dumbbell Pronation and Supination",
+    "muscle": "Forearms",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "dumbbell-wrist-rotation",
+    "serial": 344,
+    "name": "Dumbbell Wrist Rotation",
+    "muscle": "Forearms",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "kr"
+  },
+  {
+    "id": "farmer-s-carry",
+    "serial": 345,
+    "name": "Farmer's Carry",
+    "muscle": "Forearms",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "wt"
+  },
+  {
+    "id": "farmer-s-hold",
+    "serial": 346,
+    "name": "Farmer's Hold",
+    "muscle": "Forearms",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "wt"
+  },
+  {
+    "id": "dead-hang",
+    "serial": 347,
+    "name": "Dead Hang",
+    "muscle": "Forearms",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "du"
+  },
+  {
+    "id": "towel-hang",
+    "serial": 348,
+    "name": "Towel Hang",
+    "muscle": "Forearms",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "du"
+  },
+  {
+    "id": "plate-pinch-hold",
+    "serial": 349,
+    "name": "Plate Pinch Hold",
+    "muscle": "Forearms",
+    "secondary": "",
+    "equipment": "Other",
+    "loggingType": "du"
+  },
+  {
+    "id": "pinch-grip-carry",
+    "serial": 350,
+    "name": "Pinch-Grip Carry",
+    "muscle": "Forearms",
+    "secondary": "",
+    "equipment": "Other",
+    "loggingType": "wt"
+  },
+  {
+    "id": "gripper-squeeze",
+    "serial": 351,
+    "name": "Gripper Squeeze",
+    "muscle": "Forearms",
+    "secondary": "",
+    "equipment": "Other",
+    "loggingType": "kr"
+  },
+  {
+    "id": "rice-bucket-finger-and-wrist-work",
+    "serial": 352,
+    "name": "Rice-Bucket Finger and Wrist Work",
+    "muscle": "Forearms",
+    "secondary": "",
+    "equipment": "Other",
+    "loggingType": "kr"
+  },
+  {
+    "id": "wrist-roller",
+    "serial": 353,
+    "name": "Wrist Roller",
+    "muscle": "Forearms",
+    "secondary": "",
+    "equipment": "Other",
+    "loggingType": "kr"
+  },
+  {
+    "id": "cable-hammer-curl",
+    "serial": 354,
+    "name": "Cable Hammer Curl",
+    "muscle": "Forearms",
+    "secondary": "Biceps",
+    "equipment": "Cable",
+    "loggingType": "kr"
+  },
+  {
+    "id": "resistance-band-hammer-curl",
+    "serial": 355,
+    "name": "Resistance-Band Hammer Curl",
+    "muscle": "Forearms",
+    "secondary": "Biceps",
+    "equipment": "Resistance band",
+    "loggingType": "kr"
+  },
+  {
+    "id": "chin-tuck",
+    "serial": 356,
+    "name": "Chin Tuck",
+    "muscle": "Neck",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "du"
+  },
+  {
+    "id": "gentle-neck-flexion-isometric",
+    "serial": 357,
+    "name": "Gentle Neck Flexion Isometric",
+    "muscle": "Neck",
+    "secondary": "",
+    "equipment": "Other",
+    "loggingType": "du"
+  },
+  {
+    "id": "gentle-neck-extension-isometric",
+    "serial": 358,
+    "name": "Gentle Neck Extension Isometric",
+    "muscle": "Neck",
+    "secondary": "",
+    "equipment": "Other",
+    "loggingType": "du"
+  },
+  {
+    "id": "gentle-lateral-neck-isometric",
+    "serial": 359,
+    "name": "Gentle Lateral Neck Isometric",
+    "muscle": "Neck",
+    "secondary": "",
+    "equipment": "Other",
+    "loggingType": "du"
+  },
+  {
+    "id": "lying-neck-flexion",
+    "serial": 360,
+    "name": "Lying Neck Flexion",
+    "muscle": "Neck",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "lying-neck-extension",
+    "serial": 361,
+    "name": "Lying Neck Extension",
+    "muscle": "Neck",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "side-lying-neck-flexion",
+    "serial": 362,
+    "name": "Side-Lying Neck Flexion",
+    "muscle": "Neck",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "gentle-neck-flexion-and-extension-range-of-motion",
+    "serial": 363,
+    "name": "Gentle Neck Flexion and Extension Range of Motion",
+    "muscle": "Neck",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "du"
+  },
+  {
+    "id": "gentle-neck-side-bend-stretch",
+    "serial": 364,
+    "name": "Gentle Neck Side-Bend Stretch",
+    "muscle": "Neck",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "du"
+  },
+  {
+    "id": "gentle-neck-rotation",
+    "serial": 365,
+    "name": "Gentle Neck Rotation",
+    "muscle": "Neck",
+    "secondary": "",
+    "equipment": "Other",
+    "loggingType": "du"
+  },
+  {
+    "id": "upper-trapezius-stretch",
+    "serial": 366,
+    "name": "Upper-Trapezius Stretch",
+    "muscle": "Neck",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "du"
+  },
+  {
+    "id": "levator-scapulae-stretch",
+    "serial": 367,
+    "name": "Levator Scapulae Stretch",
+    "muscle": "Neck",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "du"
+  },
+  {
+    "id": "sternocleidomastoid-stretch",
+    "serial": 368,
+    "name": "Sternocleidomastoid Stretch",
+    "muscle": "Neck",
+    "secondary": "",
+    "equipment": "Other",
+    "loggingType": "du"
+  },
+  {
+    "id": "neck-retraction",
+    "serial": 369,
+    "name": "Neck Retraction",
+    "muscle": "Neck",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "du"
+  },
+  {
+    "id": "isometric-neck-rotation",
+    "serial": 370,
+    "name": "Isometric Neck Rotation",
+    "muscle": "Neck",
+    "secondary": "",
+    "equipment": "Other",
+    "loggingType": "du"
+  },
+  {
+    "id": "treadmill-running",
+    "serial": 371,
+    "name": "Treadmill Running",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Cardio machine",
+    "loggingType": "di"
+  },
+  {
+    "id": "treadmill-walking",
+    "serial": 372,
+    "name": "Treadmill Walking",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Cardio machine",
+    "loggingType": "di"
+  },
+  {
+    "id": "incline-treadmill-walking",
+    "serial": 373,
+    "name": "Incline Treadmill Walking",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Cardio machine",
+    "loggingType": "di"
+  },
+  {
+    "id": "outdoor-running",
+    "serial": 374,
+    "name": "Outdoor Running",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Outdoors",
+    "loggingType": "di"
+  },
+  {
+    "id": "outdoor-walking-brisk-walking",
+    "serial": 375,
+    "name": "Outdoor Walking / Brisk Walking",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Outdoors",
+    "loggingType": "di"
+  },
+  {
+    "id": "stationary-bike",
+    "serial": 376,
+    "name": "Stationary Bike",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Cardio machine",
+    "loggingType": "di"
+  },
+  {
+    "id": "recumbent-bike",
+    "serial": 377,
+    "name": "Recumbent Bike",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Cardio machine",
+    "loggingType": "di"
+  },
+  {
+    "id": "outdoor-cycling",
+    "serial": 378,
+    "name": "Outdoor Cycling",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Other",
+    "loggingType": "di"
+  },
+  {
+    "id": "elliptical-trainer-cross-trainer",
+    "serial": 379,
+    "name": "Elliptical Trainer / Cross-Trainer",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Cardio machine",
+    "loggingType": "di"
+  },
+  {
+    "id": "rowing-machine",
+    "serial": 380,
+    "name": "Rowing Machine",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Cardio machine",
+    "loggingType": "di"
+  },
+  {
+    "id": "burpee",
+    "serial": 381,
+    "name": "Burpee",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "burpee-with-push-up",
+    "serial": 382,
+    "name": "Burpee with Push-Up",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "jumping-jack",
+    "serial": 383,
+    "name": "Jumping Jack",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "mn"
+  },
+  {
+    "id": "high-knees",
+    "serial": 384,
+    "name": "High Knees",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "mn"
+  },
+  {
+    "id": "butt-kicks",
+    "serial": 385,
+    "name": "Butt Kicks",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "mn"
+  },
+  {
+    "id": "marching-in-place",
+    "serial": 386,
+    "name": "Marching in Place",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "mn"
+  },
+  {
+    "id": "box-jump",
+    "serial": 387,
+    "name": "Box Jump",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Other",
+    "loggingType": "br"
+  },
+  {
+    "id": "frog-hops",
+    "serial": 388,
+    "name": "Frog Hops",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "skater-hops",
+    "serial": 389,
+    "name": "Skater Hops",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "star-jumps",
+    "serial": 390,
+    "name": "Star Jumps",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "cross-jacks",
+    "serial": 391,
+    "name": "Cross Jacks",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "double-under-jump-rope",
+    "serial": 392,
+    "name": "Double-Under Jump Rope",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Other",
+    "loggingType": "mn"
+  },
+  {
+    "id": "battle-ropes",
+    "serial": 393,
+    "name": "Battle Ropes",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Other",
+    "loggingType": "mn"
+  },
+  {
+    "id": "plank-jacks",
+    "serial": 394,
+    "name": "Plank Jacks",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "mn"
+  },
+  {
+    "id": "plank-jog",
+    "serial": 395,
+    "name": "Plank Jog",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "mn"
+  },
+  {
+    "id": "squat-thrust",
+    "serial": 396,
+    "name": "Squat Thrust",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "shuttle-runs",
+    "serial": 397,
+    "name": "Shuttle Runs",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Other",
+    "loggingType": "mn"
+  },
+  {
+    "id": "sprint-intervals",
+    "serial": 398,
+    "name": "Sprint Intervals",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Outdoors",
+    "loggingType": "mn"
+  },
+  {
+    "id": "stair-climber",
+    "serial": 399,
+    "name": "Stair Climber",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Cardio machine",
+    "loggingType": "di"
+  },
+  {
+    "id": "stair-running-stair-walking",
+    "serial": 400,
+    "name": "Stair Running / Stair Walking",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Other",
+    "loggingType": "mn"
+  },
+  {
+    "id": "ski-erg",
+    "serial": 401,
+    "name": "Ski Erg",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Cardio machine",
+    "loggingType": "di"
+  },
+  {
+    "id": "air-bike",
+    "serial": 402,
+    "name": "Air Bike",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Cardio machine",
+    "loggingType": "di"
+  },
+  {
+    "id": "swimming",
+    "serial": 403,
+    "name": "Swimming",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Outdoors",
+    "loggingType": "di"
+  },
+  {
+    "id": "water-jogging",
+    "serial": 404,
+    "name": "Water Jogging",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Outdoors",
+    "loggingType": "di"
+  },
+  {
+    "id": "hiking",
+    "serial": 405,
+    "name": "Hiking",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Outdoors",
+    "loggingType": "di"
+  },
+  {
+    "id": "dance-cardio",
+    "serial": 406,
+    "name": "Dance Cardio",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Other",
+    "loggingType": "mn"
+  },
+  {
+    "id": "shadow-boxing",
+    "serial": 407,
+    "name": "Shadow Boxing",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "mn"
+  },
+  {
+    "id": "kickboxing-cardio",
+    "serial": 408,
+    "name": "Kickboxing Cardio",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "mn"
+  },
+  {
+    "id": "low-impact-step-touch",
+    "serial": 409,
+    "name": "Low-Impact Step Touch",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "mn"
+  },
+  {
+    "id": "lateral-shuffle",
+    "serial": 410,
+    "name": "Lateral Shuffle",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Other",
+    "loggingType": "mn"
+  },
+  {
+    "id": "fast-feet-quick-steps",
+    "serial": 411,
+    "name": "Fast Feet / Quick Steps",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "mn"
+  },
+  {
+    "id": "jumping-lunges",
+    "serial": 412,
+    "name": "Jumping Lunges",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "alternating-lunge-jumps",
+    "serial": 413,
+    "name": "Alternating Lunge Jumps",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "br"
+  },
+  {
+    "id": "high-knee-skips",
+    "serial": 414,
+    "name": "High-Knee Skips",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Bodyweight",
+    "loggingType": "mn"
+  },
+  {
+    "id": "jump-rope-boxer-step",
+    "serial": 415,
+    "name": "Jump Rope Boxer Step",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Other",
+    "loggingType": "mn"
+  },
+  {
+    "id": "sled-push",
+    "serial": 416,
+    "name": "Sled Push",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Machine",
+    "loggingType": "wt"
+  },
+  {
+    "id": "sled-pull",
+    "serial": 417,
+    "name": "Sled Pull",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Machine",
+    "loggingType": "wt"
+  },
+  {
+    "id": "farmer-s-carry-intervals",
+    "serial": 418,
+    "name": "Farmer's Carry Intervals",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Dumbbell",
+    "loggingType": "mn"
+  },
+  {
+    "id": "kettlebell-swing-intervals",
+    "serial": 419,
+    "name": "Kettlebell Swing Intervals",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Kettlebell",
+    "loggingType": "mn"
+  },
+  {
+    "id": "circuit-training",
+    "serial": 420,
+    "name": "Circuit Training",
+    "muscle": "Cardio",
+    "secondary": "",
+    "equipment": "Other",
+    "loggingType": "mn"
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "path": "_headers",
+    "sha256": "30aa7efd93f9cf57fd7b6ffae7ef004948352f0369b39a8b32056fa6b3c4a4a6"
+  },
+  {
+    "path": "DEPLOY.md",
+    "sha256": "4279623f727c863fa34872475c86249d3191e4b81b98ae3c919b7b16dbf13cce"
+  },
+  {
+    "path": "DROPBOX-SETUP.md",
+    "sha256": "99535ac34eec9224b01484d45f946ed9165ee8846b05c9159da77809ff14c875"
+  },
+  {
+    "path": "icons/apple-touch-icon.png",
+    "sha256": "5f33c472fd71b03d9c0b3fd64a74fb97ce03ba40a697a1595306027da826ea02"
+  },
+  {
+    "path": "icons/icon-192.png",
+    "sha256": "feb7cd4d53cda1f4368ddb45e7d3ad9622632c44a5441564eb553c57ff4ef0d1"
+  },
+  {
+    "path": "icons/icon-512.png",
+    "sha256": "9b0e91c6f260d373d1cf751f4f51adb56d62670e85404062c310719cd4cd0804"
+  },
+  {
+    "path": "index.html",
+    "sha256": "79a694b82930a06dab6f311252dbc68d6f3fa3971d442dfd860cf001cfffffe8"
+  },
+  {
+    "path": "manifest.webmanifest",
+    "sha256": "cd298b908565f27d9200f2f6ecece0765cb66f0d4d2cb4a459cf2a534c991395"
+  },
+  {
+    "path": "README.md",
+    "sha256": "729b1594e5e44ce75db47c664146fa91a279218f79aedf97ae63a5121c0e222b"
+  },
+  {
+    "path": "sw.js",
+    "sha256": "03e23cd3d49bed50c209ddd72b7729d185ab4f516b68cd6832b3ce1a56703081"
+  }
+]
