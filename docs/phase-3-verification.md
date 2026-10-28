@@ -3,7 +3,11 @@
 Branch: `phase-3-dropbox-sync`, based on fetched main
 `2760a167e81e2acc4ec371d18e1b24ac28f02f3c` (Phase 2 PR #8 merged).
 This report records checks run in this phase, not inherited Phase 2 results.
-Final source revision and PR/CI evidence are recorded below at delivery.
+Published implementation: `6af4b82cb113ffe9a677c39bac77cdaabca0a8b5`.
+Its tree `b6c687053aa7e102a5c5bfcc02e619d591c3ad26` exactly matches the locally
+tested commit/tree. The Git CLI had no stored credential; the connected GitHub
+integration published the same tree, verified before creating the PR. Subsequent
+delivery-evidence changes affect documentation only.
 
 ## Implementation
 
@@ -92,4 +96,12 @@ recomputation remain Phase 4.
 
 ## Delivery evidence
 
-Publication and final-head CI evidence will be added after the final local checks.
+[PR #9](https://github.com/byshriv/Replift/pull/9) is open and unmerged, targeting
+the verified Phase 2 main. GitHub [CI](https://github.com/byshriv/Replift/actions)
+and CodeQL run for this PR; check its **current head** before merging. At this
+evidence update they are running, and no success is inferred from local results
+or previous phases. No merge or production deployment occurred.
+
+Artifacts are local under `artifacts/`: `replift-source.zip` (committed HEAD),
+`replift-preview.zip` (checked static build), `SHA256SUMS`, and the synthetic
+mobile screenshot. Publication of this review branch/PR does not deploy them.
