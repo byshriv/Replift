@@ -199,7 +199,9 @@ export class LocalRepository {
         );
         return null;
       }
-      const original = structuredClone(data);
+      // Compare against the source parse, independently of the validation result.
+      const original: LocalData =
+        raw === null ? structuredClone(data) : JSON.parse(raw);
       const credentials: Record<string, unknown> = {};
       for (const key of Object.keys(data.st ?? {})) {
         if (/^dbx/i.test(key)) {
