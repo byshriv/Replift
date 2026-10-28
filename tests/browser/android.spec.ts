@@ -361,6 +361,13 @@ test('set completion requests Android haptics only when enabled', async ({
   await page.getByLabel('Exercise 1 set 1 lb', { exact: true }).fill('20');
   await page.getByLabel('Exercise 1 set 1 reps', { exact: true }).fill('8');
   await expect(page.locator('.save-status')).toHaveText('Saved on this device');
+  // Assigning legacy set IDs must not remount the next field during input.
+  await expect(
+    page.getByLabel('Exercise 1 set 1 reps', { exact: true }),
+  ).toBeFocused();
+  await expect(
+    page.getByLabel('Exercise 1 set 1 reps', { exact: true }),
+  ).toHaveValue('8');
   const complete = page.getByRole('button', {
     name: 'Complete exercise 1 set 1',
     exact: true,

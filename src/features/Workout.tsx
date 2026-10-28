@@ -633,7 +633,7 @@ export default function Workout() {
                 {it.sets.map((s, n) => (
                   <div
                     className={`log-set ${s.done ? 'completed' : ''}`}
-                    key={s.id ?? n}
+                    key={s.id ?? `${String(draft.id)}:item:${i}:set:${n}`}
                   >
                     <span>
                       {n + 1}
