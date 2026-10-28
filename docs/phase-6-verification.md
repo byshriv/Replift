@@ -66,6 +66,13 @@ app, hardware actuator or live provider. Unit tests separately reopen IndexedDB
 for persisted PKCE, validate invalid/cancelled/expired returns and inspect native
 share cache behavior. Native instrumentation compilation is not device execution.
 
+The first instrumentation assembly exposed conflicting transitive Kotlin stdlib
+versions (1.8.22 versus the old split jdk8 1.6.21). The application and Android-test
+configurations now use the Kotlin 2.2.20 BOM, matching the filesystem plugin's
+toolchain. The checks must pass again after this correction; release-build success
+alone did not exercise instrumentation dependencies. See the [Kotlin alignment
+guidance](https://kotlinlang.org/docs/gradle-configure-project.html).
+
 ## Outstanding acceptance
 
 Complete the [Android install/upgrade/OAuth/transfer drill](android.md) on disposable
