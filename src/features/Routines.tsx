@@ -1,8 +1,12 @@
-import { useEffect, useId, useRef, useState } from 'react';
-import { ArrowLeft, Plus, Trash2, Undo2, X } from 'lucide-react';
+import { useId, useState } from 'react';
+import { ArrowLeft, Plus, Trash2, Undo2 } from 'lucide-react';
 import { useLocal } from '../state/local';
 import { fieldLabels, validValue } from '../domain/local';
 import type { Command, LocalData, Routine, RoutineSet } from '../domain/local';
+import { send, uid, Sheet } from './ui';
+import { templates } from '../domain/port';
+import { emptyFilters, PickerFilters, pickerMatch } from './Library';
+import { canonicalValue, displayValue, unitLabel } from '../domain/metrics';
 
 const days = [
   'Sunday',
@@ -61,27 +65,23 @@ function Picker({
   data: LocalData;
   close: () => void;
 }) {
-  const ref = useRef<HTMLDialogElement>(null);
   const [query, search] = useState('');
+  const [filters, setFilters] = useState({ ...emptyFilters });
   const { edit, queued, fatal } = useLocal();
-  useEffect(() => {
-    ref.current?.showModal();
-  }, []);
-  const results = data.ex.filter((e) =>
-    e.n.toLowerCase().includes(query.trim().toLowerCase()),
+  const results = data.ex.filter(
+    (e) =>
+      e.n.toLowerCase().includes(query.trim().toLowerCase()) &&
+      pickerMatch(e, data, filters),
   );
   return (
-    <dialog ref={ref} onClose={close} aria-labelledby="picker-title">
-      <div className="row">
-        <h2 id="picker-title">Choose exercises</h2>
-        <button
-          aria-label="Close exercise picker"
-          onClick={() => ref.current?.close()}
-        >
-          <X size={18} />
-        </button>
-      </div>
+    <Sheet
+      title="Choose exercises"
+      closeLabel="Close exercise picker"
+      close={close}
+    >
       <p>Each selection saves immediately. Done closes this picker.</p>
+      <p>{routine.ex.length} selected</p>
+      <PickerFilters filters={filters} change={setFilters} />
       <label>
         Find exercise
         <input
@@ -114,10 +114,10 @@ function Picker({
         ))}
       </ul>
       {!results.length && <p>No exercises match.</p>}
-      <button className="picker-done" onClick={() => ref.current?.close()}>
+      <button className="picker-done" onClick={close}>
         Done
       </button>
-    </dialog>
+    </Sheet>
   );
 }
 function defaultSets(data: LocalData) {
@@ -151,8 +151,16 @@ function SetRow({
         return (
           <Field
             key={field}
-            label={`Set ${index + 1} ${label}`}
-            value={set[field]}
+            label={`Set ${index + 1} ${useLocal.getState().snapshot ? unitLabel(useLocal.getState().snapshot!.data, label) : label}`}
+            value={
+              useLocal.getState().snapshot
+                ? displayValue(
+                    useLocal.getState().snapshot!.data,
+                    set[field],
+                    label,
+                  )
+                : set[field]
+            }
             numeric
             integer={label === 'reps'}
             fieldKey={`${routine}/${exercise}/${id}/${field}`}
@@ -162,7 +170,11 @@ function SetRow({
               exercise,
               set: id,
               field,
-              value,
+              value: canonicalValue(
+                useLocal.getState().snapshot!.data,
+                value,
+                label,
+              ),
             })}
           />
         );
@@ -192,8 +204,8 @@ export default function Routines() {
   return (
     <section aria-label="Programs and routines">
       <p>
-        Names, weekdays and set values save as you edit. Weights use kg and
-        distances use km.
+        Names, weekdays and set values save as you edit. Display units follow
+        Settings; stored values use kg and km.
       </p>
       {routine && program ? (
         <>
@@ -207,6 +219,22 @@ export default function Routines() {
             Back to programs
           </button>
           <div className="card">
+            <button
+              className="danger"
+              disabled={!!queued || fatal}
+              onClick={() => {
+                if (
+                  window.confirm(
+                    'Delete this routine? Workout history is preserved and a recovery point retained.',
+                  )
+                ) {
+                  send({ kind: 'deleteRoutine', id: routine.id });
+                  select(null);
+                }
+              }}
+            >
+              Delete routine
+            </button>
             <Field
               label="Routine name"
               value={routine.n}
@@ -221,6 +249,7 @@ export default function Routines() {
             <label>
               Weekday
               <select
+                aria-label="Weekday"
                 value={routine.day}
                 disabled={fatal || !!queued}
                 onChange={(event) =>
@@ -311,6 +340,20 @@ export default function Routines() {
         <>
           {data.prog.map((p) => (
             <section className="card" key={p.id}>
+              <button
+                className="quiet"
+                disabled={!!queued || fatal}
+                onClick={() => {
+                  if (
+                    window.confirm(
+                      'Delete this program and its routines? History is preserved and a recovery point retained.',
+                    )
+                  )
+                    send({ kind: 'deleteProgram', id: p.id });
+                }}
+              >
+                Delete program
+              </button>
               <Field
                 label="Program name"
                 value={p.n}
@@ -344,6 +387,39 @@ export default function Routines() {
             <Plus size={18} />
             New program
           </button>
+          <h2>Start with a template</h2>
+          {templates
+            .map((t, index) => ({ t, index }))
+            .sort(
+              (a, b) =>
+                Number(b.t.k.includes(Number(data.pf?.days))) -
+                Number(a.t.k.includes(Number(data.pf?.days))),
+            )
+            .map(({ t, index }) => (
+              <article
+                className={`card ${data.pf?.days && !t.k.includes(Number(data.pf.days)) ? 'dimmed' : ''}`}
+                key={index}
+              >
+                <h3>{t.n}</h3>
+                <p>{t.d}</p>
+                {t.k.includes(Number(data.pf?.days)) && (
+                  <p>Recommended for you</p>
+                )}
+                <button
+                  disabled={!!queued || fatal}
+                  aria-label={`Add template ${t.n}`}
+                  onClick={() =>
+                    send({
+                      kind: 'template',
+                      index,
+                      ids: Array.from({ length: 2000 }, uid),
+                    })
+                  }
+                >
+                  Add template
+                </button>
+              </article>
+            ))}
         </>
       )}
       {!!undos.length && (

@@ -1,5 +1,9 @@
 # Phase 2 local storage contract
 
+## Phase 4 update — 2026-10-28
+
+Workout/domain commands, preferences, measurements, photos and layouts use the same IndexedDB transactions and sync-document update. Raw incomplete numeric strings survive reload and unit display. Existing defaults/history/photos/unknown fields are preserved. New JPEG previews retain `originalImg`; compression does not delete the source. The explicit typed local-erasure flow clears Replift stores and the three named legacy keys, including local recovery; Dropbox and unrelated storage are separate. See [Phase 4 verification](phase-4-verification.md). Earlier canonical-only UI and future-port statements below are historical.
+
 ## Phase 3 update — 2026-10-28
 
 Database version 2 adds the `blobs` store without replacing existing stores or

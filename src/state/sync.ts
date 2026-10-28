@@ -316,6 +316,8 @@ export async function approveLegacy() {
   scheduler?.request(0);
 }
 export function requestSync() {
+  if (scheduler && !useSync.getState().busy)
+    useSync.setState({ status: 'Sync requested…' });
   scheduler?.request(0);
 }
 export async function reviewConflict(
@@ -345,6 +347,11 @@ export async function exportBackup() {
     a.href = url;
     a.download = `replift-backup-${new Date().toISOString().slice(0, 10)}.json`;
     a.click();
+    await getRepository().commit({
+      type: 'domain',
+      action: { kind: 'backupDownloaded', time: Date.now() },
+    });
+    await refreshLocal();
     setTimeout(() => URL.revokeObjectURL(url), 30_000);
   } catch (error) {
     useSync.setState({ error: errorText(error) });

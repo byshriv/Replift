@@ -1,0 +1,418 @@
+[
+  {
+    "n": "Full Body",
+    "d": "1 day a week",
+    "k": [1],
+    "r": [
+      [
+        "Full Body",
+        "Barbell Back Squat / Full Squat,Barbell Bench Press,Bent-Over Barbell Row,Standing Barbell Overhead Press / Military Press,Dumbbell Biceps Curl"
+      ]
+    ]
+  },
+  {
+    "n": "Full Body Strength",
+    "d": "1 day a week · heavy compounds",
+    "k": [1],
+    "r": [
+      [
+        "Full Body",
+        "Barbell Back Squat / Full Squat,Barbell Bench Press,Deadlift,Pull-Up"
+      ]
+    ]
+  },
+  {
+    "n": "Full Body A / B",
+    "d": "2 days a week",
+    "k": [2],
+    "r": [
+      [
+        "Full Body A",
+        "Barbell Back Squat / Full Squat,Barbell Bench Press,Bent-Over Barbell Row,Standing Barbell Overhead Press / Military Press,Dumbbell Biceps Curl"
+      ],
+      [
+        "Full Body B",
+        "Deadlift,Incline Dumbbell Bench Press,Lat Pulldown,Dumbbell Lateral Raise,Plank"
+      ]
+    ]
+  },
+  {
+    "n": "Upper / Lower (2 day)",
+    "d": "2 days a week",
+    "k": [2],
+    "r": [
+      [
+        "Upper",
+        "Barbell Bench Press,Bent-Over Barbell Row,Standing Barbell Overhead Press / Military Press,Lat Pulldown,Dumbbell Biceps Curl,Cable Triceps Pushdown"
+      ],
+      [
+        "Lower",
+        "Barbell Back Squat / Full Squat,Romanian Deadlift,Leg Press,Seated Leg Curl,Standing Calf Raise"
+      ]
+    ]
+  },
+  {
+    "n": "Push Pull Legs",
+    "d": "3 days a week",
+    "k": [3],
+    "r": [
+      [
+        "Push",
+        "Barbell Bench Press,Standing Barbell Overhead Press / Military Press,Incline Dumbbell Bench Press,Dumbbell Lateral Raise,Cable Triceps Pushdown"
+      ],
+      [
+        "Pull",
+        "Lat Pulldown,Bent-Over Barbell Row,Seated Cable Row,Reverse Dumbbell Fly / Rear-Delt Fly,Dumbbell Biceps Curl,Hammer Curl"
+      ],
+      [
+        "Legs",
+        "Barbell Back Squat / Full Squat,Romanian Deadlift,Leg Press,Seated Leg Curl,Standing Calf Raise"
+      ]
+    ]
+  },
+  {
+    "n": "Full Body ×3",
+    "d": "3 days a week",
+    "k": [3],
+    "r": [
+      [
+        "Full Body A",
+        "Barbell Back Squat / Full Squat,Barbell Bench Press,Bent-Over Barbell Row,Standing Barbell Overhead Press / Military Press,Dumbbell Biceps Curl"
+      ],
+      [
+        "Full Body B",
+        "Deadlift,Incline Dumbbell Bench Press,Lat Pulldown,Dumbbell Lateral Raise,Plank"
+      ],
+      [
+        "Full Body C",
+        "Leg Press,Push-Up,Seated Cable Row,Barbell Hip Thrust,Cable Triceps Pushdown"
+      ]
+    ]
+  },
+  {
+    "n": "Chest & Back / Shoulders & Arms / Legs",
+    "d": "3 days a week",
+    "k": [3],
+    "r": [
+      [
+        "Chest & Back",
+        "Barbell Bench Press,Incline Dumbbell Bench Press,Cable Standing Chest Fly,Lat Pulldown,Bent-Over Barbell Row,Seated Cable Row"
+      ],
+      [
+        "Shoulders & Arms",
+        "Standing Barbell Overhead Press / Military Press,Dumbbell Lateral Raise,Reverse Dumbbell Fly / Rear-Delt Fly,Barbell Curl,Hammer Curl,Cable Triceps Pushdown,Lying EZ-Bar Triceps Extension / Skull Crusher"
+      ],
+      [
+        "Legs",
+        "Barbell Back Squat / Full Squat,Romanian Deadlift,Leg Press,Seated Leg Curl,Standing Calf Raise"
+      ]
+    ]
+  },
+  {
+    "n": "Upper / Lower",
+    "d": "4 days a week",
+    "k": [4],
+    "r": [
+      [
+        "Upper A",
+        "Barbell Bench Press,Bent-Over Barbell Row,Standing Barbell Overhead Press / Military Press,Lat Pulldown,Dumbbell Biceps Curl,Cable Triceps Pushdown"
+      ],
+      [
+        "Lower A",
+        "Barbell Back Squat / Full Squat,Romanian Deadlift,Leg Press,Seated Leg Curl,Standing Calf Raise"
+      ],
+      [
+        "Upper B",
+        "Incline Dumbbell Bench Press,Pull-Up,Dumbbell Lateral Raise,Seated Cable Row,Hammer Curl,Lying EZ-Bar Triceps Extension / Skull Crusher"
+      ],
+      [
+        "Lower B",
+        "Deadlift,Leg Extension,Lying Leg Curl,Barbell Hip Thrust,Crunch"
+      ]
+    ]
+  },
+  {
+    "n": "Chest / Back / Arms / Legs",
+    "d": "4 days a week",
+    "k": [4],
+    "r": [
+      [
+        "Chest",
+        "Barbell Bench Press,Incline Dumbbell Bench Press,Cable Standing Chest Fly,Chest Dip,Push-Up"
+      ],
+      [
+        "Back",
+        "Deadlift,Lat Pulldown,Bent-Over Barbell Row,Seated Cable Row,Barbell Shrug"
+      ],
+      [
+        "Arms",
+        "Barbell Curl,Cable Triceps Pushdown,Hammer Curl,Lying EZ-Bar Triceps Extension / Skull Crusher,Incline Dumbbell Curl,Overhead Cable Triceps Extension"
+      ],
+      [
+        "Legs",
+        "Barbell Back Squat / Full Squat,Romanian Deadlift,Leg Press,Seated Leg Curl,Standing Calf Raise,Leg Extension"
+      ]
+    ]
+  },
+  {
+    "n": "Push Pull Legs + Arms",
+    "d": "4 days a week",
+    "k": [4],
+    "r": [
+      [
+        "Push",
+        "Barbell Bench Press,Standing Barbell Overhead Press / Military Press,Incline Dumbbell Bench Press,Dumbbell Lateral Raise,Cable Triceps Pushdown"
+      ],
+      [
+        "Pull",
+        "Lat Pulldown,Bent-Over Barbell Row,Seated Cable Row,Reverse Dumbbell Fly / Rear-Delt Fly,Dumbbell Biceps Curl,Hammer Curl"
+      ],
+      [
+        "Legs",
+        "Barbell Back Squat / Full Squat,Romanian Deadlift,Leg Press,Seated Leg Curl,Standing Calf Raise"
+      ],
+      [
+        "Arms",
+        "Barbell Curl,Incline Dumbbell Curl,Preacher Curl,Close-Grip Bench Press,Overhead Cable Triceps Extension,Rope Triceps Pushdown,Wrist Curl"
+      ]
+    ]
+  },
+  {
+    "n": "Push Pull Legs + Upper / Lower",
+    "d": "5 days a week",
+    "k": [5],
+    "r": [
+      [
+        "Push",
+        "Barbell Bench Press,Standing Barbell Overhead Press / Military Press,Incline Dumbbell Bench Press,Dumbbell Lateral Raise,Cable Triceps Pushdown"
+      ],
+      [
+        "Pull",
+        "Lat Pulldown,Bent-Over Barbell Row,Seated Cable Row,Reverse Dumbbell Fly / Rear-Delt Fly,Dumbbell Biceps Curl,Hammer Curl"
+      ],
+      [
+        "Legs",
+        "Barbell Back Squat / Full Squat,Romanian Deadlift,Leg Press,Seated Leg Curl,Standing Calf Raise"
+      ],
+      [
+        "Upper",
+        "Barbell Bench Press,Bent-Over Barbell Row,Standing Barbell Overhead Press / Military Press,Lat Pulldown,Dumbbell Biceps Curl,Cable Triceps Pushdown"
+      ],
+      [
+        "Lower",
+        "Barbell Back Squat / Full Squat,Romanian Deadlift,Leg Press,Seated Leg Curl,Standing Calf Raise"
+      ]
+    ]
+  },
+  {
+    "n": "Bro Split",
+    "d": "5 days a week",
+    "k": [5],
+    "r": [
+      [
+        "Chest",
+        "Barbell Bench Press,Incline Dumbbell Bench Press,Cable Standing Chest Fly,Chest Dip,Push-Up"
+      ],
+      [
+        "Back",
+        "Deadlift,Lat Pulldown,Bent-Over Barbell Row,Seated Cable Row,Barbell Shrug"
+      ],
+      [
+        "Shoulders",
+        "Standing Barbell Overhead Press / Military Press,Dumbbell Lateral Raise,Reverse Dumbbell Fly / Rear-Delt Fly,Cable Face Pull,Dumbbell Shrug"
+      ],
+      [
+        "Arms",
+        "Barbell Curl,Cable Triceps Pushdown,Hammer Curl,Lying EZ-Bar Triceps Extension / Skull Crusher,Incline Dumbbell Curl,Overhead Cable Triceps Extension"
+      ],
+      [
+        "Legs",
+        "Barbell Back Squat / Full Squat,Romanian Deadlift,Leg Press,Seated Leg Curl,Standing Calf Raise,Leg Extension"
+      ]
+    ]
+  },
+  {
+    "n": "Push Pull Legs + Arms & Core",
+    "d": "5 days a week · arm focus",
+    "k": [5],
+    "r": [
+      [
+        "Push",
+        "Barbell Bench Press,Standing Barbell Overhead Press / Military Press,Incline Dumbbell Bench Press,Dumbbell Lateral Raise,Cable Triceps Pushdown"
+      ],
+      [
+        "Pull",
+        "Lat Pulldown,Bent-Over Barbell Row,Seated Cable Row,Reverse Dumbbell Fly / Rear-Delt Fly,Dumbbell Biceps Curl,Hammer Curl"
+      ],
+      [
+        "Legs",
+        "Barbell Back Squat / Full Squat,Romanian Deadlift,Leg Press,Seated Leg Curl,Standing Calf Raise"
+      ],
+      [
+        "Arms",
+        "Barbell Curl,Incline Dumbbell Curl,Preacher Curl,Close-Grip Bench Press,Overhead Cable Triceps Extension,Rope Triceps Pushdown,Wrist Curl"
+      ],
+      [
+        "Shoulders & Core",
+        "Standing Barbell Overhead Press / Military Press,Dumbbell Lateral Raise,Cable Face Pull,Plank,Hanging Leg Raise,Cable Wood Chop"
+      ]
+    ]
+  },
+  {
+    "n": "Push Pull Legs ×2",
+    "d": "6 days a week",
+    "k": [6],
+    "r": [
+      [
+        "Push A",
+        "Barbell Bench Press,Standing Barbell Overhead Press / Military Press,Incline Dumbbell Bench Press,Dumbbell Lateral Raise,Cable Triceps Pushdown"
+      ],
+      [
+        "Pull A",
+        "Lat Pulldown,Bent-Over Barbell Row,Seated Cable Row,Reverse Dumbbell Fly / Rear-Delt Fly,Dumbbell Biceps Curl,Hammer Curl"
+      ],
+      [
+        "Legs A",
+        "Barbell Back Squat / Full Squat,Romanian Deadlift,Leg Press,Seated Leg Curl,Standing Calf Raise"
+      ],
+      [
+        "Push B",
+        "Incline Barbell Bench Press,Dumbbell Shoulder Press,Dumbbell Bench Press,Cable Lateral Raise,Rope Triceps Pushdown"
+      ],
+      [
+        "Pull B",
+        "Pull-Up,One-Arm Dumbbell Row,Chest-Supported Row,Cable Face Pull,EZ-Bar Curl,Incline Dumbbell Curl"
+      ],
+      [
+        "Legs B",
+        "Front Squat,Stiff-Leg Deadlift,Hack Squat,Lying Leg Curl,Seated Calf Raise"
+      ]
+    ]
+  },
+  {
+    "n": "Upper / Lower ×3",
+    "d": "6 days a week",
+    "k": [6],
+    "r": [
+      [
+        "Upper A",
+        "Barbell Bench Press,Bent-Over Barbell Row,Standing Barbell Overhead Press / Military Press,Lat Pulldown,Dumbbell Biceps Curl,Cable Triceps Pushdown"
+      ],
+      [
+        "Lower A",
+        "Barbell Back Squat / Full Squat,Romanian Deadlift,Leg Press,Seated Leg Curl,Standing Calf Raise"
+      ],
+      [
+        "Upper B",
+        "Incline Dumbbell Bench Press,Pull-Up,Dumbbell Lateral Raise,Seated Cable Row,Hammer Curl,Lying EZ-Bar Triceps Extension / Skull Crusher"
+      ],
+      [
+        "Lower B",
+        "Deadlift,Leg Extension,Lying Leg Curl,Barbell Hip Thrust,Crunch"
+      ],
+      [
+        "Upper C",
+        "Dumbbell Bench Press,Chest-Supported Row,Dumbbell Shoulder Press,Lat Pulldown,EZ-Bar Curl,Rope Triceps Pushdown"
+      ],
+      [
+        "Lower C",
+        "Hack Squat,Stiff-Leg Deadlift,Walking Lunge,Seated Leg Curl,Seated Calf Raise"
+      ]
+    ]
+  },
+  {
+    "n": "Arnold Split",
+    "d": "6 days a week",
+    "k": [6],
+    "r": [
+      [
+        "Chest & Back A",
+        "Barbell Bench Press,Incline Dumbbell Bench Press,Cable Standing Chest Fly,Lat Pulldown,Bent-Over Barbell Row,Seated Cable Row"
+      ],
+      [
+        "Shoulders & Arms A",
+        "Standing Barbell Overhead Press / Military Press,Dumbbell Lateral Raise,Reverse Dumbbell Fly / Rear-Delt Fly,Barbell Curl,Hammer Curl,Cable Triceps Pushdown,Lying EZ-Bar Triceps Extension / Skull Crusher"
+      ],
+      [
+        "Legs A",
+        "Barbell Back Squat / Full Squat,Romanian Deadlift,Leg Press,Seated Leg Curl,Standing Calf Raise"
+      ],
+      [
+        "Chest & Back B",
+        "Incline Barbell Bench Press,Dumbbell Bench Press,Machine Chest Press,Pull-Up,One-Arm Dumbbell Row,Chest-Supported Row"
+      ],
+      [
+        "Shoulders & Arms B",
+        "Dumbbell Shoulder Press,Cable Lateral Raise,Cable Face Pull,EZ-Bar Curl,Incline Dumbbell Curl,Rope Triceps Pushdown,Overhead Cable Triceps Extension"
+      ],
+      [
+        "Legs B",
+        "Front Squat,Stiff-Leg Deadlift,Hack Squat,Lying Leg Curl,Seated Calf Raise"
+      ]
+    ]
+  },
+  {
+    "n": "Push Pull Legs ×2 + Cardio",
+    "d": "7 days a week",
+    "k": [7],
+    "r": [
+      [
+        "Push A",
+        "Barbell Bench Press,Standing Barbell Overhead Press / Military Press,Incline Dumbbell Bench Press,Dumbbell Lateral Raise,Cable Triceps Pushdown"
+      ],
+      [
+        "Pull A",
+        "Lat Pulldown,Bent-Over Barbell Row,Seated Cable Row,Reverse Dumbbell Fly / Rear-Delt Fly,Dumbbell Biceps Curl,Hammer Curl"
+      ],
+      [
+        "Legs A",
+        "Barbell Back Squat / Full Squat,Romanian Deadlift,Leg Press,Seated Leg Curl,Standing Calf Raise"
+      ],
+      [
+        "Push B",
+        "Incline Barbell Bench Press,Dumbbell Shoulder Press,Dumbbell Bench Press,Cable Lateral Raise,Rope Triceps Pushdown"
+      ],
+      [
+        "Pull B",
+        "Pull-Up,One-Arm Dumbbell Row,Chest-Supported Row,Cable Face Pull,EZ-Bar Curl,Incline Dumbbell Curl"
+      ],
+      [
+        "Legs B",
+        "Front Squat,Stiff-Leg Deadlift,Hack Squat,Lying Leg Curl,Seated Calf Raise"
+      ],
+      [
+        "Cardio & Core",
+        "Treadmill Walking,Stationary Bike,Rowing Machine,Plank"
+      ]
+    ]
+  },
+  {
+    "n": "Bro Split + Cardio & Core",
+    "d": "7 days a week",
+    "k": [7],
+    "r": [
+      [
+        "Chest",
+        "Barbell Bench Press,Incline Dumbbell Bench Press,Cable Standing Chest Fly,Chest Dip,Push-Up"
+      ],
+      [
+        "Back",
+        "Deadlift,Lat Pulldown,Bent-Over Barbell Row,Seated Cable Row,Barbell Shrug"
+      ],
+      [
+        "Shoulders",
+        "Standing Barbell Overhead Press / Military Press,Dumbbell Lateral Raise,Reverse Dumbbell Fly / Rear-Delt Fly,Cable Face Pull,Dumbbell Shrug"
+      ],
+      [
+        "Arms",
+        "Barbell Curl,Cable Triceps Pushdown,Hammer Curl,Lying EZ-Bar Triceps Extension / Skull Crusher,Incline Dumbbell Curl,Overhead Cable Triceps Extension"
+      ],
+      [
+        "Legs",
+        "Barbell Back Squat / Full Squat,Romanian Deadlift,Leg Press,Seated Leg Curl,Standing Calf Raise,Leg Extension"
+      ],
+      ["Cardio", "Treadmill Walking,Stationary Bike,Rowing Machine"],
+      ["Core", "Plank,Hanging Leg Raise,Cable Wood Chop,Dead Bug"]
+    ]
+  }
+]

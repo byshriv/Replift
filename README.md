@@ -2,11 +2,13 @@
 
 Free, open-source, local-first workout logger. Copyright Shriv.
 
-Phase 3 optional Dropbox preview. **Not a replacement for the live logger.**
-IndexedDB migration, autosaved routine editing, optional Dropbox sync, conflict
-review and complete backup/restore are available. Legacy `replift.v1` and the old
-cloud file are retained. Workout logging, full feature parity and production PWA
-behavior remain later work. No deployment is configured.
+Phase 4 React review preview. **Keep production unchanged.**
+Workout logging/reconstruction/history, programs/templates/custom library, configurable
+Home/Stats, measures/photos, profile/onboarding and local deletion now reuse the
+Phase 2 persistence and Phase 3 optional Dropbox/conflict/backup engine.
+Legacy originals are retained. Owner acceptance and PWA/platform release gates remain;
+no deployment is configured. See [Phase 4 parity](docs/phase-4-parity.md) and
+[verification](docs/phase-4-verification.md).
 
 ## Run locally
 
@@ -17,8 +19,8 @@ npm ci
 npm run dev
 ```
 
-Open the printed localhost URL. Workout contains programs and inline routine defaults;
-Library contains the preserved 420-exercise catalogue. A date/storage/profile top bar
+Open the printed localhost URL. Workout contains the logger and inline routine defaults;
+Library contains the 420-exercise catalogue, custom records and templates. A date/storage/profile top bar
 appears on every main tab. Use synthetic data first; the preview has separate storage
 from the live origin. See [local storage and recovery](docs/local-storage.md) before
 testing migration with copies. Fonts ship locally. No accounts, analytics or Replift backend.
@@ -47,8 +49,8 @@ npm run artifacts
 
 `check` runs baseline integrity, lint, formatting, strict types, unit/integration tests,
 three seeded 5,000-action navigation runs, three seeded 400-action persistence runs,
-three seeded 300-action multi-device sync runs
-and build. Browser checks use the production build
+three seeded 300-action multi-device sync runs, three seeded 800-action workout/domain
+runs with database restarts, and build. Browser checks use the production build
 on desktop/mobile Chromium and mobile WebKit emulation. Run `npm run build` before
 browser checks/artifacts. ZIPs in `artifacts/` contain source at committed HEAD and
 the preview static build, plus SHA-256 sums. Do not deploy this preview to production.

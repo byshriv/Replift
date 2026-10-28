@@ -268,6 +268,9 @@ test('two isolated browsers review conflicts, reconnect after failure and preser
   await other
     .getByRole('button', { name: 'Use version 1', exact: true })
     .click();
+  await expect(
+    other.getByRole('heading', { name: 'Review conflicting program values' }),
+  ).toHaveCount(0);
   await sync(other);
   await sync(page);
   await expect(

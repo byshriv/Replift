@@ -1,5 +1,9 @@
 # Foundation architecture
 
+## Phase 4 update — 2026-10-28
+
+The React feature port now uses pure `workout.ts`, `metrics.ts`, `reconstruct.ts` and `port.ts` commands through the existing Phase 2 transactional save queue. Phase 3 synchronization remains the only transport/conflict/backup engine. Domain commands apply against the transaction's latest snapshot; draft/item/set targets reject stale UI actions. Destructive commands capture recovery atomically. No database or sync version change. New photo previews retain original image bytes in their record. See [current parity map](phase-4-parity.md) and [verification](phase-4-verification.md). Earlier missing-feature statements below are historical. PWA/Android/production release remain later phases.
+
 ## Phase 3 update — 2026-10-28
 
 Optional Dropbox transport, causal record merging, retained conflicts, scheduling,
