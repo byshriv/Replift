@@ -1,0 +1,22 @@
+name: Bug report
+description: Report a reproducible problem without private workout data.
+body:
+  - type: markdown
+    attributes:
+      value: 'Issues are public. Do not attach workout backups, photos, tokens or account details. Use synthetic examples.'
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: Expected and actual behavior
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Device, browser and build version
