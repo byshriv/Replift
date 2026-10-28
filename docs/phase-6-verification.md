@@ -2,7 +2,8 @@
 
 Phase 6 started from fetched main `91db66cbf78481838b141eac03d2bdfd77d0a317`
 (owner-merged Phase 5 PR #11) on `phase-6-android`. Implementation is committed in
-`bea56c5`; final delivery metadata follows after validation. This file records
+`bea56c5`, with native dependency alignment in `b739648` and the legacy-draft
+input-identity correction in `4ee211abfda1580e89b3e1856a207684af6c76ec`. This file records
 actual checks from this session, not inherited phase results.
 
 ## Implementation
@@ -30,12 +31,40 @@ Independent/offline signing-key backups still need owner verification.
 - Original `Old Replift Deployment/Replift-PWA`: all ten SHA-256 entries match the
   repository baseline manifest independently. No original/reference bytes changed.
 - `npm audit`: zero vulnerabilities after Capacitor installation.
-- First signed APK build passed; `apksigner verify --verbose --print-certs`
-  passed and `aapt dump badging` confirmed application ID/min SDK 24/target SDK 36.
-  Final-source APK pair, full Android lint/instrumentation compilation and final
-  browser rerun are being validated; results below must be updated before delivery.
+- Final `npx playwright test --workers=2`: all 117 cases passed across desktop
+  Chromium, mobile Chromium and mobile WebKit emulation, against fixed build
+  assets after both signed APKs were rebuilt. This includes the legacy-draft
+  focus/value regression, native haptic preference, Back, warm/cold fake-provider
+  returns, chooser cancellation and actual previewed restore across isolated
+  browser/PWA and synthetic-Android storage contexts.
+- Final-source signed APK pair passed; `apksigner verify --verbose --print-certs`
+  passed for both, with the same certificate. `aapt dump badging` confirmed
+  application ID/min SDK 24/target SDK 36 and increasing version codes 1 and 2.
+  Each APK contains all 29 files from the checked web build byte-for-byte, verified
+  by SHA-256 against the unzipped APK entries. Final application/test source: `4ee211abfda1580e89b3e1856a207684af6c76ec`.
+- `:app:lintRelease :app:assembleDebugAndroidTest`: passed. Lint reports zero errors
+  and ten warnings (template ordering/unused resources, original icon shape/density
+  and available dependency updates). No suppressed failing check. Do not upgrade
+  Gradle/AndroidX solely to silence version notices. The app instrumentation APK
+  compiled; it was not executed on a device.
+- GitHub quality, browser and Android CI plus CodeQL passed at `b739648`:
+  [CI](https://github.com/byshriv/Replift/actions/runs/40742839554),
+  [CodeQL](https://github.com/byshriv/Replift/actions/runs/40742839678).
+  The final documentation/CI-scoping follow-up needs its own current-head checks.
 - ADB `devices -l`: no connected devices. No physical installation, hardware
   haptics, actual chooser destination, on-device upgrade or live Dropbox claim.
+
+Local signed artifacts (ignored `artifacts/`, not a published GitHub release):
+
+| File                   | Version code | SHA-256                                                            |
+| ---------------------- | ------------ | ------------------------------------------------------------------ |
+| `replift-phase6-1.apk` | 1            | `3579f4992d47364c6a3607cfd9ba60ed2c19f01828367003d093ba25430e1021` |
+| `replift-phase6-2.apk` | 2            | `8cb90cb22ac4b794cedc1be98f2f031f61ede00588680883915a8feaa2aba0fe` |
+
+Signer certificate SHA-256:
+`68f5c4b83557eb6a6f14ff080fd48a1ad7154dc31746727cb2869562bc31e55c`.
+These are synthetic-data review/upgrade-rehearsal builds. Signature equivalence is
+verified; successful same-key installation and preserved data are not yet verified.
 
 ## Investigation and harness limits
 
@@ -57,6 +86,13 @@ served assets, making reload/dynamic-import failures ambiguous, and a WebKit
 conflict test timed out under load. Final builds and browser validation are run
 sequentially against fixed assets. These failed attempts are not claimed as passes.
 
+The next immutable-build run passed 116/117 and exposed a real legacy-draft input
+identity defect: first-edit ID assignment changed the React set key from an index
+to an ID, remounting an adjacent input and potentially losing its in-flight input
+event/focus. The key now uses the same deterministic identity before and after ID
+assignment. The haptic browser case also asserts that the adjacent field keeps
+focus and its typed value. Both signed APKs were rebuilt after this correction.
+
 The Android browser harness injects synthetic Capacitor plugin calls/events into
 desktop/mobile Chromium and WebKit. It checks UI integration, cold/warm duplicate
 returns against a fake provider, Back, haptic preference, chooser cancellation,
@@ -69,8 +105,11 @@ share cache behavior. Native instrumentation compilation is not device execution
 The first instrumentation assembly exposed conflicting transitive Kotlin stdlib
 versions (1.8.22 versus the old split jdk8 1.6.21). The application and Android-test
 configurations now use the Kotlin 2.2.20 BOM, matching the filesystem plugin's
-toolchain. The checks must pass again after this correction; release-build success
-alone did not exercise instrumentation dependencies. See the [Kotlin alignment
+toolchain. A subsequent unscoped Gradle invocation also attempted unrelated
+generated Cordova plugin instrumentation and failed its old stdlib dependency
+mix. Scoped application lint and instrumentation assembly passed; no third-party
+test result is claimed. Release-build success alone did not exercise the app's
+instrumentation dependencies. See the [Kotlin alignment
 guidance](https://kotlinlang.org/docs/gradle-configure-project.html).
 
 ## Outstanding acceptance

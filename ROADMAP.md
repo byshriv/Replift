@@ -1,5 +1,17 @@
 # Replift roadmap
 
+## Latest session - Phase 6 Android review delivery, 2026-10-28
+
+The user authorized Phase 6 implementation, routine technical choices, signing, checks and branch/PR publication. Work started from fetched main `91db66cbf78481838b141eac03d2bdfd77d0a317`: the owner merged Phase 5 PR #11. This carries forward the latest parent closure and supersedes older Phase 5-open/Phase 6-not-started statements below.
+
+Android implementation is on `phase-6-android`, in open, unmerged [draft PR #12](https://github.com/byshriv/Replift/pull/12). Capacitor packages the existing React build with app ID `io.github.byshriv.replift`, external-browser PKCE warm/cold returns and account preview, Back hierarchy/unsaved-exit protection, optional haptics, native PNG/JSON sharing and explicit PWA/APK backup transfer. Existing persistence/sync/schema and all original data are retained. The browser/PWA and APK have separate storage. Production, Cloudflare/DNS and the sole Old Replift Deployment baseline remain unchanged; no E2EE, other demo, new intro MP4, merge or release publication.
+
+Current local evidence: lint/format/strict types/build, 103 unit/integration tests, 18 seeded stress tests (28,500 actions), 117 browser cases, Android app release lint and instrumentation compilation passed. Both original/reference ten-file SHA-256 sets match. Two signed APKs with version codes 1 and 2 verify against the same external RSA-4096 certificate; all 29 packaged web assets match the checked build. See `docs/phase-6-verification.md` and `docs/android.md` inside repository/ for exact revisions, hashes, failed-run investigations, limits and device instructions. No earlier test claims were inherited as verification.
+
+The owner confirmed there was no existing key and authorized a new one. Key/config are retained outside the repository with restricted filesystem access; no signing secrets were committed or uploaded. An independent encrypted/offline backup still needs owner verification. ADB found no connected device: physical installation, same-key upgrade/data preservation, live Dropbox/console return, hardware haptics and real share recipients remain unverified. Capacitor is provisional for release until these checks pass. Large-data/32 MiB capacity, interruption, owner assets/URLs/legal and existing release gates remain open.
+
+Next: review PR #12 and its actual current-head checks; perform the documented disposable-device/live Dropbox and signing-key-backup drills and record evidence. This delivery does not close Phase 6's physical-device acceptance. Mandatory Phase 7 owner corrections/parity acceptance remains before Phase 8 release/cutover. Do not merge/deploy automatically.
+
 ## Phase 5 implementation snapshot - 2026-10-28
 
 Phase 4 PR #10 is merged; Phase 5 implementation is published for review in [PR #11](https://github.com/byshriv/Replift/pull/11) on `phase-5-pwa-polish`, starting from latest fetched main. Offline/install/waiting updates, mobile/accessibility/bundle polish, sharing fallbacks, GitHub feedback, optional-link placeholders and legal/local-deletion review are implemented with existing persistence/sync.
@@ -62,8 +74,8 @@ Phase numbers here replace ambiguous historical Zip numbers. Phase scope remains
 | 2     | Durable local saving, routine editor and top bar   | Complete — PR #8 merged                       |
 | 3     | Optional Dropbox sync and conflict management      | Implemented; PR review and live gates pending |
 | 4     | Complete React production port with feature parity | Implemented; review pending                   |
-| 5     | PWA, feedback, assets and polish                   | Not started                                   |
-| 6     | Android APK                                        | Not started                                   |
+| 5     | PWA, feedback, assets and polish                   | Complete — PR #11 merged                      |
+| 6     | Android APK                                        | Implemented; review/device acceptance pending |
 | 7     | Owner review, corrections and demo parity          | Planned; owner review pending                 |
 | 8     | Beta, migration rehearsal and v1.0.0 release       | Not started                                   |
 

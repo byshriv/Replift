@@ -1,5 +1,20 @@
 # Replift open items
 
+## Latest session - Phase 6 Android review delivery, 2026-10-28
+
+- [x] Explicit Phase 6 go, latest main and parent Phase 5 closure carried into the implementation branch.
+- [x] Capacitor wrapper, browser PKCE return/account preview, app ID, Back, haptics, native sharing and explicit data-transfer guidance.
+- [x] Local lint/format/types/build, 103 unit/integration, 18 stress tests (28,500 actions), 117 browser cases and both ten-file baseline hashes.
+- [x] Signed APK pair (version codes 1 and 2), same certificate and all 29 packaged web assets verified. Android app lint and instrumentation assembly passed; instrumentation not executed.
+- [x] Publish [draft PR #12](https://github.com/byshriv/Replift/pull/12); inspect its actual final-head checks before merge.
+- [ ] Real Android install, same-key update preserving all data/drafts/photos/pending work, offline restart and interruption checks.
+- [ ] Exact Dropbox console native redirect, actual external-browser warm/cold return, cancellation/revocation/reconnect and live two-device transfer.
+- [ ] Hardware haptics/Back/keyboard/insets, actual chooser recipients and PWA ↔ APK transfer on a physical device.
+- [ ] Verify independent encrypted/offline backup of the external signing key and credentials; local retention alone is not an independent backup.
+- [ ] Large-data/32 MiB capacity, owner artwork/content/URLs/legal approval, mandatory Phase 7 owner acceptance and Phase 8 release gates.
+
+No connected ADB device was available. Implementation is reviewable, but Phase 6 device acceptance is open. Production and originals remain unchanged. See repository/docs/android.md and repository/docs/phase-6-verification.md; older checklists below are historical.
+
 ## Phase 5 current resolution - 2026-10-28
 
 - [x] Explicit go; latest main/merged Phase 4 carried into the Phase 5 branch.
