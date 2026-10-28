@@ -6,7 +6,7 @@
 - [x] Offline packaged shell/fonts/chunks, manifest/original icons, installation guidance and safe waiting updates.
 - [x] Mobile/accessibility/bundle review, sharing/PNG fallback, GitHub drafts and deletion/legal review.
 - [x] Local lint/format/strict types/build, 94 unit/integration, 15 stress tests (22,500 actions), 99 browser cases and both ten-file baseline hashes passed.
-- [ ] Publish review PR and inspect its final-head checks (delivery record follows).
+- [x] Publish review [PR #11](https://github.com/byshriv/Replift/pull/11); inspect its current head checks before any merge.
 - [ ] Agree/complete the physical-device checklist in docs/pwa.md inside repository/; real installed/native-sharing/live Dropbox evidence remains pending.
 - [ ] Supply/confirm socials, donation, Dropbox-help video and broader privacy URLs. The old policy URL failed HEAD 404 and normal GET timeout; VITE_LINK_PRIVACY remains blank.
 - [ ] Exercise illustrations, final installation-icon and legal approval; existing user images remain intact.

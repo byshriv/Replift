@@ -8,7 +8,7 @@ Implemented offline shell/fonts/assets, manifest/original icons, install guidanc
 
 Current local evidence: lint/format/strict types/build, 94 unit/integration tests, 15 stress tests (22,500 seeded actions), all 99 browser cases, and both ten-file baseline SHA-256 checks passed. Browser checks include actual workers, two-window updates and persistent WebKit browser closure/offline relaunch; Chromium uses the standard context for offline window reopening. Real phones/installed native sharing/user-credential Dropbox remain unverified. The broader privacy URL failed HEAD (404) and GET (timeout), and is explicitly pending owner confirmation, alongside remaining content/artwork/legal gates. See docs/phase-5-verification.md and docs/pwa.md inside repository/.
 
-PR publication/final-head CI evidence follows. Production, Cloudflare and DNS are unchanged. No merge/deployment. Phase 6 requires its own request; Phase 7 owner parity/correction acceptance remains mandatory before Phase 8 release.
+[PR #11](https://github.com/byshriv/Replift/pull/11) is open and unmerged. Published implementation: `72b8b16dea360cf47dba0ca5bbf46e775188440d`; tree `335915a7b88a134c680a5a560d4aeb6b7545666a`, identical to the verified local commit. CI evidence is recorded in the Phase 5 verification document. Production, Cloudflare and DNS are unchanged. No merge/deployment. Phase 6 requires its own request; Phase 7 owner parity/correction acceptance remains mandatory before Phase 8 release.
 
 ## Latest session — Phase 4 React UI/domain port, 2026-10-28
 

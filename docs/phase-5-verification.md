@@ -32,3 +32,9 @@ No physical phone, installed Safari/Chrome home-screen launch, actual native sha
 ## Final delivery record
 
 Local check pipeline passed: 94 unit/integration tests and 15 stress tests (22,500 actions). Final full browser run passed 99/99. Two additional concurrent persistent-profile WebKit update/offline-relaunch trials passed. Source commit, PR, final-head CI and artifacts are recorded after publication below.
+
+Published in [PR #11](https://github.com/byshriv/Replift/pull/11), open and unmerged. Implementation commit: `72b8b16dea360cf47dba0ca5bbf46e775188440d`; tree: `335915a7b88a134c680a5a560d4aeb6b7545666a`. The GitHub integration published exactly the tree checked locally at `2eb2b8f5ccf289673d95b020adaef2eeab2fcc85`; local checkout was aligned only after tree equality and a clean worktree were verified. Git push had stalled, so no credential extraction or alternative authentication was used.
+
+Source ZIP was verified against all 124 committed files and preview ZIP against all 19 checked build files; both ZIP CRCs and SHA-256 archive sums passed. Artifacts are local/ignored, not a production deployment. Delivery packaging regenerates source ZIP from HEAD after this documentation-only follow-up; application, tests and build assets remain unchanged. Final-head CI must be inspected in the PR before merge.
+
+GitHub implementation-head [quality/browser CI](https://github.com/byshriv/Replift/actions/runs/40709217175) and [CodeQL](https://github.com/byshriv/Replift/actions/runs/40709217187) both passed on `72b8b16dea360cf47dba0ca5bbf46e775188440d`. This follow-up changes documentation only. Check the final PR head independently before merge; implementation-head results are not substituted for its checks.

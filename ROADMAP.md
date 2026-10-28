@@ -2,7 +2,7 @@
 
 ## Phase 5 implementation snapshot - 2026-10-28
 
-Phase 4 PR #10 is merged; Phase 5 implementation is ready for PR publication on `phase-5-pwa-polish`, starting from latest fetched main. Offline/install/waiting updates, mobile/accessibility/bundle polish, sharing fallbacks, GitHub feedback, optional-link placeholders and legal/local-deletion review are implemented with existing persistence/sync.
+Phase 4 PR #10 is merged; Phase 5 implementation is published for review in [PR #11](https://github.com/byshriv/Replift/pull/11) on `phase-5-pwa-polish`, starting from latest fetched main. Offline/install/waiting updates, mobile/accessibility/bundle polish, sharing fallbacks, GitHub feedback, optional-link placeholders and legal/local-deletion review are implemented with existing persistence/sync.
 
 Local checks passed: 94 unit/integration, 15 seeded stress tests (22,500 actions), 99 browser cases, lint/format/types/build and both baseline checksum sets. See docs/phase-5-verification.md and docs/pwa.md in repository/. Physical-device/live Dropbox, missing owner content/URLs and legal/icon approval remain gates. Production unchanged; no merge or deployment. Phase 6 requires a new implementation request. Phases 7 and 8 retain their mandatory owner-review/release scope.
 
