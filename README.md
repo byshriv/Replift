@@ -2,9 +2,10 @@
 
 Free, open-source, local-first workout logger. Copyright Shriv.
 
-Phase 1 foundation preview. **Not a replacement for the live logger.** Logging,
-IndexedDB migration, Dropbox sync and production PWA behavior are later phases.
-The preview never reads or writes existing workout data. No deployment is configured.
+Phase 2 local reliability preview. **Not a replacement for the live logger.**
+IndexedDB migration and autosaved inline routine editing are available. Legacy
+`replift.v1` is retained unchanged. Workout logging, full feature parity, Dropbox
+transport and production PWA behavior remain later work. No deployment is configured.
 
 ## Run locally
 
@@ -15,9 +16,11 @@ npm ci
 npm run dev
 ```
 
-Open the printed localhost URL. Home explains the preview, Library shows the 420
-preserved exercises with read-only search, and other tabs state their implementation
-status. Fonts ship locally. There are no accounts, analytics or Replift backend.
+Open the printed localhost URL. Workout contains programs and inline routine defaults;
+Library contains the preserved 420-exercise catalogue. A date/storage/profile top bar
+appears on every main tab. Use synthetic data first; the preview has separate storage
+from the live origin. See [local storage and recovery](docs/local-storage.md) before
+testing migration with copies. Fonts ship locally. No accounts, analytics or Replift backend.
 
 The sole baseline is preserved byte-for-byte under `reference/Replift-PWA`.
 Run `npm run baseline:verify` to verify the 10 SHA-256 entries. Run `npm run reference`
@@ -34,8 +37,9 @@ npm run test:browser
 npm run artifacts
 ```
 
-`check` runs baseline integrity, lint, formatting, strict types, unit tests, three
-seeded 5,000-action stress runs and build. Browser checks use the production build
+`check` runs baseline integrity, lint, formatting, strict types, unit/integration tests,
+three seeded 5,000-action navigation runs, three seeded 400-action persistence runs
+and build. Browser checks use the production build
 on desktop/mobile Chromium and mobile WebKit emulation. Run `npm run build` before
 browser checks/artifacts. ZIPs in `artifacts/` contain source at committed HEAD and
 the preview static build, plus SHA-256 sums. Do not deploy this preview to production.

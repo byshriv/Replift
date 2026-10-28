@@ -1,14 +1,18 @@
+import { useEffect, useState } from 'react';
 import {
   Activity,
   BookOpen,
   Dumbbell,
   House,
   Settings,
-  ShieldCheck,
+  UserRound,
+  HardDrive,
 } from 'lucide-react';
 import { catalogue } from './data/catalogue';
 import { filterExercises } from './domain/exercise';
 import { tabs, useNavigation } from './state/navigation';
+import { useLocal } from './state/local';
+import Routines from './features/Routines';
 const icons = {
   Home: House,
   Stats: Activity,
@@ -16,55 +20,148 @@ const icons = {
   Library: BookOpen,
   Settings,
 };
-const pending = {
-  Stats:
-    'Your charts, measurements and progress photos will return with the feature port.',
-  Workout:
-    'Workout logging and draft recovery will return after the local storage engine is rebuilt.',
-  Settings:
-    'Profiles, units and optional Dropbox sync will return in later phases.',
-};
+
 export default function App() {
   const { tab, query, navigate, search } = useNavigation();
+  const local = useLocal();
+  const [details, showDetails] = useState(false);
+  const [now, setNow] = useState(() => new Date());
+  useEffect(() => {
+    void useLocal.getState().load();
+    const timer = setInterval(() => setNow(new Date()), 60_000);
+    return () => clearInterval(timer);
+  }, []);
   const results = filterExercises(catalogue, query);
+  const status = local.fatal
+    ? 'Storage unavailable'
+    : local.error
+      ? 'Not saved'
+      : local.queued
+        ? 'Saving locally…'
+        : local.snapshot
+          ? 'Saved on this device'
+          : 'Opening storage…';
   return (
     <div className="shell">
       <a className="skip" href="#main">
         Skip to content
       </a>
-      <header>
-        <span className="brand">
-          <Dumbbell aria-hidden="true" /> Replift
-        </span>
-        <span className="badge">Phase 1 preview</span>
+      <header className="topbar">
+        <time dateTime={now.toLocaleDateString('en-CA')}>
+          {now.toLocaleDateString(undefined, {
+            weekday: 'short',
+            month: 'short',
+            day: 'numeric',
+          })}
+        </time>
+        <div className="top-actions">
+          <button
+            className="local-status"
+            onClick={() => showDetails(!details)}
+            aria-expanded={details}
+          >
+            <HardDrive size={17} aria-hidden="true" />
+            {status}
+          </button>
+          <button
+            className="icon-button"
+            aria-label="Open profile"
+            onClick={() => navigate('Settings')}
+          >
+            <UserRound size={21} />
+          </button>
+        </div>
       </header>
+      {details && (
+        <section className="card" aria-label="Storage and sync status">
+          <h2>Local storage</h2>
+          <p>{status}</p>
+          <p>
+            Dropbox is not connected in this preview. Transport arrives in Phase
+            3.
+          </p>
+          <p>
+            {local.snapshot?.pending ?? 0} local changes pending future sync. No
+            cloud acknowledgement has occurred.
+          </p>
+          <p>
+            Local browser storage can be cleared by the browser or device. Keep
+            the original legacy copy until a complete backup and restore has
+            been verified.
+          </p>
+        </section>
+      )}
+      <p className="badge">
+        Phase 2 development preview · production unchanged
+      </p>
+      {local.error && (
+        <section role="alert" className="card error">
+          <h2>
+            {local.fatal
+              ? 'Local storage needs attention'
+              : 'Changes are not saved'}
+          </h2>
+          <p>{local.error}</p>
+          <p>
+            Keep this tab open while unsaved edits remain. Original data has not
+            been erased.
+          </p>
+          <button onClick={local.retry}>
+            {local.fatal ? 'Retry storage' : 'Retry saving'}
+          </button>
+          {!local.fatal && (
+            <button
+              onClick={() => {
+                if (
+                  window.confirm(
+                    'Discard only the unsaved edits in this tab? Saved data and recovery points will be retained.',
+                  )
+                )
+                  local.discard();
+              }}
+            >
+              Discard unsaved edits
+            </button>
+          )}
+        </section>
+      )}
+      <p className="save-status" aria-live="polite">
+        {status}
+      </p>
       <main id="main" tabIndex={-1}>
         <p className="eyebrow">LOG AFTER YOUR SETS, NOT BETWEEN THEM.</p>
-        <h1>{tab === 'Home' ? 'A stronger foundation.' : tab}</h1>
+        <h1>{tab === 'Home' ? 'Your routines, saved here.' : tab}</h1>
         {tab === 'Home' ? (
           <>
-            <p className="lead">
-              The next chapter of your quiet workout logger.
-            </p>
             <section className="card">
-              <ShieldCheck aria-hidden="true" />
               <h2>Built around your data</h2>
               <p>
-                This is a development preview. Workout logging, local saving and
-                Dropbox sync are not available yet.
+                Routines save locally as you edit. Legacy history, measurements,
+                photos and other collections are retained; their full screens
+                return in later phases.
               </p>
-              <p>Your existing workouts are not loaded or changed here.</p>
+              {local.snapshot && (
+                <p>
+                  {local.snapshot.data.wk.length} workouts ·{' '}
+                  {local.snapshot.data.ph?.length ?? 0} photos retained
+                </p>
+              )}
+              <button onClick={() => navigate('Workout')}>
+                Edit routines <Dumbbell size={18} />
+              </button>
             </section>
             <section className="card">
               <h2>420 exercises, preserved</h2>
-              <p>
-                The original exercise identities and order are carried forward
-                from the deployed baseline.
-              </p>
               <button onClick={() => navigate('Library')}>
-                Explore the library <BookOpen size={18} aria-hidden="true" />
+                Explore the library <BookOpen size={18} />
               </button>
             </section>
+          </>
+        ) : tab === 'Workout' ? (
+          <>
+            <p className="lead">Programs and routine defaults</p>
+            <Routines />
+            <p>Workout logging returns in Phase 4.</p>
           </>
         ) : tab === 'Library' ? (
           <>
@@ -95,27 +192,38 @@ export default function App() {
             </ul>
             {!results.length && <p>No exercises match your search.</p>}
           </>
+        ) : tab === 'Settings' ? (
+          <section className="card">
+            <h2>Local profile</h2>
+            <p>
+              {[local.snapshot?.data.pf?.fn, local.snapshot?.data.pf?.ln]
+                .filter((x) => typeof x === 'string')
+                .join(' ') || 'No profile name saved'}
+            </p>
+            <p>
+              Profile editing and other settings return with the feature port.
+            </p>
+            <p>Dropbox is not connected in this preview.</p>
+            <a
+              href="https://github.com/byshriv/Replift/issues/new/choose"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Report an issue on GitHub
+            </a>
+            <p>
+              Issues are public. Include only reproduction steps; exclude
+              workouts, backups and connection details.
+            </p>
+            <a href="mailto:support@shriv.work">support@shriv.work</a>
+          </section>
         ) : (
           <section className="card">
             <h2>Coming in a later phase</h2>
-            <p>{pending[tab]}</p>
-            <p>This preview does not access workout storage.</p>
-            {tab === 'Settings' && (
-              <>
-                <a
-                  href="https://github.com/byshriv/Replift/issues/new/choose"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Report an issue on GitHub
-                </a>
-                <p>
-                  Issues are public. Include only reproduction steps; exclude
-                  workouts, backups and connection details.
-                </p>
-                <a href="mailto:support@shriv.work">support@shriv.work</a>
-              </>
-            )}
+            <p>
+              Charts, measurements and progress photo screens return with the
+              feature port. Existing data is retained in local storage.
+            </p>
           </section>
         )}
       </main>

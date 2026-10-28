@@ -1,5 +1,9 @@
 # Foundation architecture
 
+## Phase 2 update — 2026-10-28
+
+The historical Phase 1 description below is superseded for storage/UI behavior. `src/domain/local.ts` owns pure legacy validation and routine commands; `src/data/local.ts` owns migration and native IndexedDB transactions; `src/state/local.ts` owns the save queue, visible failure/retry state and tab refresh; `src/features/Routines.tsx` owns inline routine editing and picker closure. The app now reads legacy data once for verified migration without rewriting it. See [local storage contract](local-storage.md). No provider transport, worker or full feature port is implemented.
+
 Phase 1 establishes the agreed React / strict TypeScript / Vite stack. `src/domain/exercise.ts` validates the bundled catalogue through Zod; it is pure and independent of React or storage. `src/data/catalogue.ts` loads the baseline-derived tuples. `src/state/navigation.ts` uses transient Zustand state. `src/App.tsx` is a preview shell with Lucide icons and a read-only library. Fonts are bundled locally through Fontsource.
 
 Future boundaries, not implemented modules: data/persistence owns IndexedDB transactions and migrations; sync/core owns deterministic merges and retained alternatives; sync/dropbox owns OAuth/HTTP/revisions; sync/scheduler owns serialized discovery/retry; features owns vertical UI slices; platform owns PWA/Android behavior. The unavailable engine must be rebuilt, not represented by placeholder implementations. No borrowed Sailor/Liftosaur engine code is included.

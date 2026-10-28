@@ -1,5 +1,15 @@
 # Replift open items
 
+## Latest session — Phase 2 implementation, 2026-10-28
+
+The user explicitly authorized Phase 2 implementation, routine technical decisions and branch/PR publication. Work starts from fetched main `192e5caa7bf0785f40122a97226d4d451781147a` (Phase 1 PR #1 merged). Owner-reported protection/Dependabot settings remain uninspected. This entry supersedes historical planning-only and Phase 1 open/unmerged statements below.
+
+Implementation in `repository/` on `phase-2-local-reliability`: native IndexedDB atomic data/pending/version writes; non-destructive legacy migration with all collections/embedded photos and unknown fields retained; private connection metadata isolation; recovery snapshots and persistent removal Undo; immediately saved routine names/weekdays/selections/raw set drafts; all-main-tab date/storage/profile bar. Old-client divergence and invalid/unsupported data block editing without resetting it. No Dropbox transport, E2EE, worker, merge or deployment. Only the Old Replift Deployment baseline was used; originals remain untouched.
+
+Checks: lint, format, strict types, 29 unit/integration tests, six seeded stress runs (15,000 navigation + 1,200 persistence actions), build and baseline checksums passed locally. All 33 browser checks passed across desktop/mobile Chromium and mobile WebKit emulation. PR publication is in progress; see [Phase 2 evidence](docs/phase-2-verification.md). Physical devices, live Dropbox, hardware interruption, large real-data migration, full portable backup/restore and complete feature parity remain untested/later gates. Failed writes remain visibly unsaved in memory; never promise survival after closing a failed-write tab.
+
+Next: review Phase 2 PR and actual CI evidence before merge. Phase 3 is optional Dropbox transport/conflict work under its own implementation authorization. Production is unchanged.
+
 ## Phase 1 current resolution — 2026-10-28
 
 - [x] Explicit user go and scope: foundation/baseline inventory/CI/tests/docs/branch/PR, production unchanged.
@@ -8,7 +18,7 @@
 - [x] Support email, Lucide, no intro MP4, GitHub instead of Forms, E2EE excluded — settled decisions.
 - [x] PR #1 opened; GitHub quality/browser/CodeQL passed on implementation commit.
 - [ ] Enable main protection and squash-only workflow: settings API unavailable and browser signed out. See docs/repository-workflow.md for exact steps.
-- [ ] Phase 2: rebuild persistence engine and prove non-destructive migration; implement top bar, autosaved inline routines and Undo.
+- [x] Phase 2 implemented with synthetic migration/atomicity/Undo/top-bar evidence; PR review remains.
 - [ ] Live Dropbox, physical devices, installed/offline PWA, full feature parity and production equivalence remain unverified.
 - [ ] Cloudflare account/project/domain migration rehearsal; actual settings untouched.
 - [ ] Later content and detailed feedback/deletion UX still pending.
