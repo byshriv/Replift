@@ -1,0 +1,32 @@
+# Phase 4 verification — React UI and domain port
+
+Date: 2026-10-28 (Asia/Calcutta). Branch: `phase-4-react-port`, based on fetched `main` `7ba12150f17610b4b55be89e41a221bdabc8b11b` (merged Phase 3). Existing owner-review planning changes were preserved. No merge or deployment occurred.
+
+## Implementation
+
+The React app now exposes logging, reconstruction, finish/history/cards, programs/templates, library/custom exercises, dashboards/charts/calendar/muscles/recovery, measurements/photos, profile/settings/onboarding and device deletion. It reuses the Phase 2 save queue/IndexedDB transactions and Phase 3 record sync, OAuth, conflict review and complete backup/recovery. See [parity map](phase-4-parity.md).
+
+No database version or sync protocol version changes. Workout item/set identities are added when logging is edited; original migration copies stay intact. UI commands carry draft/item/set identities so stale menus cannot edit a different row after another tab changes the draft. Destructive operations capture recovery in the same transaction. Routine editing continues to preserve unrelated legacy drafts without modifying them merely because the tab is opened.
+
+New photos have a JPEG preview (maximum 480 px, quality 0.78) and retain the original data URL in `originalImg`. Both survive complete export and the existing immutable-photo transport. Compression failure retains the original for saving. Existing photos are never recompressed. Finishing with a new workout photo also adds it to Progress photos. No source cleanup or automatic retention pruning.
+
+Explicit local profile deletion/logout disconnects the local connection and clears only Replift's IndexedDB stores plus the named legacy/OAuth/base keys on this origin. It requires a warning about pending changes and typed confirmation; profile deletion also has eight reasons, conditional text and optional public GitHub feedback. Dropbox files and unrelated origin keys remain untouched. This is the explicitly requested erase flow, not sync conflict handling or a migration fallback.
+
+## Current checks
+
+- `npm run check`: passed baseline SHA-256, ESLint 9, Prettier, strict TypeScript 5.9, **89 unit/integration tests**, **12 seeded stress tests**, production build.
+- Stress: existing 17,100 navigation/storage/sync actions plus 2,400 new workout/domain actions = **19,500 actions**. New seeds: 404, 20261028, 4207849484; 800 actions each and 22 database restarts per seed. Assertions track finished-workout identities, unchanged photos/unknown fields, measurement counts, atomic failed operations, saved drafts and sync materialization. The new stress timeout is explicitly 120 seconds; observed suite duration was about 29 seconds.
+- Estimator: four golden fixtures execute the actual sole baseline `recon` function with synthetic data and compare weights, reps and probabilities to 12 decimal places. Also tests abstention and exclusions. All 18 baseline templates resolve permanent catalogue IDs, with at least two templates per 1–7-day count.
+- Integration: failed recovery persistence aborts a deletion; restart retains draft input; finish and sync state commit together; independent measurement/workout changes converge; stale set/draft operations reject without changing saved state; revision-checked device erasure leaves another database intact.
+- Original `../Old Replift Deployment/Replift-PWA` and archived `reference/Replift-PWA` each matched all **10** recorded SHA-256 entries. No non-Dropbox demo was accessed.
+- Final browser run: **81/81 passed** (27 cases across desktop Chromium, mobile Chromium and mobile WebKit emulation), against the final build after activity-grid/scroll fixes. Includes existing current fake-provider sync cases, logging/reload/finish/history, custom library/favourites, onboarding persistence, measurement/profile/layout persistence, reconstruction, compressed-photo/original roundtrip and comparison, sheet Back hierarchy, full local erasure and PNG download.
+
+Earlier attempts are not final evidence: initial stress cases exceeded Vitest's default five-second timeout; the explicit longer timeout allowed the full invariant run. Initial browser runs exposed exact-label selectors, ambiguous status selectors, a missing issue link in the storage-failure screen, and a muscle-group centre click that landed between the painted shapes. Labels/link were corrected; the diagram now exposes its interactive groups accessibly and the test checks keyboard selection. Visual review also caught a narrow-screen activity grid overflowing its half-width card; it now spans the full grid, with card-content bounds asserted. Tab switches reset scroll position. Final desktop/mobile screenshots in `artifacts/phase-4-*.png` were visually inspected. A later final rerun passed 80/81: the fake-provider conflict test accepted a previous acknowledgement before a newly requested cycle ran. Manual requests now immediately show “Sync requested…” and the test waits for the persisted conflict decision before requesting the next cycle. After the correction, the full 81-case suite passed again, then all nine additional conflict/reconnect repetitions passed (three per browser). These failures were not waived.
+
+Vite reports a JavaScript chunk over 500 kB (about 534 kB uncompressed / 151 kB gzip) and removes two upstream Zod purity comments. Build succeeds. Large-data capacity, long-history rendering and bundle/performance polish remain release checks, not proved by synthetic fixtures.
+
+## Live testing — separate evidence
+
+**No user-credential Dropbox requests or physical-phone tests were performed.** Browser tests use disposable synthetic data and a fake Dropbox provider. Emulated Pixel/iPhone viewports are not physical devices. Native share sheets/audio/haptics, installed/offline PWA, mobile keyboard/gesture behavior on hardware, Dropbox console configuration, real two-device/revoke/account-switch trials, hardware interruption and realistic large-data migration remain unverified. The existing 32 MiB import/provider limit remains visible and unchanged; keeping original image bytes increases storage/backup size.
+
+Phase 5 retains service-worker/install/offline/update handling, external content/assets and polish; Phase 6 retains Android/APK behavior. Phase 7 owner review and explicit parity acceptance remains mandatory before Phase 8 release. This review build must not replace production.

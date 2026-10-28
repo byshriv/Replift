@@ -1,5 +1,11 @@
 # Launch plan and release gates
 
+## Mandatory owner review gate — v1.0.0
+
+Before any v1.0.0 production deployment, complete ROADMAP Phase 7 and record the owner's explicit completion confirmation and reviewed revision in `areas/v1-owner-feedback.md`. Every accepted v1.0.0 feedback item must have verification evidence and owner acceptance, or an explicit owner-approved deferral with reason and release impact recorded. No unresolved data-loss or other release blockers may remain. Feedback includes previously unreported bugs, UI/UX corrections, requested additions and parity with only Old Replift Deployment.
+
+Phase 8 performs beta, migration rehearsal and release. New findings reopen affected review items and require renewed acceptance before cutover. Phase 7 acceptance supplements all gates below and does not authorize deployment. GitHub feedback/issues remain the approved feedback integration; older Forms references are superseded.
+
 Updated: 2026-10-28. All gates pending. This file is a release checklist, not evidence of completion.
 
 ## Gate 1 — scope and parity

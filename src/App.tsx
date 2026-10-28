@@ -8,11 +8,14 @@ import {
   UserRound,
   HardDrive,
 } from 'lucide-react';
-import { catalogue } from './data/catalogue';
-import { filterExercises } from './domain/exercise';
 import { tabs, useNavigation } from './state/navigation';
 import { useLocal } from './state/local';
 import Routines from './features/Routines';
+import Workout from './features/Workout';
+import Library from './features/Library';
+import Stats, { Dashboard } from './features/Dashboard';
+import SettingsPanel from './features/Settings';
+import Onboarding from './features/Onboarding';
 import SyncPanel from './features/Sync';
 import { initializeSync, useSync } from './state/sync';
 const icons = {
@@ -24,18 +27,53 @@ const icons = {
 };
 
 export default function App() {
-  const { tab, query, navigate, search } = useNavigation();
+  const { tab, navigate } = useNavigation();
   const local = useLocal();
   const sync = useSync();
   const [details, showDetails] = useState(false);
+  const [backHint, setBackHint] = useState(false);
+  const [touchStart, setTouchStart] = useState<{ x: number; y: number } | null>(
+    null,
+  );
   const [now, setNow] = useState(() => new Date());
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, [tab]);
+  useEffect(() => {
     void useLocal.getState().load();
-    void initializeSync();
+    let active = true,
+      exitArmed = 0;
+    void initializeSync().finally(() => {
+      if (active && !history.state?.repliftGuard)
+        history.pushState({ repliftGuard: true }, '');
+    });
+    const back = () => {
+      if (document.querySelector('dialog[open]')) {
+        history.pushState({ repliftGuard: true }, '');
+        return;
+      }
+      if (useNavigation.getState().tab !== 'Home') {
+        useNavigation.getState().navigate('Home');
+        history.pushState({ repliftGuard: true }, '');
+        return;
+      }
+      if (Date.now() - exitArmed < 2000) {
+        history.back();
+        return;
+      }
+      exitArmed = Date.now();
+      setBackHint(true);
+      history.pushState({ repliftGuard: true }, '');
+    };
+    window.addEventListener('popstate', back);
     const timer = setInterval(() => setNow(new Date()), 60_000);
-    return () => clearInterval(timer);
+    return () => {
+      active = false;
+      clearInterval(timer);
+      window.removeEventListener('popstate', back);
+    };
   }, []);
-  const results = filterExercises(catalogue, query);
+
   const status = local.fatal
     ? 'Storage unavailable'
     : local.error
@@ -46,7 +84,28 @@ export default function App() {
           ? 'Saved on this device'
           : 'Opening storage…';
   return (
-    <div className="shell">
+    <div
+      className="shell"
+      onTouchStart={(e) => {
+        if (
+          !(e.target as HTMLElement).closest(
+            'input,select,button,dialog,.chart,.workout-cards',
+          )
+        )
+          setTouchStart({ x: e.touches[0]!.clientX, y: e.touches[0]!.clientY });
+      }}
+      onTouchEnd={(e) => {
+        if (touchStart) {
+          const dx = e.changedTouches[0]!.clientX - touchStart.x,
+            dy = e.changedTouches[0]!.clientY - touchStart.y;
+          if (Math.abs(dx) > 90 && Math.abs(dy) < 60) {
+            const next = tabs[tabs.indexOf(tab) + (dx < 0 ? 1 : -1)];
+            if (next) navigate(next);
+          }
+          setTouchStart(null);
+        }
+      }}
+    >
       <a className="skip" href="#main">
         Skip to content
       </a>
@@ -108,8 +167,13 @@ export default function App() {
         </section>
       )}
       <p className="badge">
-        Phase 3 development preview · production unchanged
+        Phase 4 development preview · production unchanged
       </p>
+      {backHint && (
+        <p role="status" className="badge">
+          Press Back again to exit.
+        </p>
+      )}
       {local.error && (
         <section role="alert" className="card error">
           <h2>
@@ -146,103 +210,68 @@ export default function App() {
       </p>
       <main id="main" tabIndex={-1}>
         <p className="eyebrow">LOG AFTER YOUR SETS, NOT BETWEEN THEM.</p>
-        <h1>{tab === 'Home' ? 'Your routines, saved here.' : tab}</h1>
+        <h1>
+          {tab === 'Home' ? (
+            <>
+              {now.getHours() < 12
+                ? 'Good morning'
+                : now.getHours() < 17
+                  ? 'Good afternoon'
+                  : 'Good evening'}
+              <br />
+              {String(local.snapshot?.data.pf?.fn || 'Let’s lift.')}
+            </>
+          ) : (
+            tab
+          )}
+        </h1>
         {tab === 'Home' ? (
           <>
-            <section className="card">
-              <h2>Built around your data</h2>
-              <p>
-                Routines save locally as you edit. Legacy history, measurements,
-                photos and other collections are retained; their full screens
-                return in later phases.
-              </p>
-              {local.snapshot && (
-                <p>
-                  {local.snapshot.data.wk.length} workouts ·{' '}
-                  {local.snapshot.data.ph?.length ?? 0} photos retained
-                </p>
-              )}
+            {local.snapshot &&
+              !local.fatal &&
+              !local.snapshot.data.ob?.done &&
+              !local.snapshot.data.wk.length &&
+              !local.snapshot.data.prog.length && <Onboarding />}
+            <Dashboard tab="home" />
+            <div className="sync-actions">
               <button onClick={() => navigate('Workout')}>
                 Edit routines <Dumbbell size={18} />
               </button>
-            </section>
-            <section className="card">
-              <h2>420 exercises, preserved</h2>
               <button onClick={() => navigate('Library')}>
                 Explore the library <BookOpen size={18} />
               </button>
-            </section>
+            </div>
           </>
         ) : tab === 'Workout' ? (
           <>
-            <p className="lead">Programs and routine defaults</p>
-            <Routines />
-            <p>Workout logging returns in Phase 4.</p>
+            <Workout />
+            <details className="card" open>
+              <summary>Edit programs and routines</summary>
+              <Routines />
+            </details>
           </>
         ) : tab === 'Library' ? (
           <>
-            <p className="lead">
-              Read-only catalogue from the preserved baseline.
-            </p>
-            <label htmlFor="search">Search exercises</label>
-            <input
-              id="search"
-              type="search"
-              value={query}
-              onChange={(event) => search(event.target.value)}
-              placeholder="Try bench press"
-            />
-            <p role="status">{results.length} exercises</p>
-            <ul className="exercises">
-              {results.map((exercise) => (
-                <li key={exercise.id}>
-                  <span className="serial">{exercise.serial}</span>
-                  <div>
-                    <h2>{exercise.name}</h2>
-                    <p>
-                      {exercise.muscle} · {exercise.equipment}
-                    </p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-            {!results.length && <p>No exercises match your search.</p>}
+            <Library />
+            <details className="card">
+              <summary>Programs and templates</summary>
+              <Routines />
+            </details>
           </>
         ) : tab === 'Settings' ? (
-          <section className="card">
-            <h2>Local profile</h2>
-            <p>
-              {[local.snapshot?.data.pf?.fn, local.snapshot?.data.pf?.ln]
-                .filter((x) => typeof x === 'string')
-                .join(' ') || 'No profile name saved'}
-            </p>
-            <p>
-              Profile editing and other settings return with the feature port.
-            </p>
-            <SyncPanel />
-            <a
-              href="https://github.com/byshriv/Replift/issues/new/choose"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Report an issue on GitHub
-            </a>
-            <p>
-              Issues are public. Include only reproduction steps; exclude
-              workouts, backups and connection details.
-            </p>
-            <a href="mailto:support@shriv.work">support@shriv.work</a>
-          </section>
+          <SettingsPanel />
+        ) : local.snapshot ? (
+          <Stats />
         ) : (
-          <section className="card">
-            <h2>Coming in a later phase</h2>
-            <p>
-              Charts, measurements and progress photo screens return with the
-              feature port. Existing data is retained in local storage.
-            </p>
-          </section>
+          <p>Opening your stats…</p>
         )}
       </main>
+      {local.snapshot?.data.draft && tab !== 'Workout' && (
+        <button className="draft-bar" onClick={() => navigate('Workout')}>
+          Resume {String(local.snapshot.data.draft.title ?? 'workout')} ·{' '}
+          {status}
+        </button>
+      )}
       <nav aria-label="Main navigation">
         {tabs.map((name) => {
           const Icon = icons[name];

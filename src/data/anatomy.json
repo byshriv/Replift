@@ -1,0 +1,86 @@
+{
+  "sil": "<g fill=\"#282423\" stroke=\"#282423\"><ellipse cx=\"100\" cy=\"30\" rx=\"19\" ry=\"24\"/><rect x=\"89\" y=\"48\" width=\"22\" height=\"22\" rx=\"8\"/><path d=\"M50 82Q58 64 90 64H110Q142 64 150 82L144 150Q140 190 130 218H70Q60 190 56 150Z\"/><path d=\"M48 86L34 150L27 218\" fill=\"none\" stroke-width=\"22\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M85 218L78 320\" fill=\"none\" stroke-width=\"40\" stroke-linecap=\"round\"/><path d=\"M78 322L80 420\" fill=\"none\" stroke-width=\"26\" stroke-linecap=\"round\"/><ellipse cx=\"26\" cy=\"230\" rx=\"8\" ry=\"12\"/><ellipse cx=\"82\" cy=\"433\" rx=\"12\" ry=\"7\"/><g transform=\"translate(200 0) scale(-1 1)\"><path d=\"M48 86L34 150L27 218\" fill=\"none\" stroke-width=\"22\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M85 218L78 320\" fill=\"none\" stroke-width=\"40\" stroke-linecap=\"round\"/><path d=\"M78 322L80 420\" fill=\"none\" stroke-width=\"26\" stroke-linecap=\"round\"/><ellipse cx=\"26\" cy=\"230\" rx=\"8\" ry=\"12\"/><ellipse cx=\"82\" cy=\"433\" rx=\"12\" ry=\"7\"/></g></g>",
+  "body": {
+    "front": {
+      "Chest": {
+        "L": ["<path d=\"M54 82Q72 70 98 80L98 120Q76 130 58 114Z\"/>"]
+      },
+      "Shoulders": {
+        "L": [
+          "<ellipse cx=\"46\" cy=\"93\" rx=\"11\" ry=\"17\" transform=\"rotate(-12 46 93)\"/>"
+        ]
+      },
+      "Biceps": {
+        "L": [
+          "<ellipse cx=\"38\" cy=\"127\" rx=\"8.5\" ry=\"22\" transform=\"rotate(10 38 127)\"/>"
+        ]
+      },
+      "Forearms": {
+        "L": [
+          "<ellipse cx=\"31\" cy=\"184\" rx=\"7\" ry=\"27\" transform=\"rotate(5 31 184)\"/>"
+        ]
+      },
+      "Abs": {
+        "L": [
+          "<ellipse cx=\"76\" cy=\"165\" rx=\"6\" ry=\"30\" transform=\"rotate(-5 76 165)\"/>"
+        ],
+        "C": [
+          "<rect x=\"87\" y=\"128\" width=\"12\" height=\"15\" rx=\"5\"/><rect x=\"101\" y=\"128\" width=\"12\" height=\"15\" rx=\"5\"/>",
+          "<rect x=\"87\" y=\"146\" width=\"12\" height=\"15\" rx=\"5\"/><rect x=\"101\" y=\"146\" width=\"12\" height=\"15\" rx=\"5\"/>",
+          "<rect x=\"87\" y=\"164\" width=\"12\" height=\"15\" rx=\"5\"/><rect x=\"101\" y=\"164\" width=\"12\" height=\"15\" rx=\"5\"/>",
+          "<rect x=\"87\" y=\"182\" width=\"12\" height=\"15\" rx=\"5\"/><rect x=\"101\" y=\"182\" width=\"12\" height=\"15\" rx=\"5\"/>"
+        ]
+      },
+      "Quads": {
+        "L": [
+          "<ellipse cx=\"72\" cy=\"270\" rx=\"14\" ry=\"48\" transform=\"rotate(-4 72 270)\"/>",
+          "<ellipse cx=\"90\" cy=\"284\" rx=\"8\" ry=\"36\"/>"
+        ]
+      },
+      "Calves": {
+        "L": ["<ellipse cx=\"78\" cy=\"372\" rx=\"10\" ry=\"36\"/>"]
+      },
+      "Neck": {
+        "C": ["<ellipse cx=\"100\" cy=\"62\" rx=\"8\" ry=\"9\"/>"]
+      }
+    },
+    "back": {
+      "Back": {
+        "L": ["<path d=\"M62 100L96 134L96 176Q76 176 64 142Z\"/>"],
+        "C": [
+          "<path d=\"M100 62Q118 70 136 86L100 128L64 86Q82 70 100 62Z\"/>",
+          "<rect x=\"84\" y=\"182\" width=\"32\" height=\"24\" rx=\"9\"/>"
+        ]
+      },
+      "Shoulders": {
+        "L": [
+          "<ellipse cx=\"46\" cy=\"93\" rx=\"11\" ry=\"17\" transform=\"rotate(-12 46 93)\"/>"
+        ]
+      },
+      "Triceps": {
+        "L": [
+          "<ellipse cx=\"38\" cy=\"127\" rx=\"9\" ry=\"22\" transform=\"rotate(10 38 127)\"/>"
+        ]
+      },
+      "Forearms": {
+        "L": [
+          "<ellipse cx=\"31\" cy=\"184\" rx=\"7\" ry=\"27\" transform=\"rotate(5 31 184)\"/>"
+        ]
+      },
+      "Glutes": {
+        "L": ["<ellipse cx=\"85\" cy=\"240\" rx=\"17\" ry=\"20\"/>"]
+      },
+      "Hamstrings": {
+        "L": [
+          "<ellipse cx=\"76\" cy=\"296\" rx=\"14\" ry=\"42\" transform=\"rotate(-3 76 296)\"/>"
+        ]
+      },
+      "Calves": {
+        "L": ["<ellipse cx=\"78\" cy=\"372\" rx=\"11\" ry=\"34\"/>"]
+      },
+      "Neck": {
+        "C": ["<ellipse cx=\"100\" cy=\"62\" rx=\"8\" ry=\"9\"/>"]
+      }
+    }
+  }
+}

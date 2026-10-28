@@ -46,8 +46,8 @@ test('migrates all collections, autosaves input/weekday, Back and reload retain 
   await page.getByLabel('Routine name').fill('My edited routine');
   await expect(page.locator('.save-status')).toHaveText('Saved on this device');
   await page.getByLabel('Weekday').selectOption('5');
-  await page.getByLabel('Set 1 kg', { exact: true }).fill('2.');
-  await expect(page.getByLabel('Set 1 kg', { exact: true })).toHaveAttribute(
+  await page.getByLabel('Set 1 lb', { exact: true }).fill('2.');
+  await expect(page.getByLabel('Set 1 lb', { exact: true })).toHaveAttribute(
     'aria-invalid',
     'true',
   );
@@ -56,10 +56,10 @@ test('migrates all collections, autosaves input/weekday, Back and reload retain 
   await page
     .getByRole('button', { name: 'My edited routine · Friday', exact: true })
     .click();
-  await expect(page.getByLabel('Set 1 kg', { exact: true })).toHaveValue('2.');
+  await expect(page.getByLabel('Set 1 lb', { exact: true })).toHaveValue('2.');
   await page.reload();
   await openRoutine(page, 'My edited routine · Friday');
-  await expect(page.getByLabel('Set 1 kg', { exact: true })).toHaveValue('2.');
+  await expect(page.getByLabel('Set 1 lb', { exact: true })).toHaveValue('2.');
   const after = await snapshot(page);
   expect(after.data.wk).toEqual(before.data.wk);
   expect(after.data.ph).toEqual(before.data.ph);
@@ -151,7 +151,9 @@ test('set controls retain raw values through delete/Undo and tab navigation', as
   await expect(
     page.getByRole('heading', { name: 'Local profile' }),
   ).toBeVisible();
-  await page.getByRole('button', { name: 'Saved on this device' }).click();
+  await page
+    .getByRole('button', { name: 'Saved on this device', exact: true })
+    .click();
   await expect(page.getByLabel('Storage and sync status')).toContainText(
     'Dropbox not connected',
   );
@@ -184,11 +186,13 @@ test('conflicting Undo preserves current values and confirmed discard unblocks e
   page.once('dialog', (dialog) => dialog.accept());
   await page.getByRole('button', { name: 'Discard unsaved edits' }).click();
   await expect(page.getByRole('alert')).toHaveCount(0);
-  await page.getByLabel('Set 1 kg', { exact: true }).fill('45');
+  await page.getByLabel('Set 1 lb', { exact: true }).fill('45');
   await expect(page.locator('.save-status')).toHaveText('Saved on this device');
   expect(
-    (await snapshot(page)).data.prog[0]!.routines[0]!.vals!.bench![0]!.kg,
-  ).toBe('45');
+    Number(
+      (await snapshot(page)).data.prog[0]!.routines[0]!.vals!.bench![0]!.kg,
+    ),
+  ).toBeCloseTo(45 / 2.2046226218, 8);
 });
 test('unavailable IndexedDB shows failure, leaves original untouched and retries safely', async ({
   page,
@@ -230,9 +234,9 @@ test('quota failure shows unsaved status, preserves input in memory and retries 
       return original.apply(this, args);
     };
   });
-  await page.getByLabel('Set 1 kg', { exact: true }).fill('123.5');
+  await page.getByLabel('Set 1 lb', { exact: true }).fill('123.5');
   await expect(page.getByRole('alert')).toContainText('Storage is full');
-  await expect(page.getByLabel('Set 1 kg', { exact: true })).toHaveValue(
+  await expect(page.getByLabel('Set 1 lb', { exact: true })).toHaveValue(
     '123.5',
   );
   expect(
@@ -242,7 +246,7 @@ test('quota failure shows unsaved status, preserves input in memory and retries 
   await expect(page.locator('.save-status')).toHaveText('Saved on this device');
   await page.reload();
   await openRoutine(page);
-  await expect(page.getByLabel('Set 1 kg', { exact: true })).toHaveValue(
+  await expect(page.getByLabel('Set 1 lb', { exact: true })).toHaveValue(
     '123.5',
   );
 });
@@ -260,13 +264,13 @@ test('two tabs retain independent edits and block old-client changes', async ({
   await openRoutine(other);
   await Promise.all([
     page.getByLabel('Routine name').fill('Concurrent routine'),
-    other.getByLabel('Set 1 kg', { exact: true }).fill('55'),
+    other.getByLabel('Set 1 lb', { exact: true }).fill('55'),
   ]);
   await expect(page.locator('.save-status')).toHaveText('Saved on this device');
   await expect(other.locator('.save-status')).toHaveText(
     'Saved on this device',
   );
-  await expect(page.getByLabel('Set 1 kg', { exact: true })).toHaveValue('55');
+  await expect(page.getByLabel('Set 1 lb', { exact: true })).toHaveValue('55');
   await expect(other.getByLabel('Routine name')).toHaveValue(
     'Concurrent routine',
   );

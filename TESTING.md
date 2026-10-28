@@ -1,5 +1,11 @@
 # Verification plan
 
+## Phase 7 owner feedback verification
+
+For each `areas/v1-owner-feedback.md` item, define the observable acceptance check before changing code, then record the tested revision and actual result. Check affected flows and data preservation, compare parity only against Old Replift Deployment, and run the required per-phase checks for functional deliveries. UI/UX items need relevant visual/browser checks and owner review. Record real-device and live Dropbox results separately; automated emulation is not physical-device evidence.
+
+Owner acceptance is separate from implementation and automated verification. Failed checks or further owner corrections reopen the item. Repeat review until explicit Phase 7 completion; recheck affected items if Phase 8 beta/rehearsal finds regressions. No application tests ran for the planning-only addition of this phase.
+
 Updated: 2026-10-28. No application checks have run in this session.
 
 ## Per-phase delivery

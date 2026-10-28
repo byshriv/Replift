@@ -1,10 +1,16 @@
 import { z } from 'zod';
+import { applyDomain, type Action } from './port';
 
 const scalar = z.union([z.string(), z.number().finite()]);
 export const setSchema = z.looseObject({
   id: z.string().min(1).optional(),
   kg: scalar.optional(),
   reps: scalar.optional(),
+  done: z.unknown().optional(),
+  est: z.unknown().optional(),
+  pr: z.unknown().optional(),
+  k: z.unknown().optional(),
+  rpe: z.unknown().optional(),
 });
 export const routineSchema = z.looseObject({
   id: z.string().min(1),
@@ -110,6 +116,7 @@ export function validateData(value: unknown): LocalData {
 }
 
 export type Command =
+  | { type: 'domain'; action: Action }
   | { type: 'program'; id: string }
   | { type: 'routine'; program: string; id: string }
   | { type: 'name'; program: string; value: string; routine?: string }
@@ -141,6 +148,10 @@ export function findRoutine(data: LocalData, id: string): Routine {
   return r;
 }
 export function applyCommand(data: LocalData, c: Command): Removed | undefined {
+  if (c.type === 'domain') {
+    applyDomain(data, c.action);
+    return;
+  }
   if (c.type === 'program') {
     if (data.prog.some((p) => p.id === c.id))
       throw new Error('Program already exists.');

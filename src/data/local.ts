@@ -191,6 +191,16 @@ export function assignSetIds(data: LocalData) {
 }
 
 export class LocalRepository {
+  async eraseDevice(expectedRevision: number) {
+    await transaction(this.db, 'readwrite', async (tx) => {
+      const snapshot = checkSnapshot(
+        await request(tx.objectStore('state').get('current')),
+      );
+      if (snapshot.revision !== expectedRevision)
+        throw new Error('Local data changed. Review deletion again.');
+      for (const name of stores) tx.objectStore(name).clear();
+    });
+  }
   constructor(private db: IDBDatabase) {}
   close() {
     this.db.close();
@@ -329,7 +339,9 @@ export class LocalRepository {
             ? `program:${command.program}`
             : command.type === 'program'
               ? `program:${command.id}`
-              : `undo:${command.id}`;
+              : command.type === 'domain'
+                ? `domain:${command.action.kind}`
+                : `undo:${command.id}`;
       snapshot.revision = counter;
       snapshot.pending++;
       snapshot.versions[record] = counter;
@@ -344,7 +356,22 @@ export class LocalRepository {
         );
         snapshot.tombstones[id] = counter;
       }
-      if (command.type === 'undo') {
+      if (
+        command.type === 'undo' ||
+        (command.type === 'domain' &&
+          [
+            'discard',
+            'deleteWorkout',
+            'deleteExercise',
+            'deleteProgram',
+            'deleteRoutine',
+            'photo',
+            'measure',
+            'finish',
+            'workoutExercise',
+            'set',
+          ].includes(command.action.kind))
+      ) {
         tx.objectStore('recovery').put(
           { data: before, at: Date.now(), reason: 'before undo' },
           id,

@@ -1,5 +1,9 @@
 # Deployed baseline feature inventory
 
+## Phase 4 implementation and verification — 2026-10-28
+
+Every inventory item below is mapped in [Phase 4 parity](phase-4-parity.md), with the React/domain files, current automated evidence and remaining platform/live/owner gates. Historical M checks are not automatically converted to accepted manual results. See [current verification](phase-4-verification.md). The feature port reuses Phase 2/3 storage/sync; production and the sole source baseline stay unchanged.
+
 ## Phase 2 evidence — 2026-10-28
 
 P17/P18 routine selection/default editing now save immediately in the separate React preview, with durable removal Undo and canonical-unit fields. P30's local migration/recovery subset is implemented; portable export/import/restore remains pending. All-main-tab date/storage/profile navigation is automated. See `tests/browser/local.spec.ts`, `tests/unit/local.test.ts`, `tests/stress/local.test.ts` and [Phase 2 verification](phase-2-verification.md). Remaining inventory/manual checks below are unchanged future gates; no claim of full baseline parity.
