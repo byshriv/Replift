@@ -1,20 +1,30 @@
 # Replift roadmap
 
+## Latest session — Phase 2 implementation, 2026-10-28
+
+The user explicitly authorized Phase 2 implementation, routine technical decisions and branch/PR publication. Work starts from fetched main `192e5caa7bf0785f40122a97226d4d451781147a` (Phase 1 PR #1 merged). Owner-reported protection/Dependabot settings remain uninspected. This entry supersedes historical planning-only and Phase 1 open/unmerged statements below.
+
+Implementation in `repository/` on `phase-2-local-reliability`: native IndexedDB atomic data/pending/version writes; non-destructive legacy migration with all collections/embedded photos and unknown fields retained; private connection metadata isolation; recovery snapshots and persistent removal Undo; immediately saved routine names/weekdays/selections/raw set drafts; all-main-tab date/storage/profile bar. Old-client divergence and invalid/unsupported data block editing without resetting it. No Dropbox transport, E2EE, worker, merge or deployment. Only the Old Replift Deployment baseline was used; originals remain untouched.
+
+Checks: lint, format, strict types, 29 unit/integration tests, six seeded stress runs (15,000 navigation + 1,200 persistence actions), build and baseline checksums passed locally. All 33 browser checks passed across desktop/mobile Chromium and mobile WebKit emulation. PR [#8](https://github.com/byshriv/Replift/pull/8) is open, unmerged. Final source revision `352b7378c81926a4636bcfcf3673ffe8e2e90101` passed the local checks; the final evidence commit changes documentation only. Initial GitHub quality/browser/CodeQL passed; check final-head CI in the PR; see [Phase 2 evidence](docs/phase-2-verification.md). Physical devices, live Dropbox, hardware interruption, large real-data migration, full portable backup/restore and complete feature parity remain untested/later gates. Failed writes remain visibly unsaved in memory; never promise survival after closing a failed-write tab.
+
+Next: review Phase 2 PR #8 and actual CI evidence before merge. See its final branch head; local source/preview ZIPs and SHA256SUMS are generated in repository/artifacts (ignored). Phase 3 is optional Dropbox transport/conflict work under its own implementation authorization. Production is unchanged.
+
 Latest scope overrides (2026-10-28): Phase 1 uses only Old Replift Deployment; archive/preserve that baseline and inventory it, without consulting Demo A. Rebuild engine later. Use Lucide, GitHub feedback/issue integration instead of Forms, no new intro MP4, E2EE excluded. Top bar all tabs and inline/autosaved routine editing with removal Undo approved. Data/sync decisions delegated. Phase 1 includes foundation/CI/docs and a reviewable branch/PR where authorized by the next implementation request; no production cutover. Existing Direct Upload → Git hosting transition is later work requiring project-mode verification.
 
 Updated: 2026-10-28. Status: Phase 1 implementation and checks complete; PR #1 open, owner review and branch protection pending.
 
 Phase numbers here replace ambiguous historical Zip numbers. Phase scope remains proposed until the user gives go. Each phase produces a source zip, test report, updated context, and deployable build when relevant. Publish/push/deploy only within the user's authorization.
 
-| Phase | Outcome                                            | Status                                 |
-| ----- | -------------------------------------------------- | -------------------------------------- |
-| 1     | Preserved baseline and repository foundation       | Implemented; review/protection pending |
-| 2     | Durable local saving, routine editor and top bar   | Not started                            |
-| 3     | Demo Dropbox sync and conflict management          | Not started                            |
-| 4     | Complete React production port with feature parity | Not started                            |
-| 5     | PWA, feedback, assets and polish                   | Not started                            |
-| 6     | Android APK                                        | Not started                            |
-| 7     | Beta, migration rehearsal and release              | Not started                            |
+| Phase | Outcome                                            | Status                         |
+| ----- | -------------------------------------------------- | ------------------------------ |
+| 1     | Preserved baseline and repository foundation       | Complete — PR #1 merged        |
+| 2     | Durable local saving, routine editor and top bar   | Implemented; PR review pending |
+| 3     | Demo Dropbox sync and conflict management          | Not started                    |
+| 4     | Complete React production port with feature parity | Not started                    |
+| 5     | PWA, feedback, assets and polish                   | Not started                    |
+| 6     | Android APK                                        | Not started                    |
+| 7     | Beta, migration rehearsal and release              | Not started                    |
 
 ## Phase 1 — foundation
 

@@ -206,3 +206,117 @@ input {
     margin-top: 38px;
   }
 }
+select {
+  display: block;
+  width: 100%;
+  font: inherit;
+  color: inherit;
+  background: #252221;
+  padding: 14px;
+  margin: 8px 0 18px;
+  border-radius: 18px;
+}
+.topbar {
+  align-items: flex-start;
+}
+.topbar time {
+  font-size: 13px;
+  padding-top: 10px;
+}
+.top-actions,
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.top-actions {
+  gap: 6px;
+}
+.local-status {
+  font-size: 11px;
+  padding: 10px;
+  background: #252221;
+  color: #f7f5e4;
+  max-width: 165px;
+}
+.icon-button {
+  padding: 10px;
+  flex-shrink: 0;
+}
+.save-status {
+  color: #c4bca8;
+  font-size: 13px;
+}
+.error {
+  border-color: #ef5b4d;
+}
+.field {
+  display: block;
+  margin-bottom: 16px;
+  min-width: 0;
+}
+.field small {
+  display: block;
+  font-size: 10px;
+  color: #c4bca8;
+}
+.field input[aria-invalid] {
+  border-color: #c4bca8;
+  border-style: dashed;
+}
+.set-row {
+  display: grid;
+  grid-template-columns: 16px minmax(0, 1fr) minmax(0, 1fr) 38px;
+  gap: 8px;
+  align-items: center;
+  margin: 16px 0;
+}
+.set-row label {
+  font-size: 12px;
+}
+.set-row input {
+  padding: 12px 8px;
+  border-radius: 12px;
+}
+.set-row .icon-button {
+  padding: 8px;
+}
+.routine-list {
+  display: grid;
+  gap: 12px;
+  margin: 20px 0;
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+dialog {
+  width: min(620px, calc(100% - 24px));
+  max-height: 85dvh;
+  border: 1px solid #c4bca8;
+  border-radius: 28px;
+  background: #1a1817;
+  color: #f7f5e4;
+  padding: 24px;
+}
+dialog::backdrop {
+  background: #000a;
+}
+.picker-list {
+  list-style: none;
+  padding: 0;
+}
+.picker-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 0;
+  border-bottom: 1px solid #2f2b2a;
+}
+.picker-done {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+}

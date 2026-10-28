@@ -14,7 +14,7 @@ test('preview navigation and catalogue leave legacy data untouched', async ({
   );
   await page.goto('/');
   await expect(
-    page.getByRole('heading', { name: 'A stronger foundation.' }),
+    page.getByRole('heading', { name: 'Your routines, saved here.' }),
   ).toBeVisible();
   await page.getByRole('button', { name: 'Explore the library' }).click();
   await expect(page.getByRole('status')).toHaveText('420 exercises');
@@ -30,8 +30,9 @@ test('preview navigation and catalogue leave legacy data untouched', async ({
       .getByRole('navigation')
       .getByRole('button', { name: tab, exact: true })
       .click();
+    await expect(page.locator('header time')).toBeVisible();
     await expect(
-      page.getByRole('heading', { name: 'Coming in a later phase' }),
+      page.getByRole('button', { name: 'Open profile' }),
     ).toBeVisible();
   }
   await expect(

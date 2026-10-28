@@ -1,5 +1,9 @@
 # Deployed baseline feature inventory
 
+## Phase 2 evidence — 2026-10-28
+
+P17/P18 routine selection/default editing now save immediately in the separate React preview, with durable removal Undo and canonical-unit fields. P30's local migration/recovery subset is implemented; portable export/import/restore remains pending. All-main-tab date/storage/profile navigation is automated. See `tests/browser/local.spec.ts`, `tests/unit/local.test.ts`, `tests/stress/local.test.ts` and [Phase 2 verification](phase-2-verification.md). Remaining inventory/manual checks below are unchanged future gates; no claim of full baseline parity.
+
 Inspected 2026-10-28 solely from `reference/Replift-PWA/index.html`, manifest, worker and hosting files. Originals remain in `../Old Replift Deployment/Replift-PWA` in the parent workspace. Checksums cover all 10 supplied files including three icons. Source inspection proves presence, not correctness or runtime parity. No non-Dropbox demo was read or used.
 
 Each ID below is an acceptance check for the later port. **M** means a specified manual check pending execution; **A** means an automated Phase 1 check. All M checks remain pending unless a test report explicitly records evidence. Phase 1 implements only the preview shell/catalogue, not these workout features. Source anchors are function/action names because the baseline has long minified lines and later overrides.
