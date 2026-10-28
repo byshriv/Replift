@@ -2,6 +2,10 @@
 
 Date: 2026-10-28 (Asia/Calcutta). Branch: `phase-4-react-port`, based on fetched `main` `7ba12150f17610b4b55be89e41a221bdabc8b11b` (merged Phase 3). Existing owner-review planning changes were preserved. No merge or deployment occurred.
 
+PR [#10](https://github.com/byshriv/Replift/pull/10) is open and unmerged. Published implementation commit: `6ce13308413e9212ca63eec6473fec15fbaf44ef`, tree `df1a460858ae81cf7fb61741b67b8a2af0b4fb12`; the tree matched the locally checked index exactly. GitHub [quality/browser CI](https://github.com/byshriv/Replift/actions/runs/40692869018) and [CodeQL](https://github.com/byshriv/Replift/actions/runs/40692869063) passed on that commit. This delivery-evidence update changes documentation only. Inspect the PR's current head checks before merging.
+
+Local `artifacts/replift-source.zip`, `replift-preview.zip` and `SHA256SUMS` were generated and verified: all 107 tracked source files match the published implementation commit, all 15 preview files match the checked build, and both archive SHA-256 sums match. They are regenerated at the final evidence head; previous Phase 3 archives/checksums are preserved under `artifacts/phase-3-*`. Desktop/mobile synthetic screenshots are in `artifacts/phase-4-*.png`. These ignored local artifacts are review previews, not deployed releases.
+
 ## Implementation
 
 The React app now exposes logging, reconstruction, finish/history/cards, programs/templates, library/custom exercises, dashboards/charts/calendar/muscles/recovery, measurements/photos, profile/settings/onboarding and device deletion. It reuses the Phase 2 save queue/IndexedDB transactions and Phase 3 record sync, OAuth, conflict review and complete backup/recovery. See [parity map](phase-4-parity.md).
