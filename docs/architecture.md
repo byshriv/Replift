@@ -1,5 +1,16 @@
 # Foundation architecture
 
+## Phase 6 update - 2026-10-28
+
+Capacitor packages the same build at a stable `https://localhost` WebView origin;
+it does not host a second application or replace IndexedDB/sync. Platform adapters
+handle Android browser authorization, intent callbacks, Back, haptics and temporary
+file sharing. Existing private PKCE/account review and complete backup/previewed
+restore paths are reused. Workers run only in the browser/PWA, never in Android.
+See [Android contract and device drill](android.md). Wrapper feasibility has build
+and automated evidence; device/live acceptance remains pending. No schema or sync
+protocol change, backend, E2EE, production migration or new persistence layer.
+
 ## Phase 5 update - 2026-10-28
 
 The build now generates a precache-only service worker and PWA manifest. Platform modules own install/update state, public link validation and image-sharing fallbacks. Cache names and cleanup are scoped to the exact registration; the worker never touches the repository, OAuth payloads or runtime provider responses. Existing persistence, sync and schemas remain unchanged. Updates wait for all controlled windows to close, with no forced takeover or reload. Settings/program editor code is split into lazy chunks; the existing feature surfaces remain. See [PWA contract and device checklist](pwa.md) and [verification](phase-5-verification.md). Older statements that there is no worker are historical.
