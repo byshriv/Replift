@@ -1,6 +1,6 @@
 # Phase 2 verification — 2026-10-28
 
-Base: fetched `main` at `192e5caa7bf0785f40122a97226d4d451781147a`, confirming merged Phase 1 PR #1. Branch: `phase-2-local-reliability`. Review publication and final revision evidence are recorded below when available. No merge, deployment, Cloudflare/DNS, live Dropbox or production configuration changes.
+Base: fetched `main` at `192e5caa7bf0785f40122a97226d4d451781147a`, confirming merged Phase 1 PR #1. Branch: `phase-2-local-reliability`. PR [#8](https://github.com/byshriv/Replift/pull/8) is open and unmerged. Final source revision: `352b7378c81926a4636bcfcf3673ffe8e2e90101`; source tree: `2d96ae4e17e2b728dac4d35a1ac1e3cb760d47b7`. All local results below were rerun against that source, including the independent-original-parse migration check. The following evidence commit changes documentation only. No merge, deployment, Cloudflare/DNS, live Dropbox or production configuration changes.
 
 ## Implemented
 
@@ -25,3 +25,9 @@ Physical phones, real mobile keyboard/safe areas, installed/offline PWA, hardwar
 Dropbox OAuth/HTTP, provider identity/account switching, cloud protocol/conflict review, photo blob extraction/transfer and cloud acknowledgements are Phase 3. Portable full backup/import/restore is not implemented in this preview, so the launch restore gate is open. Original raw data and local-only recovery/private stores may hold connection data and must never be directly shared/exported. Current recovery retention is deliberately unbounded; compaction and large embedded-photo capacity need a safe later design. Failed writes keep unsaved input in memory; closing that tab can lose unsaved edits. Changed legacy data blocks editing and needs explicit recovery tooling/rehearsal before release.
 
 No remaining Phase 2 code blocker was observed in the checks above; PR review and CI remain separate from local verification. This preview must not replace production.
+
+## Publication and artifacts
+
+Initial implementation `b70cf839bf5edd1276df5d3ef9e517ebfbf7d9c5` passed GitHub [quality/browser CI](https://github.com/byshriv/Replift/actions/runs/40645468351) and [CodeQL](https://github.com/byshriv/Replift/actions/runs/40645468162). The final source revision adds the independent source-parse comparison; final-head CI must be checked separately in PR #8. Local and connector-created Git trees were compared before branch alignment; identical trees confirmed publication of the tested files.
+
+`npm run artifacts` generates ignored `artifacts/replift-source.zip` from committed HEAD, `artifacts/replift-preview.zip` from the current production build, and `artifacts/SHA256SUMS`. These are development/review artifacts, not a production release. The mobile screenshot is also local-only under `artifacts/`. Parent workspace continuity mirrors the repository record.
