@@ -2,7 +2,7 @@
 
 Free, open-source, local-first workout logger. Copyright Shriv.
 
-Phase 5 PWA and polish review preview. **Keep production unchanged.**
+Phase 6 Android feasibility review preview. **Keep production unchanged.**
 Workout logging/reconstruction/history, programs/templates/custom library, configurable
 Home/Stats, measures/photos, profile/onboarding and local deletion now reuse the
 Phase 2 persistence and Phase 3 optional Dropbox/conflict/backup engine.
@@ -10,6 +10,12 @@ Legacy originals are retained. PWA shell/install/update handling, sharing fallba
 mobile/accessibility polish are implemented. Physical-device and owner acceptance gates remain;
 no deployment is configured. See [Phase 4 parity](docs/phase-4-parity.md) and
 [Phase 5 verification](docs/phase-5-verification.md) and [PWA/device checklist](docs/pwa.md).
+
+The Capacitor Android wrapper retains `io.github.byshriv.replift` and the existing
+data/sync engine, with browser PKCE returns, native Back/haptics/sharing and explicit
+backup transfer. See [Android build/install/update instructions](docs/android.md) and
+[Phase 6 verification](docs/phase-6-verification.md). Signing material stays outside
+the repository. Device and live-provider acceptance remains mandatory.
 
 ## Run locally
 

@@ -290,7 +290,13 @@ export async function finishOAuth(
     url.searchParams.get('state') !== pending.state ||
     Date.now() - pending.at > 10 * 60_000 ||
     Date.now() < pending.at ||
-    `${url.origin}${url.pathname}` !== pending.redirect
+    `${url.protocol}//${url.host}${url.pathname}` !== pending.redirect ||
+    !!url.username ||
+    !!url.password ||
+    !!url.hash ||
+    ['code', 'state', 'error'].some(
+      (key) => url.searchParams.getAll(key).length > 1,
+    )
   )
     throw new Error(
       'Dropbox sign-in state expired or did not match. Connect again.',

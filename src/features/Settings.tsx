@@ -9,6 +9,7 @@ import PwaSettings from './Pwa';
 import Links, { DropboxHelp, PrivacyLink } from './Links';
 import { feedbackUrl } from '../platform/links';
 import { goals, experiences } from '../data/profile';
+import { isAndroid } from '../platform/android';
 const reasons = [
   'I no longer train',
   'Too complicated',
@@ -360,6 +361,7 @@ export default function Settings() {
           ['warm', 'Include warmups in muscle stats'],
           ['upd', 'Update routine values by default'],
           ['snd', 'Sound'],
+          ...(isAndroid() ? [['vib', 'Android haptics']] : []),
         ].map(([key, label]) => (
           <label className="check-label" key={key}>
             <input
@@ -381,8 +383,8 @@ export default function Settings() {
           </label>
         ))}
         <p>
-          Haptics are available in the Android phase. Notification delivery is
-          not enabled in this preview.
+          Haptics require an Android device with vibration enabled. Notification
+          delivery is not enabled in this preview.
         </p>
         <button
           disabled={disabled}
@@ -484,8 +486,8 @@ export default function Settings() {
             not between them.
           </p>
           <p>
-            Phase 5 preview. MIT licence. No Replift backend, accounts, tracking
-            or analytics. Dropbox is optional and user-owned.
+            Development preview. MIT licence. No Replift backend, accounts,
+            tracking or analytics. Dropbox is optional and user-owned.
           </p>
           <h3>Terms</h3>
           <p>
