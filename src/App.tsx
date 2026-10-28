@@ -13,6 +13,8 @@ import { filterExercises } from './domain/exercise';
 import { tabs, useNavigation } from './state/navigation';
 import { useLocal } from './state/local';
 import Routines from './features/Routines';
+import SyncPanel from './features/Sync';
+import { initializeSync, useSync } from './state/sync';
 const icons = {
   Home: House,
   Stats: Activity,
@@ -24,10 +26,12 @@ const icons = {
 export default function App() {
   const { tab, query, navigate, search } = useNavigation();
   const local = useLocal();
+  const sync = useSync();
   const [details, showDetails] = useState(false);
   const [now, setNow] = useState(() => new Date());
   useEffect(() => {
     void useLocal.getState().load();
+    void initializeSync();
     const timer = setInterval(() => setNow(new Date()), 60_000);
     return () => clearInterval(timer);
   }, []);
@@ -62,6 +66,23 @@ export default function App() {
           >
             <HardDrive size={17} aria-hidden="true" />
             {status}
+            {sync.connected && (
+              <span>
+                {' '}
+                ·{' '}
+                {sync.busy
+                  ? 'Syncing…'
+                  : sync.error
+                    ? 'Sync needs attention'
+                    : Object.values(sync.doc?.records ?? {}).some(
+                          (v) => v.length > 1,
+                        )
+                      ? 'Review conflicts'
+                      : local.snapshot?.pending
+                        ? 'Sync pending'
+                        : 'Dropbox acknowledged'}
+              </span>
+            )}
           </button>
           <button
             className="icon-button"
@@ -76,14 +97,9 @@ export default function App() {
         <section className="card" aria-label="Storage and sync status">
           <h2>Local storage</h2>
           <p>{status}</p>
-          <p>
-            Dropbox is not connected in this preview. Transport arrives in Phase
-            3.
-          </p>
-          <p>
-            {local.snapshot?.pending ?? 0} local changes pending future sync. No
-            cloud acknowledgement has occurred.
-          </p>
+          <p>{sync.status}</p>
+          <p>{local.snapshot?.pending ?? 0} local changes pending sync.</p>
+          {tab !== 'Settings' && <SyncPanel />}
           <p>
             Local browser storage can be cleared by the browser or device. Keep
             the original legacy copy until a complete backup and restore has
@@ -92,7 +108,7 @@ export default function App() {
         </section>
       )}
       <p className="badge">
-        Phase 2 development preview · production unchanged
+        Phase 3 development preview · production unchanged
       </p>
       {local.error && (
         <section role="alert" className="card error">
@@ -203,7 +219,7 @@ export default function App() {
             <p>
               Profile editing and other settings return with the feature port.
             </p>
-            <p>Dropbox is not connected in this preview.</p>
+            <SyncPanel />
             <a
               href="https://github.com/byshriv/Replift/issues/new/choose"
               target="_blank"

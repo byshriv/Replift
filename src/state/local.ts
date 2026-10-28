@@ -21,6 +21,18 @@ let loading: Promise<void> | undefined;
 let running = false;
 const queue: { command: Edit; key?: string; value?: string }[] = [];
 let channel: BroadcastChannel | undefined;
+export function getRepository(): LocalRepository {
+  if (!repository) throw new Error('Local storage is not ready.');
+  return repository;
+}
+export async function refreshLocal() {
+  await refresh();
+  try {
+    channel?.postMessage('changed');
+  } catch {
+    /* Focus refresh remains available. */
+  }
+}
 function message(error: unknown) {
   return error instanceof DOMException && error.name === 'QuotaExceededError'
     ? 'Storage is full. This edit is not saved. Keep this tab open, free device space, then Retry saving.'
@@ -64,6 +76,7 @@ async function drain() {
       // A notification failure must not make an already committed edit retry.
       try {
         channel?.postMessage('changed');
+        window.dispatchEvent(new Event('replift-local-committed'));
       } catch {
         /* focus refresh remains available */
       }

@@ -1,6 +1,10 @@
-# Sync design — proposal and safety contract
+# Sync design — safety contract
 
-Updated: 2026-10-28. Not implemented. See DECISIONS for unresolved choices, especially encryption.
+Updated: 2026-10-28. Phase 3 implements this contract for the development preview.
+See [implemented protocol](docs/sync-protocol.md) and [verification](docs/phase-3-verification.md)
+for exact granularity, recovery behavior, limits and remaining live release gates.
+E2EE is explicitly excluded by the latest user decision. Earlier proposal wording
+below is historical where superseded by those implementation details.
 
 ## Existing source
 
@@ -65,4 +69,6 @@ Validate old cloud/local formats into staging. Keep old data/snapshots; verify c
 
 ## Encryption
 
-Optional end-to-end encryption is unresolved. Sailor reference support does not mean Replift implements it. If approved, design photo encryption, passphrase/recovery UX, locked-state sync and format migration together. Never claim Dropbox transport/storage security equals Replift E2EE.
+End-to-end encryption is excluded from current scope by the user. No encryption,
+passphrase or recovery-key feature is implemented or claimed. Dropbox transport
+and storage security is not Replift E2EE.
