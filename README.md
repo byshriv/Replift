@@ -2,10 +2,11 @@
 
 Free, open-source, local-first workout logger. Copyright Shriv.
 
-Phase 2 local reliability preview. **Not a replacement for the live logger.**
-IndexedDB migration and autosaved inline routine editing are available. Legacy
-`replift.v1` is retained unchanged. Workout logging, full feature parity, Dropbox
-transport and production PWA behavior remain later work. No deployment is configured.
+Phase 3 optional Dropbox preview. **Not a replacement for the live logger.**
+IndexedDB migration, autosaved routine editing, optional Dropbox sync, conflict
+review and complete backup/restore are available. Legacy `replift.v1` and the old
+cloud file are retained. Workout logging, full feature parity and production PWA
+behavior remain later work. No deployment is configured.
 
 ## Run locally
 
@@ -21,6 +22,13 @@ Library contains the preserved 420-exercise catalogue. A date/storage/profile to
 appears on every main tab. Use synthetic data first; the preview has separate storage
 from the live origin. See [local storage and recovery](docs/local-storage.md) before
 testing migration with copies. Fonts ship locally. No accounts, analytics or Replift backend.
+
+Settings → Connect Dropbox uses redirect PKCE, then an account/content preview.
+Close old clients before approving legacy migration. Register the **exact** preview
+redirect and required scopes before disposable live testing. See the
+[sync and recovery protocol](docs/sync-protocol.md) for the format, account-change
+rules, photo queue, backup/restore procedure and 32 MiB import/transfer limit.
+Automated provider tests do not establish live Dropbox or real-phone behavior.
 
 The sole baseline is preserved byte-for-byte under `reference/Replift-PWA`.
 Run `npm run baseline:verify` to verify the 10 SHA-256 entries. Run `npm run reference`
@@ -38,7 +46,8 @@ npm run artifacts
 ```
 
 `check` runs baseline integrity, lint, formatting, strict types, unit/integration tests,
-three seeded 5,000-action navigation runs, three seeded 400-action persistence runs
+three seeded 5,000-action navigation runs, three seeded 400-action persistence runs,
+three seeded 300-action multi-device sync runs
 and build. Browser checks use the production build
 on desktop/mobile Chromium and mobile WebKit emulation. Run `npm run build` before
 browser checks/artifacts. ZIPs in `artifacts/` contain source at committed HEAD and

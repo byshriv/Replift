@@ -1,5 +1,17 @@
 # Phase 2 local storage contract
 
+## Phase 3 update — 2026-10-28
+
+Database version 2 adds the `blobs` store without replacing existing stores or
+schema-2 snapshots. A sync document in `state/sync` is updated in the same
+transaction as each local command. The `private` store holds credentials,
+single-use OAuth state, per-account staged migration/transfer metadata and invalid
+remote quarantine. Full recovery snapshots include causal alternatives. Backup
+and explicit restore are implemented; see [sync/recovery protocol](sync-protocol.md).
+Historical Phase 2 statements below about no cloud acknowledgements, no blob
+transport or no export UI describe that earlier phase. No automatic retention
+pruning or production migration is introduced.
+
 This is a development preview. Production, the old deployment and Dropbox files are unchanged. It is not a full feature port or a release candidate.
 
 ## Database and transactions

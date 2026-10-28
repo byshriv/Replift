@@ -320,3 +320,37 @@ dialog::backdrop {
   bottom: 0;
   width: 100%;
 }
+/* Sync/recovery stays usable on narrow screens and with large alternatives. */
+.sync-panel {
+  min-width: 0;
+}
+.sync-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.sync-panel h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.sync-panel pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  max-height: 300px;
+  overflow: auto;
+  font: inherit;
+}
+.conflict-alternative {
+  padding: 12px 0;
+  border-top: 1px solid #ffffff24;
+}
+.conflict-photo {
+  max-width: 100%;
+  max-height: 240px;
+  object-fit: contain;
+  border-radius: 12px;
+}
+.sync-panel input[type='file'] {
+  max-width: 100%;
+}

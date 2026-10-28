@@ -153,7 +153,7 @@ test('set controls retain raw values through delete/Undo and tab navigation', as
   ).toBeVisible();
   await page.getByRole('button', { name: 'Saved on this device' }).click();
   await expect(page.getByLabel('Storage and sync status')).toContainText(
-    'No cloud acknowledgement',
+    'Dropbox not connected',
   );
 });
 test('conflicting Undo preserves current values and confirmed discard unblocks editing', async ({

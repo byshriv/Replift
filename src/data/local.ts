@@ -1,6 +1,19 @@
 import { applyCommand, restoreRemoved, validateData } from '../domain/local';
 import type { Command, LocalData, Removed } from '../domain/local';
 import { catalogue } from './catalogue';
+import {
+  update,
+  merge,
+  materialize,
+  resolve,
+  canonical,
+  parseDocument,
+  assertPrivateFree,
+  bootstrap,
+  restoreIntent,
+  keepBoth,
+} from '../sync/core';
+import type { Document } from '../sync/core';
 
 function emptyData(): LocalData {
   return {
@@ -22,7 +35,27 @@ function emptyData(): LocalData {
 }
 
 export const DATABASE = 'replift.local.v2';
-const stores = ['state', 'recovery', 'pending', 'undo', 'private'] as const;
+const stores = [
+  'state',
+  'recovery',
+  'pending',
+  'undo',
+  'private',
+  'blobs',
+] as const;
+export type Connection = {
+  account: string;
+  generation: string;
+  refresh: string;
+  access: string;
+  expires: number;
+};
+export type SyncState = {
+  doc: Document;
+  account: string | null;
+  acknowledged: Document | null;
+  lastSync: number | null;
+};
 export type Snapshot = {
   schema: 2;
   data: LocalData;
@@ -44,10 +77,13 @@ export function openDatabase(
   name = DATABASE,
 ): Promise<IDBDatabase> {
   return new Promise((resolve, reject) => {
-    const r = factory.open(name, 1);
+    const r = factory.open(name, 2);
     let blocked = false;
     r.onupgradeneeded = () =>
-      stores.forEach((s) => r.result.createObjectStore(s));
+      stores.forEach((s) => {
+        if (!r.result.objectStoreNames.contains(s))
+          r.result.createObjectStore(s);
+      });
     r.onerror = () => reject(r.error);
     r.onblocked = () => {
       blocked = true;
@@ -132,7 +168,7 @@ function checkSnapshot(value: Snapshot | undefined): Snapshot {
     );
   return value;
 }
-function assignSetIds(data: LocalData) {
+export function assignSetIds(data: LocalData) {
   const configured = data.st?.sets;
   const count =
     typeof configured === 'number' &&
@@ -325,8 +361,308 @@ export class LocalRepository {
         },
         id,
       );
+      const sync = await request<SyncState | undefined>(state.get('sync'));
+      if (sync) {
+        sync.doc = update(sync.doc, snapshot.data, snapshot.device, before);
+        state.put(sync, 'sync');
+      }
       state.put(snapshot, 'current');
       return snapshot;
+    });
+  }
+  async syncState(): Promise<SyncState> {
+    const prior = await transaction(this.db, 'readonly', (tx) =>
+      request<SyncState | undefined>(tx.objectStore('state').get('sync')),
+    );
+    if (prior) {
+      parseDocument(prior.doc);
+      return prior;
+    }
+    const before = await this.read();
+    const initial = await bootstrap(before.data);
+    return transaction(this.db, 'readwrite', async (tx) => {
+      const state = tx.objectStore('state');
+      const existing = await request<SyncState | undefined>(state.get('sync'));
+      if (existing) {
+        parseDocument(existing.doc);
+        return existing;
+      }
+      const snapshot = checkSnapshot(await request(state.get('current')));
+      if (snapshot.revision !== before.revision)
+        throw new Error(
+          'Local data changed during sync initialization. Retry sync.',
+        );
+      const sync: SyncState = {
+        doc: initial,
+        account: null,
+        acknowledged: null,
+        lastSync: null,
+      };
+      state.put(sync, 'sync');
+      return sync;
+    });
+  }
+  async privateRead<T>(key: string): Promise<T | undefined> {
+    return transaction(this.db, 'readonly', (tx) =>
+      request<T | undefined>(tx.objectStore('private').get(key)),
+    );
+  }
+  async privateWrite(key: string, value: unknown): Promise<void> {
+    await transaction(this.db, 'readwrite', async (tx) => {
+      tx.objectStore('private').put(value, key);
+    });
+  }
+  async connect(
+    connection: Connection,
+    approved: boolean,
+    expectedRevision?: number,
+  ): Promise<void> {
+    await this.syncState();
+    const before = await this.read();
+    if (expectedRevision !== undefined && before.revision !== expectedRevision)
+      throw new Error('Local content changed. Refresh the account preview.');
+    const fresh = await bootstrap(before.data);
+    await transaction(this.db, 'readwrite', async (tx) => {
+      const state = tx.objectStore('state');
+      const sync = await request<SyncState>(state.get('sync'));
+      if (sync.account !== connection.account && !approved)
+        throw new Error('Review account connection before syncing.');
+      if (sync.account !== connection.account) {
+        const snapshot = checkSnapshot(await request(state.get('current')));
+        if (snapshot.revision !== before.revision)
+          throw new Error('Local data changed. Review the connection again.');
+        tx.objectStore('recovery').put(
+          {
+            snapshot,
+            sync,
+            at: Date.now(),
+            reason: 'before account connection',
+          },
+          `account:${crypto.randomUUID()}`,
+        );
+        // A different Dropbox gets fresh causal history, never another account’s base.
+        sync.doc = fresh;
+        sync.acknowledged = null;
+        sync.lastSync = null;
+      }
+      sync.account = connection.account;
+      state.put(sync, 'sync');
+      tx.objectStore('private').put(connection, 'connection');
+    });
+  }
+  async disconnect(): Promise<void> {
+    await transaction(this.db, 'readwrite', async (tx) => {
+      tx.objectStore('private').delete('connection');
+      tx.objectStore('private').delete('oauth');
+    });
+  }
+  async saveCredentials(
+    connection: Connection,
+    key = 'connection',
+  ): Promise<void> {
+    await transaction(this.db, 'readwrite', async (tx) => {
+      const current = await request<Connection | undefined>(
+        tx.objectStore('private').get(key),
+      );
+      if (
+        current?.generation !== connection.generation ||
+        current.account !== connection.account
+      )
+        throw new Error('Connection changed.');
+      tx.objectStore('private').put(connection, key);
+    });
+  }
+  async applySync(
+    doc: Document,
+    connection: Connection,
+    acknowledged: boolean,
+  ): Promise<Snapshot> {
+    parseDocument(doc);
+    return transaction(this.db, 'readwrite', async (tx) => {
+      const active = await request<Connection | undefined>(
+        tx.objectStore('private').get('connection'),
+      );
+      if (
+        active?.generation !== connection.generation ||
+        active.account !== connection.account
+      )
+        throw new Error('Connection changed; stale sync cancelled.');
+      const state = tx.objectStore('state');
+      const snapshot = checkSnapshot(await request(state.get('current')));
+      const sync = await request<SyncState>(state.get('sync'));
+      const merged = merge(sync.doc, doc);
+      const data = materialize(merged, snapshot.data);
+      assignSetIds(data);
+      const changed =
+        canonical(snapshot.data) !== canonical(data) ||
+        canonical(sync.doc) !== canonical(merged);
+      if (changed) {
+        tx.objectStore('recovery').put(
+          { snapshot, sync, at: Date.now(), reason: 'before sync apply' },
+          `sync:${crypto.randomUUID()}`,
+        );
+        snapshot.revision++;
+      }
+      snapshot.data = data;
+      sync.doc = merged;
+      if (acknowledged) {
+        sync.acknowledged = doc; // exactly what the provider acknowledged, never later edits
+        sync.lastSync = Date.now();
+        if (canonical(merged) === canonical(doc)) {
+          tx.objectStore('pending').clear();
+          snapshot.pending = 0;
+        }
+      }
+      state.put(sync, 'sync');
+      state.put(checkSnapshot(snapshot), 'current');
+      return snapshot;
+    });
+  }
+  async review(
+    record: string,
+    expected: string,
+    index: number | 'both',
+  ): Promise<void> {
+    await this.syncState();
+    await transaction(this.db, 'readwrite', async (tx) => {
+      const state = tx.objectStore('state');
+      const snapshot = checkSnapshot(await request(state.get('current')));
+      const sync = await request<SyncState>(state.get('sync'));
+      const doc =
+        index === 'both'
+          ? keepBoth(
+              sync.doc,
+              record,
+              expected,
+              snapshot.device,
+              (sync.doc.records[record] ?? [])
+                .slice(1)
+                .map(() => crypto.randomUUID()),
+            )
+          : resolve(sync.doc, record, expected, index, snapshot.device);
+      const data = materialize(doc, snapshot.data);
+      assignSetIds(data);
+      tx.objectStore('recovery').put(
+        { snapshot, sync, at: Date.now(), reason: 'before conflict decision' },
+        `review:${crypto.randomUUID()}`,
+      );
+      snapshot.data = data;
+      snapshot.revision++;
+      snapshot.pending++;
+      sync.doc = doc;
+      tx.objectStore('pending').put(
+        { kind: 'review', record },
+        `review:${snapshot.revision}`,
+      );
+      state.put(sync, 'sync');
+      state.put(checkSnapshot(snapshot), 'current');
+    });
+  }
+  async blob(hash: string, value?: Blob): Promise<Blob | undefined> {
+    // ArrayBuffer storage avoids browser-specific Blob URL serialization in IDB.
+    // Read old Blob entries too; never discard an already retained source.
+    const bytes = value ? await value.arrayBuffer() : undefined;
+    const stored = await transaction(
+      this.db,
+      value ? 'readwrite' : 'readonly',
+      async (tx) => {
+        if (bytes)
+          tx.objectStore('blobs').put({ bytes, type: value!.type }, hash);
+        return request<Blob | { bytes: ArrayBuffer; type: string } | undefined>(
+          tx.objectStore('blobs').get(hash),
+        );
+      },
+    );
+    return stored instanceof Blob || !stored
+      ? stored
+      : new Blob([stored.bytes], { type: stored.type });
+  }
+  async backup(): Promise<string> {
+    await this.syncState();
+    return transaction(this.db, 'readonly', async (tx) => {
+      const snapshot = checkSnapshot(
+        await request(tx.objectStore('state').get('current')),
+      );
+      const current = await request<SyncState>(
+        tx.objectStore('state').get('sync'),
+      );
+      const result = {
+        format: 'replift-backup',
+        version: 1,
+        data: snapshot.data,
+        document: current.doc,
+      };
+      assertPrivateFree(result);
+      return JSON.stringify(result);
+    });
+  }
+  async restore(
+    data: LocalData,
+    expectedRevision: number,
+    backup?: Document,
+  ): Promise<void> {
+    data = validateData(data);
+    assertPrivateFree(data);
+    if (backup) parseDocument(backup);
+    assignSetIds(data);
+    await this.syncState();
+    await transaction(this.db, 'readwrite', async (tx) => {
+      const state = tx.objectStore('state');
+      const snapshot = checkSnapshot(await request(state.get('current')));
+      if (snapshot.revision !== expectedRevision)
+        throw new Error('Local data changed. Preview the backup again.');
+      const sync = await request<SyncState>(state.get('sync'));
+      const doc = restoreIntent(
+        sync.doc,
+        data,
+        backup,
+        snapshot.device,
+        crypto.randomUUID(),
+      );
+      tx.objectStore('recovery').put(
+        { snapshot, sync, at: Date.now(), reason: 'before backup restore' },
+        `restore:${crypto.randomUUID()}`,
+      );
+      snapshot.data = materialize(doc, data);
+      snapshot.revision++;
+      snapshot.pending++;
+      sync.doc = doc;
+      tx.objectStore('pending').put(
+        { kind: 'restore' },
+        `restore:${snapshot.revision}`,
+      );
+      state.put(sync, 'sync');
+      state.put(checkSnapshot(snapshot), 'current');
+    });
+  }
+  async recoveryPoints(): Promise<
+    {
+      key: IDBValidKey;
+      reason: string;
+      at: number;
+      data: LocalData | null;
+      document?: Document;
+    }[]
+  > {
+    return transaction(this.db, 'readonly', async (tx) => {
+      const store = tx.objectStore('recovery');
+      const keys = await request(store.getAllKeys());
+      const values = await request<
+        {
+          reason: string;
+          at: number;
+          data?: LocalData;
+          snapshot?: Snapshot;
+          sync?: SyncState;
+        }[]
+      >(store.getAll());
+      return values.map((v, i) => ({
+        key: keys[i]!,
+        reason: v.reason,
+        at: v.at,
+        data: v.snapshot?.data ?? v.data ?? null,
+        ...(v.sync ? { document: v.sync.doc } : {}),
+      }));
     });
   }
 }

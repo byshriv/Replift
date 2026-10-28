@@ -1,5 +1,17 @@
 # Foundation architecture
 
+## Phase 3 update — 2026-10-28
+
+Optional Dropbox transport, causal record merging, retained conflicts, scheduling,
+immutable photo transfers, account review and portable backup/recovery are implemented.
+See [sync protocol](sync-protocol.md). `src/sync/core.ts` is UI/provider independent;
+`dropbox.ts` owns OAuth/HTTP; `engine.ts` owns the cycle/scheduler; `photos.ts` owns
+transfers. Host transactions acknowledge exact documents and preserve recovery
+before changed data is applied. `src/state/sync.ts` protects active editors and owns
+preview coordination; `src/features/Sync.tsx` presents account/migration/conflict/restore
+review. Historical statements below about transport being unimplemented are superseded.
+There is still no worker, deployment, E2EE, backend or full feature port.
+
 ## Phase 2 update — 2026-10-28
 
 The historical Phase 1 description below is superseded for storage/UI behavior. `src/domain/local.ts` owns pure legacy validation and routine commands; `src/data/local.ts` owns migration and native IndexedDB transactions; `src/state/local.ts` owns the save queue, visible failure/retry state and tab refresh; `src/features/Routines.tsx` owns inline routine editing and picker closure. The app now reads legacy data once for verified migration without rewriting it. See [local storage contract](local-storage.md). No provider transport, worker or full feature port is implemented.
