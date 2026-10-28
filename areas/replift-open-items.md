@@ -1,5 +1,19 @@
 # Replift open items
 
+## Phase 5 current resolution - 2026-10-28
+
+- [x] Explicit go; latest main/merged Phase 4 carried into the Phase 5 branch.
+- [x] Offline packaged shell/fonts/chunks, manifest/original icons, installation guidance and safe waiting updates.
+- [x] Mobile/accessibility/bundle review, sharing/PNG fallback, GitHub drafts and deletion/legal review.
+- [x] Local lint/format/strict types/build, 94 unit/integration, 15 stress tests (22,500 actions), 99 browser cases and both ten-file baseline hashes passed.
+- [ ] Publish review PR and inspect its final-head checks (delivery record follows).
+- [ ] Agree/complete the physical-device checklist in docs/pwa.md inside repository/; real installed/native-sharing/live Dropbox evidence remains pending.
+- [ ] Supply/confirm socials, donation, Dropbox-help video and broader privacy URLs. The old policy URL failed HEAD 404 and normal GET timeout; VITE_LINK_PRIVACY remains blank.
+- [ ] Exercise illustrations, final installation-icon and legal approval; existing user images remain intact.
+- [ ] Large-data/capacity/hardware interruption, live Dropbox, Android Phase 6, mandatory owner corrections/parity Phase 7 and Phase 8 release gates.
+
+Production and the original deployment remain unchanged. No merge/deployment, E2EE, other demo or new MP4. See docs/phase-5-verification.md inside repository/ for limits; historical checklists below are superseded where resolved.
+
 ## Latest session — Phase 4 React UI/domain port, 2026-10-28
 
 The user explicitly authorized complete Phase 4 implementation, routine technical decisions, checks, continuity updates and a reviewable branch/PR. Work started from fetched main `7ba12150f17610b4b55be89e41a221bdabc8b11b` (Phase 3 PR #9 merged), with existing owner-review planning edits preserved. Implementation is on `phase-4-react-port` in the separate `repository/` checkout. This entry supersedes older Phase 4-not-started and planning-only statements below.

@@ -1,5 +1,13 @@
 # Replift implementation status
 
+## Latest session - Phase 5 implementation, 2026-10-28
+
+Phase 4 PR #10 is merged at `c05615684d9ea817f912a585387236d18658233a`. Phase 5 is implemented on `phase-5-pwa-polish`, with PR publication pending. Includes PWA/offline/install/safe waiting updates, mobile/accessibility/bundle polish, sharing fallbacks, GitHub feedback, optional links and legal/local-deletion review. Persistence/sync and all baseline data are retained. Production is unchanged.
+
+Passed locally: lint, format, strict types, build; 94 unit/integration; 15 stress tests / 22,500 seeded actions; 99 browser cases across desktop Chromium/mobile Chromium/mobile WebKit emulation; original/reference ten-file SHA-256 checks. Current evidence: docs/phase-5-verification.md in repository/. Phone installation/native sharing/live Dropbox are separate and not verified. Missing URLs/assets and final legal/icon approval remain explicit. The supplied broader privacy URL is unavailable in current checks and awaits owner confirmation.
+
+No merge, deployment, E2EE, other demo or new intro MP4. Review Phase 5 PR/final CI, then authorize Phase 6 separately. Mandatory Phase 7 owner acceptance and Phase 8 release gates remain.
+
 ## Latest session — Phase 4 React UI/domain port, 2026-10-28
 
 The user explicitly authorized complete Phase 4 implementation, routine technical decisions, checks, continuity updates and a reviewable branch/PR. Work started from fetched main `7ba12150f17610b4b55be89e41a221bdabc8b11b` (Phase 3 PR #9 merged), with existing owner-review planning edits preserved. Implementation is on `phase-4-react-port` in the separate `repository/` checkout. This entry supersedes older Phase 4-not-started and planning-only statements below.

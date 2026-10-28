@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { Suspense, lazy, useEffect, useState } from 'react';
 import {
   Activity,
   BookOpen,
@@ -10,11 +10,12 @@ import {
 } from 'lucide-react';
 import { tabs, useNavigation } from './state/navigation';
 import { useLocal } from './state/local';
-import Routines from './features/Routines';
+const Routines = lazy(() => import('./features/Routines'));
 import Workout from './features/Workout';
 import Library from './features/Library';
 import Stats, { Dashboard } from './features/Dashboard';
-import SettingsPanel from './features/Settings';
+const SettingsPanel = lazy(() => import('./features/Settings'));
+import { PwaStatus } from './features/Pwa';
 import Onboarding from './features/Onboarding';
 import SyncPanel from './features/Sync';
 import { initializeSync, useSync } from './state/sync';
@@ -86,10 +87,16 @@ export default function App() {
   return (
     <div
       className="shell"
+      onClickCapture={(e) => {
+        // Safari does not focus tapped buttons; dialogs need a reliable opener.
+        (e.target as HTMLElement)
+          .closest<HTMLButtonElement>('button')
+          ?.focus({ preventScroll: true });
+      }}
       onTouchStart={(e) => {
         if (
           !(e.target as HTMLElement).closest(
-            'input,select,button,dialog,.chart,.workout-cards',
+            'input,textarea,select,button,a,dialog,.chart,.workout-cards',
           )
         )
           setTouchStart({ x: e.touches[0]!.clientX, y: e.touches[0]!.clientY });
@@ -167,8 +174,9 @@ export default function App() {
         </section>
       )}
       <p className="badge">
-        Phase 4 development preview · production unchanged
+        Phase 5 development preview · production unchanged
       </p>
+      <PwaStatus />
       {backHint && (
         <p role="status" className="badge">
           Press Back again to exit.
@@ -225,46 +233,52 @@ export default function App() {
             tab
           )}
         </h1>
-        {tab === 'Home' ? (
-          <>
-            {local.snapshot &&
-              !local.fatal &&
-              !local.snapshot.data.ob?.done &&
-              !local.snapshot.data.wk.length &&
-              !local.snapshot.data.prog.length && <Onboarding />}
-            <Dashboard tab="home" />
-            <div className="sync-actions">
-              <button onClick={() => navigate('Workout')}>
-                Edit routines <Dumbbell size={18} />
-              </button>
-              <button onClick={() => navigate('Library')}>
-                Explore the library <BookOpen size={18} />
-              </button>
-            </div>
-          </>
-        ) : tab === 'Workout' ? (
-          <>
-            <Workout />
-            <details className="card" open>
-              <summary>Edit programs and routines</summary>
-              <Routines />
-            </details>
-          </>
-        ) : tab === 'Library' ? (
-          <>
-            <Library />
-            <details className="card">
-              <summary>Programs and templates</summary>
-              <Routines />
-            </details>
-          </>
-        ) : tab === 'Settings' ? (
-          <SettingsPanel />
-        ) : local.snapshot ? (
-          <Stats />
-        ) : (
-          <p>Opening your stats…</p>
-        )}
+        <Suspense fallback={<p role="status">Opening screen...</p>}>
+          {tab === 'Home' ? (
+            <>
+              {local.snapshot &&
+                !local.fatal &&
+                !local.snapshot.data.ob?.done &&
+                !local.snapshot.data.wk.length &&
+                !local.snapshot.data.prog.length && <Onboarding />}
+              <Dashboard tab="home" />
+              <div className="sync-actions">
+                <button onClick={() => navigate('Workout')}>
+                  Edit routines <Dumbbell size={18} />
+                </button>
+                <button onClick={() => navigate('Library')}>
+                  Explore the library <BookOpen size={18} />
+                </button>
+              </div>
+            </>
+          ) : tab === 'Workout' ? (
+            <>
+              <Workout />
+              <details className="card" open>
+                <summary>Edit programs and routines</summary>
+                <Suspense fallback={<p>Opening programs...</p>}>
+                  <Routines />
+                </Suspense>
+              </details>
+            </>
+          ) : tab === 'Library' ? (
+            <>
+              <Library />
+              <details className="card">
+                <summary>Programs and templates</summary>
+                <Suspense fallback={<p>Opening programs...</p>}>
+                  <Routines />
+                </Suspense>
+              </details>
+            </>
+          ) : tab === 'Settings' ? (
+            <SettingsPanel />
+          ) : local.snapshot ? (
+            <Stats />
+          ) : (
+            <p>Opening your stats…</p>
+          )}
+        </Suspense>
       </main>
       {local.snapshot?.data.draft && tab !== 'Workout' && (
         <button className="draft-bar" onClick={() => navigate('Workout')}>

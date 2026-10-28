@@ -1,5 +1,15 @@
 # Replift — project context
 
+## Latest session - Phase 5 implementation, 2026-10-28
+
+The user authorized Phase 5 implementation, routine technical choices, checks, continuity updates and branch/PR publication. Work started from fetched main `c05615684d9ea817f912a585387236d18658233a` (Phase 4 PR #10 merged), on `phase-5-pwa-polish` in `repository/`. This supersedes older Phase 4-open/Phase 5-not-started entries.
+
+Implemented offline shell/fonts/assets, manifest/original icons, install guidance and waiting updates without forced takeover/reload; mobile/accessibility and bundle polish; PNG/native-share fallbacks, fourth-workout support notice, GitHub feedback drafts, explicit optional-link placeholders and legal/local-deletion review. Existing persistence/sync/schema are unchanged. No user data or originals were replaced. Lucide retained; no E2EE, other demo or new intro MP4.
+
+Current local evidence: lint/format/strict types/build, 94 unit/integration tests, 15 stress tests (22,500 seeded actions), all 99 browser cases, and both ten-file baseline SHA-256 checks passed. Browser checks include actual workers, two-window updates and persistent WebKit browser closure/offline relaunch; Chromium uses the standard context for offline window reopening. Real phones/installed native sharing/user-credential Dropbox remain unverified. The broader privacy URL failed HEAD (404) and GET (timeout), and is explicitly pending owner confirmation, alongside remaining content/artwork/legal gates. See docs/phase-5-verification.md and docs/pwa.md inside repository/.
+
+PR publication/final-head CI evidence follows. Production, Cloudflare and DNS are unchanged. No merge/deployment. Phase 6 requires its own request; Phase 7 owner parity/correction acceptance remains mandatory before Phase 8 release.
+
 ## Latest session — Phase 4 React UI/domain port, 2026-10-28
 
 The user explicitly authorized complete Phase 4 implementation, routine technical decisions, checks, continuity updates and a reviewable branch/PR. Work started from fetched main `7ba12150f17610b4b55be89e41a221bdabc8b11b` (Phase 3 PR #9 merged), with existing owner-review planning edits preserved. Implementation is on `phase-4-react-port` in the separate `repository/` checkout. This entry supersedes older Phase 4-not-started and planning-only statements below.

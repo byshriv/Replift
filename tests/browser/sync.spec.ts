@@ -4,6 +4,10 @@ import type { BrowserContext, Page } from '@playwright/test';
 import { fixture } from '../fixtures/local';
 import { CLOUD_PATH, LEGACY_PATH } from '../../src/sync/dropbox';
 
+// Route-based provider mocks must not escape through a controlling worker.
+// Real worker/offline/update behavior is exercised separately in pwa.spec.ts.
+test.use({ serviceWorkers: 'block' });
+
 type Cloud = {
   files: Map<string, { body: string; rev: string }>;
   counter: number;
@@ -236,7 +240,7 @@ test('two isolated browsers review conflicts, reconnect after failure and preser
   await expect(
     page.getByText('Dropbox acknowledged saved changes', { exact: true }),
   ).toBeVisible();
-  const otherContext = await browser.newContext();
+  const otherContext = await browser.newContext({ serviceWorkers: 'block' });
   await fakeDropbox(otherContext, cloud);
   const other = await otherContext.newPage();
   await seed(other);
@@ -244,6 +248,16 @@ test('two isolated browsers review conflicts, reconnect after failure and preser
   await expect(
     other.getByText('Dropbox acknowledged saved changes', { exact: true }),
   ).toBeVisible();
+  // This provider-mock suite blocks workers. Load the lazy program editor
+  // before cutting its network; real offline chunk loading is tested by PWA.
+  for (const p of [page, other]) {
+    await p
+      .getByRole('navigation')
+      .getByRole('button', { name: 'Workout', exact: true })
+      .click();
+    await expect(p.getByLabel('Program name')).toBeVisible();
+    await settings(p);
+  }
   await context.setOffline(true);
   await otherContext.setOffline(true);
   for (const [p, name] of [

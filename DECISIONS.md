@@ -1,5 +1,13 @@
 # Decisions and proposals
 
+## Phase 5 technical decisions - 2026-10-28
+
+Authorized by the user's Phase 5 implementation request: retain the current persistence/sync/schema; generate an exact packaged-asset precache; scope cache names and cleanup to each registration; never cache runtime/provider/OAuth payloads. Updates use the waiting lifecycle, with instructions to finish editing/save/close every window. No skipWaiting, clients.claim or automatic reload.
+
+Reuse original installation icon bytes with final artwork approval pending. Preserve zoom, add safe-area/focus/reduced-motion/small-screen rules and separate optional lazy program loading. Use local fonts and PNG pagination/download fallback; cancel native sharing without downloading. Reuse `st.ds` for the fourth-workout notice. Prepare public GitHub drafts from entered feedback only; feedback availability cannot block local deletion.
+
+Optional owner links require HTTPS and remain explicit when absent. The old broader privacy URL returned HEAD 404 and GET timeout; leave VITE_LINK_PRIVACY pending owner confirmation while retaining in-app Terms/Privacy. Final legal acceptance remains a release gate. Route-based provider mocks block workers; independent PWA tests use actual workers and persistent WebKit restart checks. No physical-device/live Dropbox claims. No architecture, schema, E2EE, production or baseline change.
+
 ## Latest session — Phase 4 React UI/domain port, 2026-10-28
 
 The user explicitly authorized complete Phase 4 implementation, routine technical decisions, checks, continuity updates and a reviewable branch/PR. Work started from fetched main `7ba12150f17610b4b55be89e41a221bdabc8b11b` (Phase 3 PR #9 merged), with existing owner-review planning edits preserved. Implementation is on `phase-4-react-port` in the separate `repository/` checkout. This entry supersedes older Phase 4-not-started and planning-only statements below.
