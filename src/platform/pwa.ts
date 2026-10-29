@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { isAndroid } from './android';
 
 type InstallEvent = Event & {
   prompt: () => Promise<void>;
@@ -27,6 +28,7 @@ export function initializePwa() {
   started = true;
   window.addEventListener('online', () => usePwa.setState({ offline: false }));
   window.addEventListener('offline', () => usePwa.setState({ offline: true }));
+  if (isAndroid()) return; // Bundled assets; a worker can obstruct the native bridge.
   window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     usePwa.setState({ install: e as InstallEvent });

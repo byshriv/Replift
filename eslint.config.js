@@ -4,6 +4,7 @@ export default tseslint.config(
   {
     ignores: [
       'reference/**',
+      'android/**',
       'scripts/worker-template.js',
       'dist/**',
       'artifacts/**',

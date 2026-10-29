@@ -1,3 +1,5 @@
+import { nativeShare } from './native-files';
+
 export function wrapText(
   text: string,
   measure: (text: string) => number,
@@ -75,6 +77,8 @@ export function downloadImage(file: File) {
   setTimeout(() => URL.revokeObjectURL(url), 10000);
 }
 export async function shareImages(files: File[], title: string) {
+  const native = await nativeShare(files, title);
+  if (native !== null) return native;
   try {
     if (navigator.share && navigator.canShare?.({ files })) {
       await navigator.share({ files, title });

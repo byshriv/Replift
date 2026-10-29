@@ -4,6 +4,7 @@ import {
   useSync,
   initializeSync,
   connectDropbox,
+  cancelOAuth,
   approveAccount,
   refreshAccountPreview,
   cancelAccount,
@@ -21,6 +22,7 @@ import { useLocal } from '../state/local';
 import { canonical } from '../sync/core';
 import type { Document } from '../sync/core';
 import type { LocalData } from '../domain/local';
+import { isAndroid } from '../platform/android';
 
 function describe(value: unknown): string {
   if (value === null) return 'Deleted';
@@ -154,6 +156,12 @@ export default function SyncPanel() {
           >
             {sync.connected ? 'Change Dropbox account' : 'Connect Dropbox'}
           </button>
+          {isAndroid() &&
+            sync.status.startsWith('Complete Dropbox sign-in') && (
+              <button onClick={() => void cancelOAuth()}>
+                Cancel browser sign-in
+              </button>
+            )}
           {sync.connected && (
             <>
               <button disabled={sync.busy} onClick={requestSync}>
@@ -243,6 +251,16 @@ export default function SyncPanel() {
         ))}
       <h3>Complete backup</h3>
       <p>
+        Transfer between browser/PWA and APK: wait for “Saved on this device” in
+        the source, export a complete backup, and keep it outside Replift. Open
+        the destination, choose that file below, review the counts, then
+        explicitly restore. Restoring replaces the destination’s current content
+        after saving a recovery point. Export both copies first if both contain
+        edits. Neither app’s storage is shared or cleared automatically. Dropbox
+        is an optional merge path; review the selected account and any
+        conflicts.
+      </p>
+      <p>
         Includes saved content, photos and conflict alternatives. Connection
         credentials stay on this device. Download before clearing browser
         storage.
@@ -252,7 +270,8 @@ export default function SyncPanel() {
           void exportBackup();
         }}
       >
-        <Download size={17} /> Download complete backup
+        <Download size={17} />{' '}
+        {isAndroid() ? 'Share complete backup' : 'Download complete backup'}
       </button>
       <label>
         Preview a backup to restore <Upload size={17} />

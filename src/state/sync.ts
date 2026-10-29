@@ -1,4 +1,11 @@
 import { create } from 'zustand';
+import {
+  ANDROID_REDIRECT,
+  isAndroid,
+  openAuthorization,
+} from '../platform/android';
+import { nativeShare } from '../platform/native-files';
+import { useNavigation } from './navigation';
 import { z } from 'zod';
 import type { Connection } from '../data/local';
 import type { LocalData } from '../domain/local';
@@ -203,9 +210,43 @@ export async function connectDropbox() {
     stop();
     const url = await beginOAuth(
       getRepository(),
-      `${location.origin}${location.pathname}`,
+      isAndroid() ? ANDROID_REDIRECT : `${location.origin}${location.pathname}`,
     );
-    location.assign(url);
+    useSync.setState({
+      error: '',
+      status:
+        'Complete Dropbox sign-in in the browser, then return to Replift. You can cancel and reconnect here.',
+    });
+    await openAuthorization(url);
+  } catch (error) {
+    useSync.setState({ error: errorText(error) });
+  }
+}
+export async function acceptNativeOAuth(url: URL) {
+  await initializeSync();
+  useNavigation.getState().navigate('Settings');
+  try {
+    const repo = getRepository();
+    // Android can redeliver the Activity's launch intent after a WebView reload.
+    // No pending authorization means there is nothing to exchange or consume.
+    if (!(await repo.privateRead('oauth'))) return;
+    const connection = await finishOAuth(repo, url);
+    if (connection) {
+      await repo.privateWrite('candidate', connection);
+      await previewAccount(connection);
+    }
+  } catch (error) {
+    useSync.setState({ error: errorText(error), busy: false });
+  }
+}
+export async function cancelOAuth() {
+  try {
+    await getRepository().privateWrite('oauth', null);
+    await start();
+    useSync.setState({
+      status: 'Dropbox sign-in cancelled. Saved data is retained.',
+      error: '',
+    });
   } catch (error) {
     useSync.setState({ error: errorText(error) });
   }
@@ -340,12 +381,21 @@ export async function exportBackup() {
     if (useLocal.getState().queued)
       throw new Error('Save pending edits before exporting.');
     const text = await getRepository().backup();
+    const name = `replift-backup-${new Date().toISOString().slice(0, 10)}.json`;
+    if (isAndroid()) {
+      const result = await nativeShare(
+        [new File([text], name, { type: 'application/json' })],
+        'Save Replift backup',
+      );
+      useSync.setState({ status: result ?? 'Backup was not shared.' });
+      return; // Chooser completion is not proof of a durable backup; do not mark downloaded.
+    }
     const url = URL.createObjectURL(
       new Blob([text], { type: 'application/json' }),
     );
     const a = document.createElement('a');
     a.href = url;
-    a.download = `replift-backup-${new Date().toISOString().slice(0, 10)}.json`;
+    a.download = name;
     a.click();
     await getRepository().commit({
       type: 'domain',

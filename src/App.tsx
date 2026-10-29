@@ -19,6 +19,7 @@ import { PwaStatus } from './features/Pwa';
 import Onboarding from './features/Onboarding';
 import SyncPanel from './features/Sync';
 import { initializeSync, useSync } from './state/sync';
+import { isAndroid } from './platform/android';
 const icons = {
   Home: House,
   Stats: Activity,
@@ -33,6 +34,7 @@ export default function App() {
   const sync = useSync();
   const [details, showDetails] = useState(false);
   const [backHint, setBackHint] = useState(false);
+  const [nativeHint, setNativeHint] = useState('');
   const [touchStart, setTouchStart] = useState<{ x: number; y: number } | null>(
     null,
   );
@@ -45,7 +47,7 @@ export default function App() {
     let active = true,
       exitArmed = 0;
     void initializeSync().finally(() => {
-      if (active && !history.state?.repliftGuard)
+      if (active && !isAndroid() && !history.state?.repliftGuard)
         history.pushState({ repliftGuard: true }, '');
     });
     const back = () => {
@@ -66,12 +68,16 @@ export default function App() {
       setBackHint(true);
       history.pushState({ repliftGuard: true }, '');
     };
-    window.addEventListener('popstate', back);
+    if (!isAndroid()) window.addEventListener('popstate', back);
+    const nativeBackHint = (event: Event) =>
+      setNativeHint((event as CustomEvent<string>).detail);
+    window.addEventListener('replift-back-hint', nativeBackHint);
     const timer = setInterval(() => setNow(new Date()), 60_000);
     return () => {
       active = false;
       clearInterval(timer);
       window.removeEventListener('popstate', back);
+      window.removeEventListener('replift-back-hint', nativeBackHint);
     };
   }, []);
 
@@ -113,6 +119,11 @@ export default function App() {
         }
       }}
     >
+      {nativeHint && (
+        <p className="badge" role="status">
+          {nativeHint}
+        </p>
+      )}
       <a className="skip" href="#main">
         Skip to content
       </a>
@@ -174,7 +185,7 @@ export default function App() {
         </section>
       )}
       <p className="badge">
-        Phase 5 development preview · production unchanged
+        Phase 6 development preview · production unchanged
       </p>
       <PwaStatus />
       {backHint && (

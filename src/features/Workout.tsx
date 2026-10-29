@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { hapticCheck } from '../platform/android';
 import {
   Check,
   Plus,
@@ -571,8 +572,10 @@ export default function Workout() {
     value?: string,
     target?: ReturnType<typeof draftTarget>,
   ) => {
-    if (op === 'tick' && !d.draft?.items[item]?.sets[set]?.done)
+    if (op === 'tick' && !d.draft?.items[item]?.sets[set]?.done) {
       playCheck(!!d.st?.snd);
+      void hapticCheck(!!d.st?.vib);
+    }
     send({
       kind: 'set',
       item,
@@ -630,7 +633,7 @@ export default function Workout() {
                 {it.sets.map((s, n) => (
                   <div
                     className={`log-set ${s.done ? 'completed' : ''}`}
-                    key={s.id ?? n}
+                    key={s.id ?? `${String(draft.id)}:item:${i}:set:${n}`}
                   >
                     <span>
                       {n + 1}

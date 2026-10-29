@@ -1,5 +1,15 @@
 # Decisions and proposals
 
+## Latest session - Phase 6 Android review delivery, 2026-10-28
+
+Use Capacitor 8 for the authorized Android feasibility build, retaining the existing React/IndexedDB/Dropbox engine and stable HTTPS localhost origin. No server URL, native HTTP interception, schema/protocol change or backend. Browser Custom Tabs open public-client PKCE; exact custom-scheme return `io.github.byshriv.replift://oauth/dropbox` is validated and duplicate warm/cold events serialized. Reuse private persisted PKCE state and account preview; ignore stale launch intents without pending authorization. No app secret. Exact Dropbox console/live acceptance remains unverified.
+
+Use existing `st.vib` for opt-in Android set-completion haptics. Native Back closes the top dialog, then Home, then exits on a second press within two seconds; unsaved/failed storage blocks exit. Native sharing exposes only temporary app-cache files through FileProvider; cancellation cannot trigger a hidden download or mark a backup durably saved. Existing complete backups/previewed restore perform explicit PWA/APK transfer; separate storage is never silently replaced. Disable OS credential backup/device transfer and APK workers. Preserve zoom, Lucide, original icon bytes and all user content.
+
+The owner confirmed no prior key and authorized a new external RSA-4096 signing identity. Key/config remain outside Git with restricted access; build credentials use environment variables, never frontend configuration. Version codes increase; signatures verified for both rehearsal APKs. Independent encrypted/offline backup and real same-key upgrade/data-preservation evidence remain owner/device gates. Align app/instrumentation Kotlin stdlibs with the plugin's 2.2.20 BOM; scope native checks to `:app` rather than unrelated generated plugin test suites. Keep ESLint ^9 and TypeScript ~5.9. No production, architecture expansion, E2EE, other demo or MP4 change.
+
+Published for review in [draft PR #12](https://github.com/byshriv/Replift/pull/12); implementation and device acceptance remain separate. See repository/docs/phase-6-verification.md for actual evidence and limitations.
+
 ## Phase 5 technical decisions - 2026-10-28
 
 Authorized by the user's Phase 5 implementation request: retain the current persistence/sync/schema; generate an exact packaged-asset precache; scope cache names and cleanup to each registration; never cache runtime/provider/OAuth payloads. Updates use the waiting lifecycle, with instructions to finish editing/save/close every window. No skipWaiting, clients.claim or automatic reload.

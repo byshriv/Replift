@@ -1,6 +1,7 @@
 import { Download, WifiOff, RefreshCw } from 'lucide-react';
 import { usePwa, checkForUpdate, installApp } from '../platform/pwa';
 import { useLocal } from '../state/local';
+import { isAndroid } from '../platform/android';
 
 export function PwaStatus() {
   const pwa = usePwa(),
@@ -37,6 +38,25 @@ export function PwaStatus() {
 }
 export default function PwaSettings() {
   const pwa = usePwa();
+  if (isAndroid())
+    return (
+      <section className="card" aria-label="Android installation and updates">
+        <h2>Android installation and updates</h2>
+        <p>
+          Replift’s screens are bundled for offline use. Dropbox needs a
+          connection.
+        </p>
+        <p>
+          Install updates over this app using the same signing key. Do not
+          uninstall or clear app storage: that removes this app’s local data.
+          Keep a complete backup outside Replift.
+        </p>
+        <p>
+          The browser/PWA and APK have separate data. Use Dropbox with the same
+          account and review conflicts, or transfer a complete backup below.
+        </p>
+      </section>
+    );
   return (
     <section className="card" aria-label="Install and offline">
       <h2>Install and offline</h2>
